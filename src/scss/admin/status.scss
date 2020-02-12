@@ -1,0 +1,17 @@
+.status {
+  padding: 3px 6px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+
+  &_new {
+    border-color: #c0392b;
+    background-color: #c0392b;
+    color: #fff;
+  }
+
+  &_complete {
+    border-color: #27ae60;
+    background-color: #27ae60;
+    color: #fff;
+  }
+}

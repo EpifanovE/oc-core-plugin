@@ -1,0 +1,6 @@
+plugin:
+    name: 'eev.core::lang.plugin.name'
+    description: 'eev.core::lang.plugin.description'
+    author: 'Evgeny Epifanov'
+    icon: icon-cog
+    homepage: 'https://eecode.ru'

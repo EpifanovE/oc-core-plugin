@@ -108,6 +108,7 @@ gulp.task('js:admin', function () {
 
 gulp.task('js:core', function () {
     return gulp.src([
+        'node_modules/jquery/dist/jquery.min.js',
         paths.src.js + 'core.js',
     ])
         .pipe(gulpif(!prod, sourcemaps.init()))

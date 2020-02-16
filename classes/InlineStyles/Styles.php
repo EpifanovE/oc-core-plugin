@@ -57,9 +57,7 @@ class Styles
                 continue;
             }
 
-            foreach ($item as $selector => $value) {
-                $result[$selector] = $value;
-            }
+            $result = array_merge($result, $item);
         }
 
         return $result;

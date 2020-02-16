@@ -35,4 +35,18 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerMarkupTags()
+    {
+        return [
+            'filters' => [
+                'trans' => [$this, 'getTranslate']
+            ],
+        ];
+    }
+
+    public function getTranslate($message, $variables = [])
+    {
+        return\Lang::get($message, $variables);
+    }
+
 }

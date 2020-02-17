@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Config;
 
 class ThemeStyles
 {
-    protected $styles;
+    protected $styles = [];
 
     public function __construct()
     {

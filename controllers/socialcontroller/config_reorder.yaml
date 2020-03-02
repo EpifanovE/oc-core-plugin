@@ -1,0 +1,5 @@
+title: 'eev.core::lang.sorting'
+modelClass: EEV\Core\Models\Social
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

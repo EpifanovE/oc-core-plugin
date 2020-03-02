@@ -4,3 +4,49 @@ plugin:
     author: 'Evgeny Epifanov'
     icon: icon-cog
     homepage: 'https://eecode.ru'
+permissions:
+    eev.core.settings:
+        tab: 'eev.core::lang.company'
+        label: 'eev.core::lang.settings'
+    eev.core.contacts:
+        tab: 'eev.core::lang.company'
+        label: 'eev.core::lang.contacts'
+    eev.core.addresses:
+        tab: 'eev.core::lang.company'
+        label: 'eev.core::lang.addresses'
+    eev.core.socials:
+        tab: 'eev.core::lang.company'
+        label: 'eev.core::lang.social_networks'
+    eev.core.opening_hours:
+        tab: 'eev.core::lang.company'
+        label: 'eev.core::lang.opening_hours'
+navigation:
+    company:
+        label: 'eev.core::lang.company'
+        url: eev/core/contactcontroller
+        icon: icon-edit
+        sideMenu:
+            contacts:
+                label: 'eev.core::lang.contacts'
+                url: eev/core/contactcontroller
+                icon: icon-book
+                permissions:
+                    - eev.core.contacts
+            addresses:
+                label: 'eev.core::lang.addresses'
+                url: eev/core/addresscontroller
+                icon: icon-map-marker
+                permissions:
+                    - eev.core.addresses
+            socials:
+                label: 'eev.core::lang.social_networks'
+                url: eev/core/socialcontroller
+                icon: icon-users
+                permissions:
+                    - eev.core.socials
+            opening-hours:
+                label: 'eev.core::lang.opening_hours'
+                url: eev/core/workingperiodcontroller
+                icon: icon-clock-o
+                permissions:
+                    - eev.core.opening_hours

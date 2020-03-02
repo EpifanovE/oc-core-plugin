@@ -1,2 +1,7 @@
 1.0.0:
-    - 'Initialize plugin.'
+  - 'Initialize plugin.'
+  - create_eev_core_contacts_table.php
+  - create_eev_core_addresses_table.php
+  - create_eev_core_socials_table.php
+  - create_eev_core_working_periods_table.php
+  - create_eev_core_settings_table.php

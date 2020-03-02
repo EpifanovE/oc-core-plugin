@@ -1,0 +1,12 @@
+list: $/eev/core/models/social/columns.yaml
+modelClass: EEV\Core\Models\Social
+title: 'eev.core::lang.social_networks'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'eev/core/socialcontroller/update/:id'

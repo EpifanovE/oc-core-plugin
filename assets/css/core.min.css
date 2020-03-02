@@ -4501,4 +4501,42 @@ readers do not read off random characters that represent icons */
     transition: color .3s ease-in-out;
     margin-right: .5rem; }
 
+.address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .logo__img-wrapper {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+    margin-right: 1rem; }
+  .logo__img {
+    max-width: 100%; }
+  .logo__title {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem; }
+  .logo__desc {
+    display: block;
+    font-weight: normal;
+    font-size: 1rem; }
+
+.socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
 /*# sourceMappingURL=core.min.css.map */

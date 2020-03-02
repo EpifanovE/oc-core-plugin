@@ -1,0 +1,14 @@
+name: 'eev.core::lang.opening_hours'
+form: $/eev/core/models/workingperiod/fields.yaml
+modelClass: EEV\Core\Models\WorkingPeriod
+defaultRedirect: eev/core/workingperiodcontroller
+create:
+    title: 'eev.core::lang.creating'
+    redirect: 'eev/core/workingperiodcontroller/update/:id'
+    redirectClose: eev/core/workingperiodcontroller
+    flashSave: 'eev.core::lang.saved'
+update:
+    title: 'eev.core::lang.editing'
+    redirect: eev/core/workingperiodcontroller
+    redirectClose: eev/core/workingperiodcontroller
+    flashSave: 'eev.core::lang.saved'

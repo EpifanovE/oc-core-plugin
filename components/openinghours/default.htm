@@ -1,0 +1,8 @@
+<div class="{{ __SELF__.classes() }}">
+    {% if __SELF__.property('show_icon') %}
+    <i class="opening-hours__icon fas fa-clock"></i>
+    {% endif %}
+    <ul class="opening-hours__items">
+        {{ __SELF__.getRows()|raw }}
+    </ul>
+</div>

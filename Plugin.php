@@ -3,8 +3,14 @@
 namespace EEV\Core;
 
 use EEV\Core\Classes\ThemeStyles;
+use EEV\Core\Components\Address;
 use EEV\Core\Components\Breadcrumbs;
+use EEV\Core\Components\Contact;
 use EEV\Core\Components\InlineStyles;
+use EEV\Core\Components\Logo;
+use EEV\Core\Components\OpeningHours;
+use EEV\Core\Components\Socials;
+use EEV\Core\Models\Settings;
 use Illuminate\Support\Facades\Event;
 use System\Classes\PluginBase;
 
@@ -34,6 +40,26 @@ class Plugin extends PluginBase
         return [
             InlineStyles::class => 'inlineStyles',
             Breadcrumbs::class => 'breadcrumbs',
+            Contact::class => 'contact',
+            Address::class => 'address',
+            Socials::class => 'socials',
+            OpeningHours::class => 'opening_hours',
+            Logo::class => 'logo',
+        ];
+    }
+
+    public function registerSettings()
+    {
+        return [
+            'settings' => [
+                'label' => 'eev.core::lang.company_settings',
+                'description' => '',
+                'category' => 'eev.core::lang.company',
+                'class' => Settings::class,
+                'icon' => 'icon-globe',
+                'order' => 500,
+                'keywords' => ''
+            ]
         ];
     }
 

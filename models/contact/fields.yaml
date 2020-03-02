@@ -1,0 +1,18 @@
+fields:
+    title:
+        label: 'eev.core::lang.title'
+        span: full
+        type: text
+    type:
+        label: 'eev.core::lang.type'
+        showSearch: true
+        span: full
+        type: dropdown
+    text:
+        label: 'eev.core::lang.text'
+        span: full
+        type: text
+    link:
+        label: 'eev.core::lang.link'
+        span: full
+        type: text

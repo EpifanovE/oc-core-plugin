@@ -1,0 +1,19 @@
+<div class="{{ __SELF__.classes() }}">
+    {% if __SELF__.property('show_icon') %}
+    <span class="address__icon{{ __SELF__.getIconClass() }}"></span>
+    {% endif %}
+    <div class="address__text">
+        {% if __SELF__.property('show_title') and __SELF__.getProp('name') %}
+
+        <{{__SELF__.getTitleTag()}} class="address__title">
+            {{ __SELF__.getProp('name') }}
+        </{{__SELF__.getTitleTag()}}>
+
+        {% endif %}
+
+        <div class="address__content"{{ __SELF__.getSchemaScope()|raw }}>
+        {{ __SELF__.getContent()|raw }}
+        </div>
+        {{__SELF__.getGeo()|raw}}
+    </div>
+</div>

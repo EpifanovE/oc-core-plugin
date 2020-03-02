@@ -1,0 +1,25 @@
+<span class="{{ __SELF__.classes() }}">
+    {% if __SELF__.getLink() %}
+    <a class="contact__link" href="{{ __SELF__.getLink() }}">
+    {% endif %}
+    {% if __SELF__.getIconClass() %}
+        <i class="contact__icon{{ __SELF__.getIconClass() }}"></i>
+    {% endif %}
+    {% if __SELF__.getTitle() or __SELF__.getText() %}
+        <span class="contact__content">
+        {% if __SELF__.getTitle() and __SELF__.property('show_title') %}
+            <span class="contact__title">
+            {{ __SELF__.getTitle() }}
+            </span>
+        {% endif %}
+        {% if __SELF__.getText() %}
+            <span class="contact__text"{{ (__SELF__.getMicrodata() ? ' itemprop="' ~ __SELF__.getMicrodata() ~ '"' : '')|raw }}>
+                {{ __SELF__.getText() }}
+            </span>
+        {% endif %}
+        </span>
+    {% endif %}
+    {% if __SELF__.getLink() %}
+    </a>
+    {% endif %}
+</span>

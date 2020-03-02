@@ -1,0 +1,14 @@
+name: 'eev.core::lang.social_network'
+form: $/eev/core/models/social/fields.yaml
+modelClass: EEV\Core\Models\Social
+defaultRedirect: eev/core/socialcontroller
+create:
+    title: 'eev.core::lang.creating'
+    redirect: 'eev/core/socialcontroller/update/:id'
+    redirectClose: eev/core/socialcontroller
+    flashSave: 'eev.core::lang.saved'
+update:
+    title: 'eev.core::lang.editing'
+    redirect: eev/core/socialcontroller
+    redirectClose: eev/core/socialcontroller
+    flashSave: 'eev.core::lang.saved'

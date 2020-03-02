@@ -1,0 +1,32 @@
+fields:
+    day:
+        label: 'eev.core::lang.day'
+        showSearch: true
+        span: auto
+        type: dropdown
+    around_the_clock:
+        label: 'eev.core::lang.around_the_clock'
+        span: auto
+        type: switch
+    time_from:
+        label: 'eev.core::lang.time_from'
+        mode: time
+        span: auto
+        trigger:
+            action: disable
+            field: around_the_clock
+            condition: checked
+        type: datepicker
+        ignoreTimezone: true
+        format: "H:i"
+    time_till:
+        label: 'eev.core::lang.time_till'
+        mode: time
+        span: auto
+        trigger:
+            action: disable
+            field: around_the_clock
+            condition: checked
+        type: datepicker
+        ignoreTimezone: true
+        format: "H:i"

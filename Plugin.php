@@ -3,6 +3,7 @@
 namespace EEV\Core;
 
 use EEV\Core\Classes\ThemeStyles;
+use EEV\Core\Components\Breadcrumbs;
 use EEV\Core\Components\InlineStyles;
 use Illuminate\Support\Facades\Event;
 use System\Classes\PluginBase;
@@ -32,6 +33,7 @@ class Plugin extends PluginBase
     {
         return [
             InlineStyles::class => 'inlineStyles',
+            Breadcrumbs::class => 'breadcrumbs',
         ];
     }
 

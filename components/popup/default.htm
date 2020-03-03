@@ -1,0 +1,16 @@
+{% if __SELF__.checkPopup() %}
+    <script>
+        var popup_{{ __SELF__.getId() }} = {{ __SELF__.getData()|json_encode|raw }}
+    </script>
+    <div id="{{ __SELF__.getId() }}" class="{{ __SELF__.getClasses() }}">
+        {% if __SELF__.getTitle() %}
+            <h3 class="popup__title">{{ __SELF__.getTitle() }}</h3>
+        {% endif %}
+
+        <div class="popup__content">
+            {% if __SELF__.getPartial() %}
+                {% partial __SELF__.getPartial() %}
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

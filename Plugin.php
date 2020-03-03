@@ -2,18 +2,19 @@
 
 namespace EEV\Core;
 
+use Backend\Widgets\Form;
 use EEV\Core\Classes\Forms\Rules\ReCaptcha;
 use EEV\Core\Classes\ThemeStyles;
 use EEV\Core\Components\Address;
 use EEV\Core\Components\Breadcrumbs;
 use EEV\Core\Components\Contact;
-use EEV\Core\Components\Form;
 use EEV\Core\Components\InlineStyles;
 use EEV\Core\Components\Logo;
 use EEV\Core\Components\OpeningHours;
 use EEV\Core\Components\Popup;
 use EEV\Core\Components\Socials;
 use EEV\Core\Components\Widget;
+use EEV\Core\Components\Form as FormComponent;
 use EEV\Core\Controllers\WidgetController;
 use EEV\Core\Models\Settings;
 use Illuminate\Support\Facades\Event;
@@ -79,7 +80,7 @@ class Plugin extends PluginBase
             OpeningHours::class => 'opening_hours',
             Logo::class         => 'logo',
             Widget::class       => 'widget',
-            Form::class         => 'form',
+            FormComponent::class         => 'form',
             Popup::class        => 'popup',
         ];
     }

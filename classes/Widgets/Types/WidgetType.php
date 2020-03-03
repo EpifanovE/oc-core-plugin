@@ -74,23 +74,21 @@ abstract class WidgetType
 
     public function getHtml()
     {
-        $templateName = ! empty($this->template) ? $this->template : 'default';
-
-        if ($themeTpl = $this->getThemeHtml($templateName)) {
+        if ($themeTpl = $this->getThemeHtml()) {
             return $themeTpl;
         }
 
-        if ($pluginTpl = $this->getPluginHtml($templateName)) {
+        if ($pluginTpl = $this->getPluginHtml()) {
             return $pluginTpl;
         }
 
         return $themeTpl;
     }
 
-    protected function getThemeHtml($templateName) {
+    protected function getThemeHtml() {
         $themeName = Config::get('cms.activeTheme');
 
-        $themeViewFile = themes_path() . '/' . $themeName . '/partials/core/types/' . $this->name . '/' . $templateName . '.htm';
+        $themeViewFile = themes_path() . '/' . $themeName . '/widgets/' . $this->name . '.htm';
 
         if (file_exists($themeViewFile)) {
             return Twig::parse(file_get_contents($themeViewFile), ['data' => $this->data]);
@@ -99,8 +97,8 @@ abstract class WidgetType
         return '';
     }
 
-    protected function getPluginHtml($templateName) {
-        $template = $this->getPluginViewsNamespace() . '::types.' . $this->name . '.' . $templateName;
+    protected function getPluginHtml() {
+        $template = $this->getPluginViewsNamespace() . '::widgets.' . $this->name;
 
         if (View::exists($template)) {
             return View::make($template, ['data' => $this->data]);
@@ -111,22 +109,6 @@ abstract class WidgetType
 
     protected function getPluginViewsNamespace() {
         return 'eev.core';
-    }
-
-    public function getTemplatesOptions()
-    {
-        $pathToFiles = plugins_path() . '/eev/core/views/types/' . $this->name . '/';
-        $files       = scandir($pathToFiles);
-
-        $result = [];
-        foreach ($files as $key => $file) {
-            if (is_file($pathToFiles . $file)) {
-                $templateName          = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file);
-                $result[$templateName] = $templateName;
-            }
-        }
-
-        return $result;
     }
 
     public function getDataFields()

@@ -15,7 +15,3 @@ tabs:
       type: switch
       default: true
       tab: 'eev.core::lang.settings'
-    template:
-      label: 'eev.core::lang.template'
-      type: dropdown
-      tab: 'eev.core::lang.settings'

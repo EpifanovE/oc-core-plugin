@@ -1,7 +1,12 @@
 <?php
 
 return [
-    'breadcrumbs' => [],
+    'breadcrumbs' => [
+        'paths' => [],
+        'params' => [
+            'home' => 'Главная',
+        ],
+    ],
     'forms' => [],
     'recaptcha' => [
         'secret_key' => env('RECAPTCHA_SECRET_KEY'),

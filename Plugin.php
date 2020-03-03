@@ -4,7 +4,6 @@ namespace EEV\Core;
 
 use Backend\Widgets\Form;
 use EEV\Core\Classes\Forms\Rules\ReCaptcha;
-use EEV\Core\Classes\ThemeStyles;
 use EEV\Core\Components\Address;
 use EEV\Core\Components\Breadcrumbs;
 use EEV\Core\Components\Contact;
@@ -56,12 +55,6 @@ class Plugin extends PluginBase
 
         Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
             $controller->addCss('/plugins/eev/core/assets/css/admin.min.css');
-        });
-
-        Event::listen('eev.core.inlineStyles', function ($styles) {
-            $themeStylesManager = new ThemeStyles();
-
-            return array_merge($styles, $themeStylesManager->getStyles());
         });
 
         Validator::extend('recaptcha', ReCaptcha::class);

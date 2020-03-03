@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class BuilderTableCreateEevCorpcoreContacts extends Migration
+class BuilderTableCreateEevCoreContacts extends Migration
 {
     public function up()
     {

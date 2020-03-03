@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class BuilderTableCreateEevCorpcoreWorkingPeriods extends Migration
+class BuilderTableCreateEevCoreWorkingPeriods extends Migration
 {
     public function up()
     {

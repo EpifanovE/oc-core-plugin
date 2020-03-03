@@ -4,17 +4,26 @@ namespace EEV\Core\Classes\Company;
 
 class ContactType
 {
+    const NONE = 'none';
+    const PHONE = 'phone';
+    const EMAIL = 'email';
+    const FAX = 'fax';
+    const SKYPE = 'skype';
+    const VIBER = 'viber';
+    const TELEGRAM = 'telegram';
+    const WHATSAPP = 'WhatsApp';
+
     public static function get()
     {
         return [
-            'none'  => 'eev.core::lang.not_defined',
-            'phone' => 'eev.core::lang.phone',
-            'email' => 'eev.core::lang.email',
-            'fax'   => 'eev.core::lang.fax',
-            'skype'   => 'eev.core::lang.skype',
-            'viber'   => 'eev.core::lang.viber',
-            'telegram'   => 'eev.core::lang.telegram',
-            'WhatsApp'   => 'eev.core::lang.whatsapp',
+            self::NONE  => 'eev.core::lang.not_defined',
+            self::PHONE => 'eev.core::lang.phone',
+            self::EMAIL => 'eev.core::lang.email',
+            self::FAX   => 'eev.core::lang.fax',
+            self::SKYPE   => 'eev.core::lang.skype',
+            self::VIBER   => 'eev.core::lang.viber',
+            self::TELEGRAM   => 'eev.core::lang.telegram',
+            self::WHATSAPP   => 'eev.core::lang.whatsapp',
         ];
     }
 }

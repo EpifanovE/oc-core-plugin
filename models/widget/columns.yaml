@@ -1,0 +1,26 @@
+columns:
+    id:
+        label: ID
+        type: number
+        sortable: true
+    name:
+        label: 'eev.core::lang.name'
+        type: text
+        searchable: true
+        sortable: true
+    type_label:
+        label: 'eev.core::lang.type'
+        type: text
+        searchable: false
+        sortable: false
+    is_active:
+        label: 'eev.core::lang.is_active'
+        type: switch
+    created_at:
+        label: 'eev.core::lang.created_at'
+        type: datetime
+        sortable: true
+    updated_at:
+        label: 'eev.core::lang.updated_at'
+        type: datetime
+        sortable: true

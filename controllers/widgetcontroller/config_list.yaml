@@ -1,0 +1,12 @@
+title: 'eev.core::lang.widgets'
+modelClass: EEV\Core\Models\Widget
+list: $/eev/core/models/widget/columns.yaml
+recordUrl: 'eev/core/widgetcontroller/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

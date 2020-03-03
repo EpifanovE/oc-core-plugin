@@ -20,6 +20,9 @@ permissions:
     eev.core.opening_hours:
         tab: 'eev.core::lang.company'
         label: 'eev.core::lang.opening_hours'
+    eev.core.manage-widgets:
+        tab: 'eev.core::lang.widgets'
+        label: 'eev.core::lang.manage-widgets'
 navigation:
     company:
         label: 'eev.core::lang.company'
@@ -50,3 +53,9 @@ navigation:
                 icon: icon-clock-o
                 permissions:
                     - eev.core.opening_hours
+    widgets:
+        label: 'eev.core::lang.widgets'
+        url: eev/core/widgetcontroller
+        icon: icon-bars
+        permissions:
+            - eev.core.manage-widgets

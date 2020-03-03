@@ -107,7 +107,7 @@ class Contact extends ComponentBase
         $result = [
             'none' => 'eev.core::lang.not_defined'
         ];
-        $result = $result + ContactEntity::all()->lists('text', 'id');
+        $result = $result + ContactEntity::all()->lists('title', 'id');
         return $result;
     }
 

@@ -110,6 +110,7 @@ gulp.task('js:core', function () {
     return gulp.src([
         'node_modules/jquery/dist/jquery.min.js',
         paths.src.js + 'core.js',
+        paths.src.js + 'form-component.js',
     ])
         .pipe(gulpif(!prod, sourcemaps.init()))
         .pipe(babel())

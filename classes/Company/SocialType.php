@@ -4,6 +4,14 @@ namespace EEV\Core\Classes\Company;
 
 class SocialType
 {
+    const NONE = 'none';
+    const VK = 'vk';
+    const OK = 'ok';
+    const FACEBOOK = 'facebook';
+    const INSTAGRAM = 'instagram';
+    const PINTEREST = 'pinterest';
+    const TWITTER = 'twitter';
+    const YOUTUBE = 'youtube';
 
     public static function listAll() {
         $result = [];
@@ -17,34 +25,34 @@ class SocialType
 
     public static function all() {
         return [
-            'none' => [
+            self::NONE => [
                 'label' => 'eev.core::lang.none',
             ],
-            'vk' => [
+            self::VK => [
                 'label' => 'eev.core::lang.socials.vk',
                 'icon-class' => 'fab fa-vk',
             ],
-            'ok' => [
+            self::OK => [
                 'label' => 'eev.core::lang.socials.ok',
                 'icon-class' => 'fab fa-odnoklassniki',
             ],
-            'facebook' => [
+            self::FACEBOOK => [
                 'label' => 'eev.core::lang.socials.facebook',
                 'icon-class' => 'fab fa-facebook',
             ],
-            'instagram' => [
+            self::INSTAGRAM => [
                 'label' => 'eev.core::lang.socials.instagram',
                 'icon-class' => 'fab fa-instagram',
             ],
-            'pinterest' => [
+            self::PINTEREST => [
                 'label' => 'eev.core::lang.socials.pinterest',
                 'icon-class' => 'fab fa-pinterest',
             ],
-            'twitter' => [
+            self::TWITTER => [
                 'label' => 'eev.core::lang.socials.twitter',
                 'icon-class' => 'fab fa-twitter',
             ],
-            'youtube' => [
+            self::YOUTUBE => [
                 'label' => 'eev.core::lang.socials.youtube',
                 'icon-class' => 'fab fa-youtube',
             ],

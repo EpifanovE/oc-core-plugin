@@ -1,0 +1,21 @@
+tabs:
+  fields:
+    name:
+      label: 'eev.core::lang.name'
+      span: full
+      type: text
+      tab: 'eev.core::lang.settings'
+    type:
+      label: 'eev.core::lang.type'
+      type: dropdown
+      tab: 'eev.core::lang.settings'
+    is_active:
+      label: 'eev.core::lang.is_active'
+      span: full
+      type: switch
+      default: true
+      tab: 'eev.core::lang.settings'
+    template:
+      label: 'eev.core::lang.template'
+      type: dropdown
+      tab: 'eev.core::lang.settings'

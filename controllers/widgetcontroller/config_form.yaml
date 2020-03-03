@@ -1,0 +1,14 @@
+name: 'eev.core::lang.widget'
+form: $/eev/core/models/widget/fields.yaml
+modelClass: EEV\Core\Models\Widget
+defaultRedirect: eev/core/widgetcontroller
+create:
+    title: 'eev.core::lang.creating'
+    redirect: 'eev/core/widgetcontroller/update/:id'
+    redirectClose: eev/core/widgetcontroller
+    flashSave: 'eev.core::lang.saved'
+update:
+    title: 'eev.core::lang.updating'
+    redirect: eev/core/widgetcontroller
+    redirectClose: eev/core/widgetcontroller
+    flashSave: 'eev.core::lang.saved'

@@ -1,0 +1,5 @@
+title: 'eev.core::lang.sorting'
+modelClass: EEV\Core\Models\Widget
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

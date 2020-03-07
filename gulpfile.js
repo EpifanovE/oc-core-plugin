@@ -110,6 +110,7 @@ gulp.task('js:core', function () {
     return gulp.src([
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+        'node_modules/owl.carousel/dist/owl.carousel.min.js',
         paths.src.js + 'core.js',
         paths.src.js + 'components/form-component.js',
         paths.src.js + 'components/popup-component.js',

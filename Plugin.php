@@ -42,6 +42,7 @@ class Plugin extends PluginBase
 
             if ( ! empty($fields = $model->getTypeObject()->getDataFields())) {
                 $form->addTabFields($fields);
+                dd($form);
             }
         });
     }

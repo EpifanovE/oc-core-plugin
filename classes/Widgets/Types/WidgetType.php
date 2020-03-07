@@ -119,6 +119,7 @@ abstract class WidgetType
 
         $fields = $this->getFields();
 
+
         foreach ($fields as $key => $field) {
             $fields['data[' . $key . ']'] = $field;
             unset($fields[$key]);

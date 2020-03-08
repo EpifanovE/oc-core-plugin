@@ -9,7 +9,7 @@ use October\Rain\Database\Traits\Validation;
 
 class Widget extends Model
 {
-    use Validation, Sortable;
+    use Validation;
 
     public $table = 'eev_core_widgets';
 
@@ -64,9 +64,9 @@ class Widget extends Model
         return $this->typeObject;
     }
 
-    public function getHtml()
+    public function getHtml($data)
     {
-        return $this->typeObject->getHtml();
+        return $this->typeObject->getHtml($data);
     }
 
     public function getStyles() {

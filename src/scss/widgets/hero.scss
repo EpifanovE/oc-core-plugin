@@ -3,10 +3,6 @@
   overflow: hidden;
   z-index: 1;
 
-  @media (min-width: 1200px) {
-    height: calc(100vh - 123px);
-  }
-
   & .owl-stage-outer ,
   & .owl-stage,
   & .owl-item {
@@ -14,6 +10,7 @@
   }
 
   &__item {
+    background-size: cover;
     &,
     & .container,
     & .row,
@@ -48,54 +45,11 @@
   &__content {
     position: relative;
     text-align: center;
-    padding: 3rem 0;
     width: 100%;
     z-index: 3;
-
-    @media (min-width: 1200px) {
-      padding: 0;
-    }
   }
 
   &__title {
-    font-size: 1.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    line-height: 1;
     margin: 0;
-    text-shadow: 0 0 27px rgba(#000000, .7);
-    color: #ffffff;
-
-    &:after {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 1px;
-      background-color: #ffffff;
-      margin: 2rem auto;
-    }
-
-    @media (min-width: 768px) {
-      font-size: 2.5rem;
-    }
-
-    @media (min-width: 1200px) {
-      font-size: 2.75rem;
-    }
-  }
-
-  &__desc {
-    margin-bottom: 3rem;
-    color: #ffffff;
-  }
-
-  .main_transparent-header & {
-    @media (min-width: 1200px) {
-      height: 100vh;
-    }
-  }
-
-  .main_transparent-header &__content {
-    margin-top: 123px;
   }
 }

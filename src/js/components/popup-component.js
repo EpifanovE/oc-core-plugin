@@ -1,6 +1,5 @@
 $('.popup-link').each(function () {
     const targetSelector = $(this).attr('href');
-    // const target = $(targetSelector);
     const dataObjectName = 'popup_' + targetSelector.slice(1);
 
     const type = window[dataObjectName] && window[dataObjectName].type ? window[dataObjectName].type : 'inline';
@@ -11,4 +10,4 @@ $('.popup-link').each(function () {
         removalDelay: 300,
         mainClass: 'mfp-fade'
     });
-})
+});

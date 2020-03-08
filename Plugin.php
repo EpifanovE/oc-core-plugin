@@ -15,6 +15,7 @@ use EEV\Core\Components\Socials;
 use EEV\Core\Components\Widget;
 use EEV\Core\Components\Form as FormComponent;
 use EEV\Core\Controllers\WidgetController;
+use EEV\Core\Models\FrontPage;
 use EEV\Core\Models\Settings;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Validator;
@@ -41,8 +42,9 @@ class Plugin extends PluginBase
             }
 
             if ( ! empty($fields = $model->getTypeObject()->getDataFields())) {
-                $form->addTabFields($fields);
-                dd($form);
+                if (!$form->isNested) {
+                    $form->addTabFields($fields);
+                }
             }
         });
     }
@@ -90,7 +92,7 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-globe',
                 'order'       => 500,
                 'keywords'    => ''
-            ]
+            ],
         ];
     }
 
@@ -98,7 +100,7 @@ class Plugin extends PluginBase
     {
         return [
             'filters' => [
-                'trans' => [$this, 'getTranslate']
+                'trans' => [$this, 'getTranslate'],
             ],
         ];
     }

@@ -72,36 +72,37 @@ abstract class WidgetType
         }
     }
 
-    public function getHtml()
+    public function getHtml($data)
     {
-        if ($themeTpl = $this->getThemeHtml()) {
+        if ($themeTpl = $this->getThemeHtml($data)) {
             return $themeTpl;
         }
 
-        if ($pluginTpl = $this->getPluginHtml()) {
+        if ($pluginTpl = $this->getPluginHtml($data)) {
             return $pluginTpl;
-        }
-
-        return $themeTpl;
-    }
-
-    protected function getThemeHtml() {
-        $themeName = Config::get('cms.activeTheme');
-
-        $themeViewFile = themes_path() . '/' . $themeName . '/widgets/' . $this->name . '.htm';
-
-        if (file_exists($themeViewFile)) {
-            return Twig::parse(file_get_contents($themeViewFile), ['data' => $this->data]);
         }
 
         return '';
     }
 
-    protected function getPluginHtml() {
+    protected function getThemeHtml($data) {
+
+        $themeName = Config::get('cms.activeTheme');
+
+        $themeViewFile = themes_path() . '/' . $themeName . '/widgets/' . $this->name . '.htm';
+
+        if (file_exists($themeViewFile)) {
+            return Twig::parse(file_get_contents($themeViewFile), ['data' => $this->data, 'classes' => $this->classes($data['class'])]);
+        }
+
+        return '';
+    }
+
+    protected function getPluginHtml($data) {
         $template = $this->getPluginViewsNamespace() . '::widgets.' . $this->name;
 
         if (View::exists($template)) {
-            return View::make($template, ['data' => $this->data]);
+            return View::make($template, ['data' => $this->data, 'classes' => $this->classes($data['class'])]);
         }
 
         return '';
@@ -133,6 +134,16 @@ abstract class WidgetType
         if (method_exists($this, 'doStyles')) {
             return $this->doStyles();
         }
+    }
+
+    public function classes($componentClass = null) {
+        $classes = !empty($componentClass) ? [$componentClass] : [];
+
+        if (method_exists($this, 'getClasses') && is_array($this->getClasses())) {
+            $classes = array_merge($classes, $this->getClasses());
+        }
+
+        return ' ' . join(' ', $classes);
     }
 
     protected static function getTypesArray($array)

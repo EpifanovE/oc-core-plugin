@@ -15,7 +15,6 @@ class BuilderTableCreateEevCoreWidgets extends Migration
             $table->string('type', 64);
             $table->json('data')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->integer('sort_order')->nullable()->unsigned();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

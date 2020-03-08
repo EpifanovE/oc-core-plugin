@@ -65,9 +65,7 @@ class Widget extends ComponentBase
 
     public function getWidgetOptions()
     {
-        $options = WidgetModel::active()->lists('name', 'id');
-
-        return $options;
+        return WidgetModel::active()->lists('name', 'id');
     }
 
     public function getHtml()
@@ -76,6 +74,8 @@ class Widget extends ComponentBase
             return '';
         }
 
-        return $this->widget->getHtml();
+        return $this->widget->getHtml([
+            'class' => $this->property('adv_class'),
+        ]);
     }
 }

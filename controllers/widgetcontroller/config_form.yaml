@@ -8,7 +8,7 @@ create:
     redirectClose: eev/core/widgetcontroller
     flashSave: 'eev.core::lang.saved'
 update:
-    title: 'eev.core::lang.updating'
+    title: 'eev.core::lang.editing'
     redirect: eev/core/widgetcontroller
     redirectClose: eev/core/widgetcontroller
     flashSave: 'eev.core::lang.saved'

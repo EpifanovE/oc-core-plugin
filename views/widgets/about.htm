@@ -15,7 +15,11 @@
                 <div class="about__desc editor-output">
                     {{ data.desc|raw }}
                 </div>
-                <a href="{{ data.button_link }}" class="button">{{ data.button_text }}</a>
+                <a href="{{ data.button_link }}" class="button button_inverse button_black">
+                    <span class="button__text">
+                    {{ data.button_text }}
+                    </span>
+                </a>
             </col-12>
         </div>
     </div>

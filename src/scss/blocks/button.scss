@@ -1,4 +1,4 @@
-@import "vars";
+@import "../vars";
 
 .button {
   display: inline-flex;
@@ -25,7 +25,6 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px lighten($button-black-color, 50);
   }
 
   &:hover {

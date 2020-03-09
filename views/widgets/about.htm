@@ -1,0 +1,22 @@
+<section class="about{{ classes }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="about__images{{ data.images|length > 0 ? ' owl-carousel images-carousel' : '' }}" >
+                {% for image in data.images %}
+                    <div class="about__image-wrap">
+                        <img src="{{ image.image|media }}" alt="" class="about__image">
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            <col-12 class="col-md-6">
+                <h2 class="about__title">{{ data.title }}</h2>
+                <div class="about__desc editor-output">
+                    {{ data.desc|raw }}
+                </div>
+                <a href="{{ data.button_link }}" class="button">{{ data.button_text }}</a>
+            </col-12>
+        </div>
+    </div>
+</section>

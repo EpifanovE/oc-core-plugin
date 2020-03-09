@@ -21,19 +21,19 @@ abstract class WidgetType
 
     public function __construct($data, $template)
     {
-        $this->data     = $data;
+        $this->data = $data;
         $this->template = $template;
     }
 
     public static function getTypes()
     {
         $types = [
-            self::HERO  => [
-                'name'  => Lang::get('eev.core::lang.widgets_types.hero.name'),
+            self::HERO => [
+                'name' => Lang::get('eev.core::lang.widgets_types.hero.name'),
                 'class' => Hero::class,
             ],
             self::ABOUT => [
-                'name'  => Lang::get('eev.core::lang.widgets_types.about.name'),
+                'name' => Lang::get('eev.core::lang.widgets_types.about.name'),
                 'class' => About::class,
             ],
         ];
@@ -67,7 +67,7 @@ abstract class WidgetType
 
     public static function getTypeLabel($type)
     {
-        if ( ! empty(self::getTypes()[$type])) {
+        if (!empty(self::getTypes()[$type])) {
             return self::getTypes()[$type]['name'];
         }
     }
@@ -85,36 +85,48 @@ abstract class WidgetType
         return '';
     }
 
-    protected function getThemeHtml($data) {
+    protected function getThemeHtml($data)
+    {
 
         $themeName = Config::get('cms.activeTheme');
 
         $themeViewFile = themes_path() . '/' . $themeName . '/widgets/' . $this->name . '.htm';
 
         if (file_exists($themeViewFile)) {
-            return Twig::parse(file_get_contents($themeViewFile), ['data' => $this->data, 'classes' => $this->classes($data['class'])]);
+            return Twig::parse(file_get_contents($themeViewFile), ['data' => $this->getTemplateData(), 'classes' => $this->classes($data['class'])]);
         }
 
         return '';
     }
 
-    protected function getPluginHtml($data) {
+    protected function getPluginHtml($data)
+    {
         $template = $this->getPluginViewsNamespace() . '::widgets.' . $this->name;
 
         if (View::exists($template)) {
-            return View::make($template, ['data' => $this->data, 'classes' => $this->classes($data['class'])]);
+            return View::make($template, ['data' => $this->getTemplateData(), 'classes' => $this->classes($data['class'])]);
         }
 
         return '';
     }
 
-    protected function getPluginViewsNamespace() {
+    protected function getTemplateData()
+    {
+        if (!method_exists($this, 'doTemplateData')) {
+            return $this->data;
+        }
+
+        return array_merge($this->data, $this->doTemplateData());
+    }
+
+    protected function getPluginViewsNamespace()
+    {
         return 'eev.core';
     }
 
     public function getDataFields()
     {
-        if ( ! method_exists($this, 'getFields')) {
+        if (!method_exists($this, 'getFields')) {
             return [];
         }
 
@@ -136,7 +148,8 @@ abstract class WidgetType
         }
     }
 
-    public function classes($componentClass = null) {
+    public function classes($componentClass = null)
+    {
         $classes = !empty($componentClass) ? [$componentClass] : [];
 
         if (method_exists($this, 'getClasses') && is_array($this->getClasses())) {
@@ -156,7 +169,7 @@ abstract class WidgetType
 
         foreach ($array as $item) {
 
-            if ( ! is_array($item)) {
+            if (!is_array($item)) {
                 continue;
             }
 

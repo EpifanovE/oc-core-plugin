@@ -1,4 +1,7 @@
 @import "vendors";
+
+@import "blocks/images-carousel";
+
 @import "components/breadcrumbs";
 @import "components/address-component";
 @import "components/contact-component";
@@ -9,3 +12,4 @@
 @import "components/popup/popup-component";
 
 @import "widgets/hero";
+@import "widgets/about";

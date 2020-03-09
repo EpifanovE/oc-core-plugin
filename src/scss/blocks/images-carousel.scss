@@ -1,0 +1,50 @@
+.images-carousel {
+  position: relative;
+  overflow: hidden;
+
+  & .owl-item {
+    max-height: none;
+  }
+
+  & .owl-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: calc(50% - 28px);
+    pointer-events: none;
+    opacity: 0;
+    transition: all .3s ease-in;
+  }
+
+  &:hover .owl-nav {
+    opacity: 1;
+  }
+
+  & .owl-nav button.owl-prev,
+  & .owl-nav button.owl-next {
+    padding: 1.25rem 1rem !important;
+    background-color: #fff;
+    pointer-events: auto;
+    font-size: 1rem;
+    line-height: 1;
+    opacity: .6;
+    transition: all .3s ease-in;
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & .owl-nav button.owl-prev {
+    border-radius: 0 3px 3px 0;
+  }
+
+  & .owl-nav button.owl-next {
+    border-radius: 3px 0 0 3px;
+  }
+}

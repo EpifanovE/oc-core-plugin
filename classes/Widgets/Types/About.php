@@ -2,6 +2,8 @@
 
 namespace EEV\Core\Classes\Widgets\Types;
 
+use Illuminate\Support\Facades\Lang;
+
 class About extends WidgetType
 {
     protected $name = self::ABOUT;
@@ -9,11 +11,55 @@ class About extends WidgetType
     protected function getFields() {
         return [
             'title' => [
-                'label' => 'Title',
+                'label' => Lang::get('eev.core::lang.title'),
                 'span' => 'full',
                 'type' => 'text',
             ],
+            'desc'             => [
+                'label'          => Lang::get('eev.core::lang.text'),
+                'span'           => 'full',
+                'type'           => 'richeditor',
+                'toolbarButtons' => 'bold|italic|underline|color',
+            ],
+            'button_text'      => [
+                'label' => Lang::get('eev.core::lang.button_text'),
+                'cssClass' => 'col-xs-4',
+                'span'  => 'storm',
+                'type'  => 'text',
+            ],
+            'button_link'      => [
+                'label' => Lang::get('eev.core::lang.button_link'),
+                'cssClass' => 'col-sm-4',
+                'span'  => 'storm',
+                'type'  => 'text',
+            ],
+            'button_class'      => [
+                'label' => Lang::get('eev.core::lang.button_class'),
+                'cssClass' => 'col-sm-4',
+                'span'  => 'storm',
+                'type'  => 'text',
+            ],
+            'images' => [
+                'label' => Lang::get('eev.core::lang.images'),
+                'type' => 'repeater',
+                'prompt' => Lang::get('eev.core::lang.add_image'),
+                'form' => [
+                    'fields' => [
+                        'image' => [
+                            'label'      => Lang::get('eev.core::lang.image'),
+                            'type'       => 'mediafinder',
+                            'mode'       => 'image',
+                            'imageWidth' => 300,
+                            'span'           => 'full',
+                        ],
+                    ],
+                ],
+            ],
         ];
+    }
+
+    protected function doTemplateData() {
+        return [];
     }
 
 }

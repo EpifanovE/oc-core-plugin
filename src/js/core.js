@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     let $carousel = $('.owl-carousel');
     if ($carousel.length) {
+
         $carousel.each(function (index, el) {
             let $owlAttr = {
                 items: 1,

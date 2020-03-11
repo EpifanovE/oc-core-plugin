@@ -61,7 +61,6 @@ class Hero extends WidgetType
                     ],
                 ]
             ],
-
         ];
     }
 

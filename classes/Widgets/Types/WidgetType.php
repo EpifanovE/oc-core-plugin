@@ -18,6 +18,7 @@ abstract class WidgetType
 
     const HERO = 'hero';
     const ABOUT = 'about';
+    const ICONCARD = 'iconcard';
 
     public function __construct($data, $template)
     {
@@ -35,6 +36,10 @@ abstract class WidgetType
             self::ABOUT => [
                 'name' => Lang::get('eev.core::lang.widgets_types.about.name'),
                 'class' => About::class,
+            ],
+            self::ICONCARD => [
+                'name' => Lang::get('eev.core::lang.widgets_types.iconscard.name'),
+                'class' => IconCard::class,
             ],
         ];
 

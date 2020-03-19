@@ -158,10 +158,10 @@
     'icon_class'                 => 'CSS-класс иконки',
     'saved'                      => 'Сохранено',
     'widgets_types'              => [
-        'hero'  => [
+        'hero'      => [
             'name' => 'Главная секция',
         ],
-        'about' => [
+        'about'     => [
             'name' => 'О компании',
         ],
         'iconscard' => [
@@ -203,4 +203,10 @@
     'element'                    => 'Элемент',
     'add_element'                => 'Добавить элемент',
     'cols_number'                => 'Количество колонок',
+    'card_template'              => 'Шаблон карточки',
+    'vertical'                   => 'Вертикальный',
+    'horizontal'                 => 'Горизонтальный',
+    'container_width'            => 'Ширина контейнера',
+    'full_width'                 => 'На всю ширину',
+    'in_container'               => 'В контейнере',
 ];

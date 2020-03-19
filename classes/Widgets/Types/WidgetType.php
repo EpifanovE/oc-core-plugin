@@ -77,51 +77,58 @@ abstract class WidgetType
         }
     }
 
-    public function getHtml($data)
+    public function getHtml($componentProperties)
     {
-        if ($themeTpl = $this->getThemeHtml($data)) {
+        if ($themeTpl = $this->getThemeHtml($componentProperties)) {
             return $themeTpl;
         }
 
-        if ($pluginTpl = $this->getPluginHtml($data)) {
+        if ($pluginTpl = $this->getPluginHtml($componentProperties)) {
             return $pluginTpl;
         }
 
         return '';
     }
 
-    protected function getThemeHtml($data)
+    protected function getThemeHtml($componentProperties)
     {
-
         $themeName = Config::get('cms.activeTheme');
 
         $themeViewFile = themes_path() . '/' . $themeName . '/widgets/' . $this->name . '.htm';
 
         if (file_exists($themeViewFile)) {
-            return Twig::parse(file_get_contents($themeViewFile), ['data' => $this->getTemplateData(), 'classes' => $this->classes($data['class'])]);
+            return Twig::parse(file_get_contents($themeViewFile), [
+                'data' => $this->getTemplateData($componentProperties),
+                'classes' => $this->classes($componentProperties['adv_class']),
+                'componentProperties' => $componentProperties,
+            ]);
         }
 
         return '';
     }
 
-    protected function getPluginHtml($data)
+    protected function getPluginHtml($componentProperties)
     {
         $template = $this->getPluginViewsNamespace() . '::widgets.' . $this->name;
 
         if (View::exists($template)) {
-            return View::make($template, ['data' => $this->getTemplateData(), 'classes' => $this->classes($data['class'])]);
+            return View::make($template, [
+                'data' => $this->getTemplateData($componentProperties),
+                'classes' => $this->classes($componentProperties['adv_class']),
+                'componentProperties' => $componentProperties,
+            ]);
         }
 
         return '';
     }
 
-    protected function getTemplateData()
+    protected function getTemplateData($componentProperties)
     {
         if (!method_exists($this, 'doTemplateData')) {
             return $this->data;
         }
 
-        return array_merge($this->data, $this->doTemplateData());
+        return array_merge($this->data, $this->doTemplateData($componentProperties));
     }
 
     protected function getPluginViewsNamespace()

@@ -64,9 +64,9 @@ class Widget extends Model
         return $this->typeObject;
     }
 
-    public function getHtml($data)
+    public function getHtml($componentProperties)
     {
-        return $this->typeObject->getHtml($data);
+        return $this->typeObject->getHtml($componentProperties);
     }
 
     public function getStyles() {

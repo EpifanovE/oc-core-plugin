@@ -1,0 +1,17 @@
+<section class="icon-cards{{ classes }}">
+    <div class="container">
+        <header class="row">
+            <div class="col-12">
+                <h2>{{ data.title }}</h2>
+                <div>{{ data.subtitle|raw }}</div>
+            </div>
+        </header>
+        <div class="row">
+            {% for element in data.elements %}
+                <div class="icon-card{{ data.iconClasses }}">
+                    Icon
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -129,6 +129,31 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
+        Widget::create([
+            'name' => 'Наши преимущества - Главная страница',
+            'type' => WidgetType::ICONCARD,
+            'data' => [
+                "title" => "Наши преимущества",
+                "subtitle" => "Далеко-далеко за словесными горами в стране гласных и согласных",
+                "button_link" => "/about",
+                "button_text" => "Подробнее",
+                "button_class" => "",
+                "elements" => [
+                    [
+                        'title' => '24 часа в сутки',
+                        'text' => 'Далеко-далеко за словесными горами в стране гласных и согласных',
+                        'icon_class' => 'fas fa-phone',
+                    ],
+                    [
+                        'title' => 'Гарантия качества',
+                        'text' => 'Далеко-далеко за словесными горами в стране гласных и согласных в стране гласных и согласных',
+                        'icon_class' => 'fas fa-user',
+                        'link' => '#',
+                    ],
+                ],
+            ],
+        ]);
+
         \DB::table('system_settings')->insert([
             [
                 'item' => 'eev_core_settings',

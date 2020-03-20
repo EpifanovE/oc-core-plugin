@@ -8,10 +8,20 @@
         </header>
         <div class="row">
             {% for element in data.elements %}
-                <div class="icon-card{{ data.iconClasses }}">
-                    Icon
-                </div>
+                    <div class="icon-card{{ data.iconClasses }}">
+                        <div class="icon-card__icon-wrapper">
+                            <span class="icon-card__icon {{ element.icon_class }}"></span>
+                        </div>
+                        <div class="icon-card__content">
+                            <{{ element.link ? 'a' : 'div' }} class="icon-card__title"{{ element.link ? 'href="' ~ element.link ~ '"' : '' }}>
+                                {{ element.title }}
+                            </{{ element.link ? 'a' : 'div' }}>
+                            <div class="icon-card__text">
+                                {{ element.text }}
+                            </div>
+                        </div>
+                    </div>
             {% endfor %}
-        </div>
+        </a>
     </div>
 </section>

@@ -1,12 +1,12 @@
-<section class="icon-cards{{ classes }}">
+<section class="widget icon-cards{{ classes }}">
     <div class="container">
-        <header class="row">
+        <header class="row widget__header">
             <div class="col-12">
-                <h2>{{ data.title }}</h2>
-                <div>{{ data.subtitle|raw }}</div>
+                <h2 class=" widget__title">{{ data.title }}</h2>
+                <div class=" widget__subtitle">{{ data.subtitle|raw }}</div>
             </div>
         </header>
-        <div class="row">
+        <div class="row widget__content">
             {% for element in data.elements %}
                     <div class="icon-card{{ data.iconClasses }}">
                         <div class="icon-card__icon-wrapper">
@@ -23,5 +23,14 @@
                     </div>
             {% endfor %}
         </a>
+        <footer class="widget__footer row">
+            <div class="col-12">
+                <a href="{{ data.button_link }}" class="widget__button button {{ data.button_class }}">
+                    <span class="button__text">
+                    {{ data.button_text }}
+                    </span>
+                </a>
+            </div>
+        </footer>
     </div>
 </section>

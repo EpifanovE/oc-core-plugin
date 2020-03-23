@@ -25,7 +25,7 @@ class Widget extends ComponentBase
             return;
         }
 
-        $styles = $this->widget->getStyles();
+        $styles = $this->widget->getStyles($this->properties);
 
         if ( ! empty($styles)) {
             Event::listen('eev.core.inlineStyles', function ($inlineStyles) use ($styles) {
@@ -61,10 +61,26 @@ class Widget extends ComponentBase
                 'showExternalParam' => false,
                 'group'             => 'eev.core::lang.params',
             ],
+            'anchor_name' => [
+                'title'             => 'eev.core::lang.anchor_name',
+                'description'       => '',
+                'default'           => '',
+                'type'              => 'string',
+                'showExternalParam' => false,
+                'group'             => 'eev.core::lang.params',
+            ],
+            'id' => [
+                'title'             => 'ID',
+                'description'       => '',
+                'default'           => '',
+                'type'              => 'string',
+                'showExternalParam' => false,
+                'group'             => 'eev.core::lang.params',
+            ],
             'title_tag' => [
                 'title'             => 'eev.core::lang.title_tag',
                 'description'       => '',
-                'default'           => '',
+                'default'           => 'h2',
                 'type'              => 'dropdown',
                 'showExternalParam' => false,
                 'group'             => 'eev.core::lang.params',
@@ -80,7 +96,7 @@ class Widget extends ComponentBase
             'container_width' => [
                 'title'             => 'eev.core::lang.container_width',
                 'description'       => '',
-                'default'           => '',
+                'default'           => 'container',
                 'type'              => 'dropdown',
                 'showExternalParam' => false,
                 'group'             => 'eev.core::lang.params',

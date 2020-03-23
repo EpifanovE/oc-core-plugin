@@ -16,14 +16,20 @@ abstract class WidgetType
 
     protected $template;
 
+    protected $generatedId;
+
     const HERO = 'hero';
     const ABOUT = 'about';
     const ICONCARD = 'iconcard';
+    const EDITOR = 'editor';
+    const CTA = 'cta';
+    const GALLERY = 'gallery';
 
     public function __construct($data, $template)
     {
         $this->data = $data;
         $this->template = $template;
+        $this->generatedId = $this->generateId();
     }
 
     public static function getTypes()
@@ -40,6 +46,18 @@ abstract class WidgetType
             self::ICONCARD => [
                 'name' => Lang::get('eev.core::lang.widgets_types.iconscard.name'),
                 'class' => IconCard::class,
+            ],
+            self::EDITOR => [
+                'name' => Lang::get('eev.core::lang.widgets_types.editor.name'),
+                'class' => Editor::class,
+            ],
+            self::CTA => [
+                'name' => Lang::get('eev.core::lang.widgets_types.cta.name'),
+                'class' => CallToAction::class,
+            ],
+            self::GALLERY => [
+                'name' => Lang::get('eev.core::lang.widgets_types.gallery.name'),
+                'class' => Gallery::class,
             ],
         ];
 
@@ -124,11 +142,18 @@ abstract class WidgetType
 
     protected function getTemplateData($componentProperties)
     {
-        if (!method_exists($this, 'doTemplateData')) {
-            return $this->data;
+        $data = $this->data;
+
+        $data['widget'] = [
+            'id' => $this->getId($componentProperties),
+            'overlay' => ! empty($this->data['background_image']),
+        ];
+
+        if (method_exists($this, 'doTemplateData')) {
+            return array_merge($data, $this->doTemplateData($componentProperties));
         }
 
-        return array_merge($this->data, $this->doTemplateData($componentProperties));
+        return $data;
     }
 
     protected function getPluginViewsNamespace()
@@ -153,11 +178,22 @@ abstract class WidgetType
         return $fields;
     }
 
-    public function getStyles()
+    public function getStyles($componentProperties)
     {
-        if (method_exists($this, 'doStyles')) {
-            return $this->doStyles();
+        $styles       = [];
+        $baseMediaUrl = url(Config::get('cms.storage.media.path'));
+
+        if ( ! empty($this->data['background_image'])) {
+            $styles['#' . $this->getId($componentProperties)] = [
+                'background-image' => 'url("' . $baseMediaUrl . $this->data['background_image'] . '")',
+            ];
         }
+
+        if (method_exists($this, 'doStyles')) {
+            $styles = array_merge($styles, $this->doStyles());
+        }
+
+        return $styles;
     }
 
     public function classes($componentClass = null)
@@ -189,6 +225,14 @@ abstract class WidgetType
         }
 
         return $result;
+    }
+
+    protected function getId($componentProperties) {
+        return $componentProperties['id'] ? $componentProperties['id'] : $this->generatedId;
+    }
+
+    protected function generateId() {
+        return $this->name . '-' . uniqid();
     }
 
 }

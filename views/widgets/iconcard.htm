@@ -1,28 +1,39 @@
-<section class="widget icon-cards{{ classes }}">
-    <div class="container">
+<section id="{{ data.widget.id }}" class="widget icon-cards{{ classes }}" >
+    <div class="{{ componentProperties.container_width == 'full' ? 'container-fluid' : 'container' }} widget__body">
         <header class="row widget__header">
             <div class="col-12">
-                <h2 class=" widget__title">{{ data.title }}</h2>
+                <{{ componentProperties.title_tag }} class="widget__title">
+                    {{ data.title }}
+                </{{ componentProperties.title_tag }}>
                 <div class=" widget__subtitle">{{ data.subtitle|raw }}</div>
             </div>
         </header>
-        <div class="row widget__content">
+        <div class="row justify-content-center widget__content">
             {% for element in data.elements %}
-                    <div class="icon-card{{ data.iconClasses }}">
-                        <div class="icon-card__icon-wrapper">
-                            <span class="icon-card__icon {{ element.icon_class }}"></span>
-                        </div>
-                        <div class="icon-card__content">
-                            <{{ element.link ? 'a' : 'div' }} class="icon-card__title"{{ element.link ? 'href="' ~ element.link ~ '"' : '' }}>
-                                {{ element.title }}
-                            </{{ element.link ? 'a' : 'div' }}>
-                            <div class="icon-card__text">
-                                {{ element.text }}
-                            </div>
+            <div class="{{ data.iconCardWidthClasses }}">
+                <div class="icon-card {{ element.image ? 'icon-card_image' : 'icon-card_icon' }} icon-cards__item{{ data.iconCardClasses }}">
+                    {% if element.image or element.icon_class %}
+                    <div class="icon-card__icon-wrapper">
+                        {% if element.image %}
+                        <img src="{{ element.image|media }}" alt="{{ element.title }}" class="image icon-card__image">
+                        {% elseif element.icon_class %}
+                        <span class="icon-card__icon {{ element.icon_class }}"></span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    <div class="icon-card__content">
+                        <{{ element.link ? 'a' : 'div' }} class="icon-card__title"{{ element.link ? 'href=' ~ element.link : '' }}>
+                            {{ element.title }}
+                        </{{ element.link ? 'a' : 'div' }}>
+                        <div class="icon-card__text">
+                            {{ element.text }}
                         </div>
                     </div>
+                </div>
+            </div>
             {% endfor %}
-        </a>
+        </div>
+        {% if data.button_text %}
         <footer class="widget__footer row">
             <div class="col-12">
                 <a href="{{ data.button_link }}" class="widget__button button {{ data.button_class }}">
@@ -32,5 +43,9 @@
                 </a>
             </div>
         </footer>
+        {% endif %}
     </div>
+    {% if data.widget.overlay %}
+        <div class="widget__overlay"></div>
+    {% endif %}
 </section>

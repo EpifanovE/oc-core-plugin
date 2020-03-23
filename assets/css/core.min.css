@@ -4800,6 +4800,44 @@ readers do not read off random characters that represent icons */
     .button__icon_right {
       margin-left: .5rem; }
 
+.icon-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .icon-card__icon-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: hidden; }
+  .icon-card__image {
+    max-width: 100%;
+    height: auto;
+    min-height: 100%; }
+  .icon-card_horizontal {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+  .icon-card_horizontal .icon-card__icon-wrapper {
+    margin-right: 1rem; }
+  .icon-card_vertical {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center; }
+  .icon-card_vertical .icon-card__icon-wrapper {
+    margin-bottom: 1rem; }
+
 .breadcrumbs {
   margin: 0;
   padding: 0;
@@ -5495,5 +5533,8 @@ img.mfp-img {
 .about__image {
   max-width: 100%;
   height: auto; }
+
+.icon-cards__item {
+  margin-bottom: 2rem; }
 
 /*# sourceMappingURL=core.min.css.map */

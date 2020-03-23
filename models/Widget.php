@@ -69,7 +69,7 @@ class Widget extends Model
         return $this->typeObject->getHtml($componentProperties);
     }
 
-    public function getStyles() {
-        return $this->typeObject->getStyles();
+    public function getStyles($componentProperties) {
+        return $this->typeObject->getStyles($componentProperties);
     }
 }

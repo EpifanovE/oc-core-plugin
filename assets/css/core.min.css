@@ -4838,6 +4838,57 @@ readers do not read off random characters that represent icons */
   .icon-card_vertical .icon-card__icon-wrapper {
     margin-bottom: 1rem; }
 
+.top-button {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 32px;
+  background-color: rgba(45, 52, 54, 0.5);
+  font-size: 1rem;
+  color: #dfe6e9;
+  cursor: pointer;
+  position: fixed;
+  text-decoration: none;
+  -webkit-animation: top-button .3s;
+          animation: top-button .3s;
+  z-index: 99;
+  right: 50px;
+  bottom: 50px; }
+  .top-button_active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .top-button:focus {
+    outline: none; }
+  .top-button:hover {
+    background-color: rgba(45, 52, 54, 0.8); }
+
+@-webkit-keyframes top-button {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes top-button {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
 .breadcrumbs {
   margin: 0;
   padding: 0;

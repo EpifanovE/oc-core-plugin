@@ -1,0 +1,41 @@
+.top-button {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 32px;
+  background-color: rgba($black-color, .5);
+  font-size: 1rem;
+  color: $white-color;
+  cursor: pointer;
+  position: fixed;
+  text-decoration: none;
+  animation: top-button .3s;
+  z-index: 99;
+  right: 50px;
+  bottom: 50px;
+
+  &_active {
+    display: flex;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: rgba($black-color, .8);
+  }
+}
+
+@keyframes top-button {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

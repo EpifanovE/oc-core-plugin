@@ -1,0 +1,40 @@
+<section id="{{ data.widget.id }}" class="widget widget-gallery{{ classes }}" >
+    <div class="{{ componentProperties.container_width == 'full' ? 'container-fluid' : 'container' }} widget__body">
+        <header class="row widget__header">
+            <div class="col-12">
+                <{{ componentProperties.title_tag }} class="widget__title">
+                    {{ data.title }}
+                </{{ componentProperties.title_tag }}>
+                <div class=" widget__subtitle">{{ data.subtitle|raw }}</div>
+            </div>
+        </header>
+        <div class="row widget__content{{ data.rowColsClasses }}">
+            {% for element in data.elements %}
+                <div class="col{{ data.cardClasses }}">
+                    <a class="gallery-item widget-gallery__item popup-image-link" href="{{ element.image|media }}" >
+                        <div class="gallery-item__inside">
+                            <img src="{{ element.image|media }}" alt="" class="gallery-item__image">
+                        </div>
+                        <span class="gallery-item__overlay">
+                            <span class="fas fa-search-plus gallery-item__icon"></span>
+                        </span>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        {% if data.button_text %}
+        <footer class="widget__footer row">
+            <div class="col-12">
+                <a href="{{ data.button_link }}" class="widget__button button {{ data.button_class }}">
+                        <span class="button__text">
+                        {{ data.button_text }}
+                        </span>
+                </a>
+            </div>
+        </footer>
+        {% endif %}
+    </div>
+    {% if data.widget.overlay %}
+    <div class="widget__overlay"></div>
+    {% endif %}
+</section>

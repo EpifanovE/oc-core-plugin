@@ -63,7 +63,7 @@ class Gallery extends WidgetType
                 'prompt'   => Lang::get('eev.core::lang.add_element'),
                 'form'     => [
                     'fields' => [
-                        'image'      => [
+                        'image' => [
                             'label'      => Lang::get('eev.core::lang.image'),
                             'type'       => 'mediafinder',
                             'mode'       => 'image',
@@ -71,7 +71,7 @@ class Gallery extends WidgetType
                             'cssClass'   => 'col-sm-4',
                             'span'       => 'storm',
                         ],
-                        'title'      => [
+                        'title' => [
                             'label'    => Lang::get('eev.core::lang.title'),
                             'cssClass' => 'col-sm-8',
                             'span'     => 'storm',
@@ -81,5 +81,69 @@ class Gallery extends WidgetType
                 ],
             ],
         ];
+    }
+
+    public function getComponentProperties()
+    {
+        return [
+            'cols' => [
+                'title'             => 'eev.core::lang.cols_number',
+                'type'              => 'dropdown',
+                'group'             => 'eev.core::lang.elements',
+                'showExternalParam' => false,
+                'default'           => '2',
+                'options'           => [
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                ],
+            ],
+            'no_gutters' => [
+                'title'             => 'eev.core::lang.no_gutters',
+                'type'              => 'checkbox',
+                'group'             => 'eev.core::lang.elements',
+                'showExternalParam' => false,
+                'default'           => false,
+            ],
+        ];
+    }
+
+
+    protected function doTemplateData($componentProperties)
+    {
+        return [
+            'rowColsClasses' => ' ' . $this->rowClasses($componentProperties),
+            'cardClasses' => ' ' . $this->cardClasses($componentProperties),
+        ];
+    }
+
+    protected function rowClasses($componentProperties)
+    {
+        $classes = [
+            'row-cols-1',
+        ];
+
+        if ( ! empty($componentProperties['cols'])) {
+            $classes[] = 'row-cols-lg-' . $componentProperties['cols'];
+        } else {
+            $classes[] = 'row-cols-lg-3';
+        }
+
+        if (!empty($componentProperties['no_gutters'])) {
+            $classes[] = 'no-gutters';
+        }
+
+        return join(' ', $classes);
+    }
+
+    protected function cardClasses($componentProperties)
+    {
+        $classes = [];
+
+        if (empty($componentProperties['no_gutters'])) {
+            $classes[] = 'mb-4';
+        }
+
+        return join(' ', $classes);
     }
 }

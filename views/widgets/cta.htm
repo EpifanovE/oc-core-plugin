@@ -1,0 +1,24 @@
+<section id="{{ data.widget.id }}" class="widget widget-cta{{ classes }}">
+    <div class="{{ componentProperties.container_width == 'full' ? 'container-fluid' : 'container' }} widget__body">
+        <div class="row justify-content-center widget__content">
+            <div class="col-12">
+                <{{ componentProperties.title_tag }} class="widget-cta__title">
+                    {{ data.title }}
+                </{{ componentProperties.title_tag }}>
+            </div>
+            <div class="col-12 widget-cta__content">
+                {{ data.content|raw}}
+            </div>
+            <div class="col-12">
+                <a href="{{ data.button_link }}" class="widget-cta__button button {{ data.button_class }}">
+                <span class="button__text">
+                {{ data.button_text }}
+                </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% if data.widget.overlay %}
+    <div class="widget__overlay"></div>
+    {% endif %}
+</section>

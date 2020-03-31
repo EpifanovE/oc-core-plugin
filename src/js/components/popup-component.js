@@ -11,3 +11,13 @@ $('.popup-link').each(function () {
         mainClass: 'mfp-fade'
     });
 });
+
+$('.popup-image-link').magnificPopup({
+    type: 'image',
+    midClick: true,
+    removalDelay: 300,
+    mainClass: 'mfp-fade',
+    gallery:{
+        enabled:true
+    }
+});

@@ -114,6 +114,8 @@ gulp.task('js:core', function () {
         paths.src.js + 'core.js',
         paths.src.js + 'components/form-component.js',
         paths.src.js + 'components/popup-component.js',
+        paths.src.js + 'components/scroll.js',
+        paths.src.js + 'components/top-button.js',
     ])
         .pipe(gulpif(!prod, sourcemaps.init()))
         .pipe(babel())

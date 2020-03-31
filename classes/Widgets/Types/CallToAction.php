@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Lang;
 
 class CallToAction extends WidgetType
 {
-    protected $name = self::EDITOR;
+    protected $name = self::CTA;
 
     protected function getFields()
     {

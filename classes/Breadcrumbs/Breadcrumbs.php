@@ -31,7 +31,7 @@ class Breadcrumbs
 
         $this->runCurrentCallback();
 
-        return array_merge($result, $this->currentPath->getItems());
+        return array_merge($result, $this->currentPath->getItems() ?? []);
     }
 
     protected function getRootItem()
@@ -68,6 +68,6 @@ class Breadcrumbs
 
     protected function defaultCallback()
     {
-        $this->currentPath->addItem(Item::make($this->page->title));
+//        $this->currentPath->addItem(Item::make($this->page->title));
     }
 }

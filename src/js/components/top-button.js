@@ -6,11 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let element = document.getElementById(buttonId);
 
-    document.addEventListener('scroll', (event) => {
-        if (document.documentElement.scrollTop >= 300 && !isActive) {
-            element.classList.add(activeClass);
-        } else {
-            element.classList.remove(activeClass);
-        }
-    });
+    if (element) {
+        document.addEventListener('scroll', (event) => {
+            if (document.documentElement.scrollTop >= 300 && !isActive) {
+                element.classList.add(activeClass);
+            } else {
+                element.classList.remove(activeClass);
+            }
+        });
+    }
 });

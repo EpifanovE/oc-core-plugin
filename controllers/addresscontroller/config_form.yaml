@@ -1,15 +1,15 @@
-name: 'eev.core::lang.address'
-modelClass: EEV\Core\Models\Address
-form: $/eev/core/models/address/fields.yaml
-defaultRedirect: eev/core/addresscontroller
+name: 'digitfab.core::lang.address'
+modelClass: DigitFab\Core\Models\Address
+form: $/digitfab/core/models/address/fields.yaml
+defaultRedirect: digitfab/core/addresscontroller
 create:
-    title: 'eev.core::lang.creating'
-    redirect: 'eev/core/addresscontroller/update/:id'
-    redirectClose: eev/core/addresscontroller
-    flashSave: 'eev.core::lang.saved'
+    title: 'digitfab.core::lang.creating'
+    redirect: 'digitfab/core/addresscontroller/update/:id'
+    redirectClose: digitfab/core/addresscontroller
+    flashSave: 'digitfab.core::lang.saved'
 update:
-    title: 'eev.core::lang.editing'
-    redirect: eev/core/addresscontroller
-    redirectClose: eev/core/addresscontroller
-    flashSave: 'eev.core::lang.saved'
+    title: 'digitfab.core::lang.editing'
+    redirect: digitfab/core/addresscontroller
+    redirectClose: digitfab/core/addresscontroller
+    flashSave: 'digitfab.core::lang.saved'
 preview: {  }

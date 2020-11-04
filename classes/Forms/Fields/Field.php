@@ -1,8 +1,8 @@
 <?php
 
-namespace EEV\Core\Classes\Forms\Fields;
+namespace DigitFab\Core\Classes\Forms\Fields;
 
-use EEV\Core\Classes\Forms\Fields\Types\FieldType;
+use DigitFab\Core\Classes\Forms\Fields\Types\FieldType;
 
 class Field
 {

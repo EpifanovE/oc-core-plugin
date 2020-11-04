@@ -3,14 +3,14 @@ columns:
         label: ID
         type: text
     day_name:
-        label: 'eev.core::lang.day'
+        label: 'digitfab.core::lang.day'
         type: text
     time_from:
-        label: 'eev.core::lang.time_from'
+        label: 'digitfab.core::lang.time_from'
         type: text
     time_till:
-        label: 'eev.core::lang.time_till'
+        label: 'digitfab.core::lang.time_till'
         type: text
     around_the_clock:
-        label: 'eev.core::lang.around_the_clock'
+        label: 'digitfab.core::lang.around_the_clock'
         type: switch

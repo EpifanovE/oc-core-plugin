@@ -1,18 +1,18 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\ComponentBase;
-use EEV\Core\Classes\Company\SocialType;
-use EEV\Core\Models\Social;
+use DigitFab\Core\Classes\Company\SocialType;
+use DigitFab\Core\Models\Social;
 
 class Socials extends ComponentBase
 {
     public function componentDetails()
     {
         return [
-            'name'        => 'eev.core::lang.components.socials.name',
-            'description' => 'eev.core::lang.components.socials.desc'
+            'name'        => 'digitfab.core::lang.components.socials.name',
+            'description' => 'digitfab.core::lang.components.socials.desc'
         ];
     }
 
@@ -20,28 +20,28 @@ class Socials extends ComponentBase
     {
         return [
             'show_icons'  => [
-                'title'             => 'eev.core::lang.show_icons',
+                'title'             => 'digitfab.core::lang.show_icons',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'show_labels' => [
-                'title'             => 'eev.core::lang.show_labels',
+                'title'             => 'digitfab.core::lang.show_labels',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'adv_class'      => [
-                'title'             => 'eev.core::lang.adv_class',
+                'title'             => 'digitfab.core::lang.adv_class',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
         ];
     }

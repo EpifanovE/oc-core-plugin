@@ -4,15 +4,15 @@ columns:
         type: number
         sortable: true
     name:
-        label: 'eev.core::lang.name'
+        label: 'digitfab.core::lang.name'
         type: text
         searchable: true
         sortable: true
     type_label:
-        label: 'eev.core::lang.type'
+        label: 'digitfab.core::lang.type'
         type: text
         searchable: false
         sortable: false
     is_active:
-        label: 'eev.core::lang.is_active'
+        label: 'digitfab.core::lang.is_active'
         type: switch

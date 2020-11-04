@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Widgets\Types;
+namespace DigitFab\Core\Classes\Widgets\Types;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
@@ -13,20 +13,20 @@ class Hero extends WidgetType
     {
         return [
             'slides' => [
-                'label' => Lang::get('eev.core::lang.slides'),
+                'label' => Lang::get('digitfab.core::lang.slides'),
                 'type' => 'repeater',
-                'prompt' => Lang::get('eev.core::lang.add_slide'),
-                'tab'   => Lang::get('eev.core::lang.data'),
+                'prompt' => Lang::get('digitfab.core::lang.add_slide'),
+                'tab'   => Lang::get('digitfab.core::lang.data'),
                 'form' => [
                     'fields' => [
                         'title'            => [
-                            'label' => Lang::get('eev.core::lang.title'),
+                            'label' => Lang::get('digitfab.core::lang.title'),
                             'span'  => 'storm',
                             'cssClass' => 'col-sm-12',
                             'type'  => 'text',
                         ],
                         'background_image' => [
-                            'label'      => Lang::get('eev.core::lang.bg_image'),
+                            'label'      => Lang::get('digitfab.core::lang.bg_image'),
                             'type'       => 'mediafinder',
                             'mode'       => 'image',
                             'imageWidth' => 300,
@@ -34,26 +34,26 @@ class Hero extends WidgetType
                             'cssClass' => 'col-sm-4',
                         ],
                         'text'             => [
-                            'label'          => Lang::get('eev.core::lang.text'),
+                            'label'          => Lang::get('digitfab.core::lang.text'),
                             'span'           => 'storm',
                             'cssClass' => 'col-sm-8',
                             'type'           => 'richeditor',
                             'toolbarButtons' => 'bold|italic|underline|color',
                         ],
                         'button_text'      => [
-                            'label' => Lang::get('eev.core::lang.button_text'),
+                            'label' => Lang::get('digitfab.core::lang.button_text'),
                             'cssClass' => 'col-xs-4',
                             'span'  => 'storm',
                             'type'  => 'text',
                         ],
                         'button_link'      => [
-                            'label' => Lang::get('eev.core::lang.button_link'),
+                            'label' => Lang::get('digitfab.core::lang.button_link'),
                             'cssClass' => 'col-sm-4',
                             'span'  => 'storm',
                             'type'  => 'text',
                         ],
                         'button_class'      => [
-                            'label' => Lang::get('eev.core::lang.button_class'),
+                            'label' => Lang::get('digitfab.core::lang.button_class'),
                             'cssClass' => 'col-sm-4',
                             'span'  => 'storm',
                             'type'  => 'text',

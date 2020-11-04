@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\InlineStyles;
+namespace DigitFab\Core\Classes\InlineStyles;
 
 use Illuminate\Support\Facades\Event;
 
@@ -12,7 +12,7 @@ class Styles
     {
         $styles = [];
 
-        $styles = $this->getArray(Event::fire('eev.core.inlineStyles', [$styles]));
+        $styles = $this->getArray(Event::fire('digitfab.core.inlineStyles', [$styles]));
 
         $this->styles = $styles;
     }

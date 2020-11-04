@@ -1,11 +1,11 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
-use EEV\Core\Classes\Company\ContactType;
-use EEV\Core\Models\Contact as ContactEntity;
+use DigitFab\Core\Classes\Company\ContactType;
+use DigitFab\Core\Models\Contact as ContactEntity;
 
 class Contact extends ComponentBase
 {
@@ -23,8 +23,8 @@ class Contact extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'eev.core::lang.components.contact.name',
-            'description' => 'eev.core::lang.components.contact.desc'
+            'name'        => 'digitfab.core::lang.components.contact.name',
+            'description' => 'digitfab.core::lang.components.contact.desc'
         ];
     }
 
@@ -32,63 +32,84 @@ class Contact extends ComponentBase
     {
         return [
             'contact' => [
-                'title' => 'eev.core::lang.contact',
+                'title' => 'digitfab.core::lang.contact',
                 'description' => '',
                 'default' => 'none',
                 'type' => 'dropdown',
                 'showExternalParam' => false,
             ],
             'title' => [
-                'title' => 'eev.core::lang.title',
+                'title' => 'digitfab.core::lang.title',
                 'description' => '',
                 'default' => '',
                 'type' => 'string',
                 'showExternalParam' => false,
             ],
-            'show_title' => [
-                'title' => 'eev.core::lang.show_title',
+            'hide_title' => [
+                'title' => 'digitfab.core::lang.hide_title',
                 'description' => '',
                 'default' => false,
                 'type' => 'checkbox',
                 'showExternalParam' => false,
             ],
             'text' => [
-                'title' => 'eev.core::lang.text',
+                'title' => 'digitfab.core::lang.text',
                 'description' => '',
                 'default' => '',
                 'type' => 'string',
+                'showExternalParam' => false,
+            ],
+            'contact_as_title' => [
+                'title' => 'digitfab.core::lang.contact_as_title',
+                'description' => '',
+                'default' => '',
+                'type' => 'checkbox',
                 'showExternalParam' => false,
             ],
             'link' => [
-                'title' => 'eev.core::lang.link',
+                'title' => 'digitfab.core::lang.link',
                 'description' => '',
                 'default' => '',
                 'type' => 'string',
                 'showExternalParam' => false,
             ],
+            'title_as_link' => [
+                'title' => 'digitfab.core::lang.title_as_link',
+                'description' => '',
+                'default' => '',
+                'type' => 'checkbox',
+                'showExternalParam' => false,
+            ],
+            'text_as_link' => [
+                'title' => 'digitfab.core::lang.text_as_link',
+                'description' => '',
+                'default' => '',
+                'type' => 'checkbox',
+                'showExternalParam' => false,
+            ],
             'type' => [
-                'title' => 'eev.core::lang.type',
+                'title' => 'digitfab.core::lang.type',
                 'description' => '',
                 'default' => 'none',
                 'type' => 'dropdown',
                 'showExternalParam' => false,
             ],
             'icon_class' => [
-                'title' => 'eev.core::lang.icon_css_class',
+                'title' => 'digitfab.core::lang.icon_css_class',
                 'description' => '',
                 'default' => '',
                 'type' => 'string',
                 'showExternalParam' => false,
             ],
             'microdata' => [
-                'title' => 'eev.core::lang.microdata',
+                'title' => 'digitfab.core::lang.microdata',
                 'description' => '',
                 'default' => '',
                 'type' => 'checkbox',
                 'showExternalParam' => false,
             ],
             'adv_class'      => [
-                'title'             => 'eev.core::lang.adv_class',
+                'title'             => 'digitfab.core::lang.adv_class',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
@@ -105,7 +126,7 @@ class Contact extends ComponentBase
     public function getContactOptions()
     {
         $result = [
-            'none' => 'eev.core::lang.not_defined'
+            'none' => 'digitfab.core::lang.not_defined'
         ];
         $result = $result + ContactEntity::all()->lists('title', 'id');
         return $result;
@@ -199,6 +220,13 @@ class Contact extends ComponentBase
             return $this->property('title');
         }
 
+        if ($this->property('contact_as_title')
+            && $this->contact
+            && !empty($this->contact->text)
+        ) {
+            return $this->contact->text;
+        }
+
         if ($this->contact && !empty($this->contact->title)) {
             return $this->contact->title;
         }
@@ -210,6 +238,13 @@ class Contact extends ComponentBase
     {
         if (!empty($this->property('text'))) {
             return $this->property('text');
+        }
+
+        if ($this->property('contact_as_title')
+            && $this->contact
+            && !empty($this->contact->title)
+        ) {
+            return $this->contact->title;
         }
 
         if ($this->contact && !empty($this->contact->text)) {

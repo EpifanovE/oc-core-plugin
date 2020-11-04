@@ -1,61 +1,61 @@
 plugin:
-    name: 'eev.core::lang.plugin.name'
-    description: 'eev.core::lang.plugin.description'
+    name: 'digitfab.core::lang.plugin.name'
+    description: 'digitfab.core::lang.plugin.description'
     author: 'Evgeny Epifanov'
     icon: icon-cog
     homepage: 'https://eecode.ru'
 permissions:
-    eev.core.settings:
-        tab: 'eev.core::lang.company'
-        label: 'eev.core::lang.settings'
-    eev.core.contacts:
-        tab: 'eev.core::lang.company'
-        label: 'eev.core::lang.contacts'
-    eev.core.addresses:
-        tab: 'eev.core::lang.company'
-        label: 'eev.core::lang.addresses'
-    eev.core.socials:
-        tab: 'eev.core::lang.company'
-        label: 'eev.core::lang.social_networks'
-    eev.core.opening_hours:
-        tab: 'eev.core::lang.company'
-        label: 'eev.core::lang.opening_hours'
-    eev.core.manage-widgets:
-        tab: 'eev.core::lang.widgets'
-        label: 'eev.core::lang.manage-widgets'
+    digitfab.core.settings:
+        tab: 'digitfab.core::lang.company'
+        label: 'digitfab.core::lang.settings'
+    digitfab.core.contacts:
+        tab: 'digitfab.core::lang.company'
+        label: 'digitfab.core::lang.contacts'
+    digitfab.core.addresses:
+        tab: 'digitfab.core::lang.company'
+        label: 'digitfab.core::lang.addresses'
+    digitfab.core.socials:
+        tab: 'digitfab.core::lang.company'
+        label: 'digitfab.core::lang.social_networks'
+    digitfab.core.opening_hours:
+        tab: 'digitfab.core::lang.company'
+        label: 'digitfab.core::lang.opening_hours'
+    digitfab.core.manage-widgets:
+        tab: 'digitfab.core::lang.widgets'
+        label: 'digitfab.core::lang.manage-widgets'
 navigation:
     company:
-        label: 'eev.core::lang.company'
-        url: eev/core/contactcontroller
+        label: 'digitfab.core::lang.company'
+        url: digitfab/core/contactcontroller
         icon: icon-edit
         sideMenu:
             contacts:
-                label: 'eev.core::lang.contacts'
-                url: eev/core/contactcontroller
+                label: 'digitfab.core::lang.contacts'
+                url: digitfab/core/contactcontroller
                 icon: icon-book
                 permissions:
-                    - eev.core.contacts
+                    - digitfab.core.contacts
             addresses:
-                label: 'eev.core::lang.addresses'
-                url: eev/core/addresscontroller
+                label: 'digitfab.core::lang.addresses'
+                url: digitfab/core/addresscontroller
                 icon: icon-map-marker
                 permissions:
-                    - eev.core.addresses
+                    - digitfab.core.addresses
             socials:
-                label: 'eev.core::lang.social_networks'
-                url: eev/core/socialcontroller
+                label: 'digitfab.core::lang.social_networks'
+                url: digitfab/core/socialcontroller
                 icon: icon-users
                 permissions:
-                    - eev.core.socials
+                    - digitfab.core.socials
             opening-hours:
-                label: 'eev.core::lang.opening_hours'
-                url: eev/core/workingperiodcontroller
+                label: 'digitfab.core::lang.opening_hours'
+                url: digitfab/core/workingperiodcontroller
                 icon: icon-clock-o
                 permissions:
-                    - eev.core.opening_hours
+                    - digitfab.core.opening_hours
     widgets:
-        label: 'eev.core::lang.widgets'
-        url: eev/core/widgetcontroller
+        label: 'digitfab.core::lang.widgets'
+        url: digitfab/core/widgetcontroller
         icon: icon-bars
         permissions:
-            - eev.core.manage-widgets
+            - digitfab.core.manage-widgets

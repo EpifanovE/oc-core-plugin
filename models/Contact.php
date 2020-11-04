@@ -1,8 +1,8 @@
 <?php
 
-namespace EEV\Core\Models;
+namespace DigitFab\Core\Models;
 
-use EEV\Core\Classes\Company\ContactType;
+use DigitFab\Core\Classes\Company\ContactType;
 use Model;
 
 /**
@@ -14,7 +14,7 @@ class Contact extends Model
 
     public $timestamps = false;
 
-    public $table = 'eev_core_contacts';
+    public $table = 'digitfab_core_contacts';
 
     public $rules = [
     ];

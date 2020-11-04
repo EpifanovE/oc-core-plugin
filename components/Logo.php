@@ -1,17 +1,17 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\ComponentBase;
-use EEV\Core\Models\Settings;
+use DigitFab\Core\Models\Settings;
 
 class Logo extends ComponentBase
 {
     public function componentDetails()
     {
         return [
-            'name'        => 'eev.core::lang.components.logo.name',
-            'description' => 'eev.core::lang.components.logo.desc'
+            'name'        => 'digitfab.core::lang.components.logo.name',
+            'description' => 'digitfab.core::lang.components.logo.desc'
         ];
     }
 
@@ -19,92 +19,92 @@ class Logo extends ComponentBase
     {
         return [
             'show_image'      => [
-                'title'             => 'eev.core::lang.show_image',
+                'title'             => 'digitfab.core::lang.show_image',
                 'description'       => '',
                 'default'           => true,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'image_width'     => [
-                'title'             => 'eev.core::lang.image_width',
+                'title'             => 'digitfab.core::lang.image_width',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'show_title'      => [
-                'title'             => 'eev.core::lang.show_title',
+                'title'             => 'digitfab.core::lang.show_title',
                 'description'       => '',
                 'default'           => true,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'show_desc'       => [
-                'title'             => 'eev.core::lang.show_desc',
+                'title'             => 'digitfab.core::lang.show_desc',
                 'description'       => '',
                 'default'           => true,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'h1_on_home_page' => [
-                'title'             => 'eev.core::lang.h1_on_home_page',
+                'title'             => 'digitfab.core::lang.h1_on_home_page',
                 'description'       => '',
                 'default'           => true,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'link_to_home_page' => [
-                'title'             => 'eev.core::lang.link_to_home_page',
+                'title'             => 'digitfab.core::lang.link_to_home_page',
                 'description'       => '',
                 'default'           => true,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'image_microdata' => [
-                'title'             => 'eev.core::lang.image_microdata',
+                'title'             => 'digitfab.core::lang.image_microdata',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'name_microdata'  => [
-                'title'             => 'eev.core::lang.name_microdata',
+                'title'             => 'digitfab.core::lang.name_microdata',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'adv_class'      => [
-                'title'             => 'eev.core::lang.adv_class',
+                'title'             => 'digitfab.core::lang.adv_class',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'title'           => [
-                'title'             => 'eev.core::lang.title',
+                'title'             => 'digitfab.core::lang.title',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
             'description'     => [
-                'title'             => 'eev.core::lang.description',
+                'title'             => 'digitfab.core::lang.description',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
         ];
     }
@@ -148,7 +148,7 @@ class Logo extends ComponentBase
     public function classes()
     {
         $classes = [
-            'logo',
+            'Logo',
         ];
 
         return join(' ', $classes) . (( ! empty($this->property('adv_class')))
@@ -208,7 +208,7 @@ class Logo extends ComponentBase
             return 'h1';
         }
 
-        return 'div';
+        return 'span';
     }
 
     public function imageMicrodata()

@@ -1,8 +1,8 @@
 <?php
 
-namespace EEV\Core\Models;
+namespace DigitFab\Core\Models;
 
-use EEV\Core\Classes\Widgets\Types\WidgetType;
+use DigitFab\Core\Classes\Widgets\Types\WidgetType;
 use Model;
 use October\Rain\Database\Traits\Sortable;
 use October\Rain\Database\Traits\Validation;
@@ -11,7 +11,7 @@ class Widget extends Model
 {
     use Validation;
 
-    public $table = 'eev_core_widgets';
+    public $table = 'digitfab_core_widgets';
 
     public $rules = [
     ];

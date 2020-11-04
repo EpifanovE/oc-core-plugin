@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Company;
+namespace DigitFab\Core\Classes\Company;
 
 class SocialType
 {
@@ -26,34 +26,34 @@ class SocialType
     public static function all() {
         return [
             self::NONE => [
-                'label' => 'eev.core::lang.none',
+                'label' => 'digitfab.core::lang.none',
             ],
             self::VK => [
-                'label' => 'eev.core::lang.socials.vk',
+                'label' => 'digitfab.core::lang.socials.vk',
                 'icon-class' => 'fab fa-vk',
             ],
             self::OK => [
-                'label' => 'eev.core::lang.socials.ok',
+                'label' => 'digitfab.core::lang.socials.ok',
                 'icon-class' => 'fab fa-odnoklassniki',
             ],
             self::FACEBOOK => [
-                'label' => 'eev.core::lang.socials.facebook',
+                'label' => 'digitfab.core::lang.socials.facebook',
                 'icon-class' => 'fab fa-facebook',
             ],
             self::INSTAGRAM => [
-                'label' => 'eev.core::lang.socials.instagram',
+                'label' => 'digitfab.core::lang.socials.instagram',
                 'icon-class' => 'fab fa-instagram',
             ],
             self::PINTEREST => [
-                'label' => 'eev.core::lang.socials.pinterest',
+                'label' => 'digitfab.core::lang.socials.pinterest',
                 'icon-class' => 'fab fa-pinterest',
             ],
             self::TWITTER => [
-                'label' => 'eev.core::lang.socials.twitter',
+                'label' => 'digitfab.core::lang.socials.twitter',
                 'icon-class' => 'fab fa-twitter',
             ],
             self::YOUTUBE => [
-                'label' => 'eev.core::lang.socials.youtube',
+                'label' => 'digitfab.core::lang.socials.youtube',
                 'icon-class' => 'fab fa-youtube',
             ],
         ];

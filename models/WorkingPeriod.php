@@ -1,7 +1,7 @@
-<?php namespace EEV\Core\Models;
+<?php namespace DigitFab\Core\Models;
 
 use Carbon\Carbon;
-use EEV\Core\Classes\Company\WorkingPeriodData;
+use DigitFab\Core\Classes\Company\WorkingPeriodData;
 use Model;
 use October\Rain\Database\Traits\Sortable;
 
@@ -14,7 +14,7 @@ class WorkingPeriod extends Model
 
     public $timestamps = false;
 
-    public $table = 'eev_core_working_periods';
+    public $table = 'digitfab_core_working_periods';
 
     public $rules = [
     ];

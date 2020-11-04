@@ -1,5 +1,5 @@
-title: 'eev.core::lang.sorting'
-modelClass: EEV\Core\Models\WorkingPeriod
+title: 'digitfab.core::lang.sorting'
+modelClass: DigitFab\Core\Models\WorkingPeriod
 nameFrom: name
 toolbar:
     buttons: reorder_toolbar

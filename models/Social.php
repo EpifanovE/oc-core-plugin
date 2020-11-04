@@ -1,8 +1,8 @@
 <?php
 
-namespace EEV\Core\Models;
+namespace DigitFab\Core\Models;
 
-use EEV\Core\Classes\Company\SocialType;
+use DigitFab\Core\Classes\Company\SocialType;
 use Model;
 use October\Rain\Database\Traits\Sortable;
 
@@ -15,7 +15,7 @@ class Social extends Model
 
     public $timestamps = false;
 
-    public $table = 'eev_core_socials';
+    public $table = 'digitfab_core_socials';
 
     public $rules = [
     ];

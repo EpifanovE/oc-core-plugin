@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Forms\Handlers;
+namespace DigitFab\Core\Classes\Forms\Handlers;
 
 class Model implements FormHandler
 {

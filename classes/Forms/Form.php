@@ -1,9 +1,9 @@
 <?php
 
-namespace EEV\Core\Classes\Forms;
+namespace DigitFab\Core\Classes\Forms;
 
-use EEV\Core\Classes\Forms\Fields\Field;
-use EEV\Core\Classes\Forms\Handlers\FormHandler;
+use DigitFab\Core\Classes\Forms\Fields\Field;
+use DigitFab\Core\Classes\Forms\Handlers\FormHandler;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Lang;
@@ -46,7 +46,7 @@ class Form
 
     public static function getFormsList()
     {
-        $formsArray = Config::get('eev.core::forms');
+        $formsArray = Config::get('digitfab.core::forms');
 
         if (empty($formsArray)) {
             return [];
@@ -71,7 +71,7 @@ class Form
      */
     public static function get($name)
     {
-        $formsArray = Config::get('eev.core::forms');
+        $formsArray = Config::get('digitfab.core::forms');
 
         if (empty($formsArray)) {
             return null;
@@ -135,7 +135,7 @@ class Form
     public function handle($data)
     {
 
-        Event::fire('eev.core.beforeHandle', [$data]);
+        Event::fire('digitfab.core.beforeHandle', [$data]);
 
         if (empty($this->handlers)) {
             return;
@@ -145,7 +145,7 @@ class Form
             $handler->handle($data);
         }
 
-        Event::fire('eev.core.afterHandle', [$data]);
+        Event::fire('digitfab.core.afterHandle', [$data]);
     }
 
     public function getRules()
@@ -184,7 +184,7 @@ class Form
             return $this->successMessage;
         }
 
-        return Lang::get('eev.core::lang.messages.success');
+        return Lang::get('digitfab.core::lang.messages.success');
     }
 
     public function setErrorMessage($message)
@@ -204,7 +204,7 @@ class Form
             return $this->errorMessage;
         }
 
-        return Lang::get('eev.core::lang.messages.error');
+        return Lang::get('digitfab.core::lang.messages.error');
     }
 
     public function setAttributeNames($names)

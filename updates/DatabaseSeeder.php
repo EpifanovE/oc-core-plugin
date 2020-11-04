@@ -1,16 +1,16 @@
 <?php
 
-namespace EEV\Core\Updates;
+namespace DigitFab\Core\Updates;
 
-use EEV\Core\Classes\Company\ContactType;
-use EEV\Core\Classes\Company\SocialType;
-use EEV\Core\Classes\Company\WorkingPeriodData;
-use EEV\Core\Classes\Widgets\Types\WidgetType;
-use EEV\Core\Models\Address;
-use EEV\Core\Models\Contact;
-use EEV\Core\Models\Social;
-use EEV\Core\Models\Widget;
-use EEV\Core\Models\WorkingPeriod;
+use DigitFab\Core\Classes\Company\ContactType;
+use DigitFab\Core\Classes\Company\SocialType;
+use DigitFab\Core\Classes\Company\WorkingPeriodData;
+use DigitFab\Core\Classes\Widgets\Types\WidgetType;
+use DigitFab\Core\Models\Address;
+use DigitFab\Core\Models\Contact;
+use DigitFab\Core\Models\Social;
+use DigitFab\Core\Models\Widget;
+use DigitFab\Core\Models\WorkingPeriod;
 use October\Rain\Database\Updates\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -156,7 +156,7 @@ class DatabaseSeeder extends Seeder
 
         \DB::table('system_settings')->insert([
             [
-                'item' => 'eev_core_settings',
+                'item' => 'digitfab_core_settings',
                 'value' => json_encode([
                     'name' => 'ООО "Сантехремстроймонтаж"',
                     'short_desc' => 'Отделка помещений под ключ',

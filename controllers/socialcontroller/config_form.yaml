@@ -1,14 +1,14 @@
-name: 'eev.core::lang.social_network'
-form: $/eev/core/models/social/fields.yaml
-modelClass: EEV\Core\Models\Social
-defaultRedirect: eev/core/socialcontroller
+name: 'digitfab.core::lang.social_network'
+form: $/digitfab/core/models/social/fields.yaml
+modelClass: DigitFab\Core\Models\Social
+defaultRedirect: digitfab/core/socialcontroller
 create:
-    title: 'eev.core::lang.creating'
-    redirect: 'eev/core/socialcontroller/update/:id'
-    redirectClose: eev/core/socialcontroller
-    flashSave: 'eev.core::lang.saved'
+    title: 'digitfab.core::lang.creating'
+    redirect: 'digitfab/core/socialcontroller/update/:id'
+    redirectClose: digitfab/core/socialcontroller
+    flashSave: 'digitfab.core::lang.saved'
 update:
-    title: 'eev.core::lang.editing'
-    redirect: eev/core/socialcontroller
-    redirectClose: eev/core/socialcontroller
-    flashSave: 'eev.core::lang.saved'
+    title: 'digitfab.core::lang.editing'
+    redirect: digitfab/core/socialcontroller
+    redirectClose: digitfab/core/socialcontroller
+    flashSave: 'digitfab.core::lang.saved'

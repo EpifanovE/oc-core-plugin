@@ -1,18 +1,18 @@
 fields:
     title:
-        label: 'eev.core::lang.title'
+        label: 'digitfab.core::lang.title'
         span: full
         type: text
     type:
-        label: 'eev.core::lang.type'
+        label: 'digitfab.core::lang.type'
         showSearch: true
         span: full
         type: dropdown
     text:
-        label: 'eev.core::lang.text'
+        label: 'digitfab.core::lang.text'
         span: full
         type: text
     link:
-        label: 'eev.core::lang.link'
+        label: 'digitfab.core::lang.link'
         span: full
         type: text

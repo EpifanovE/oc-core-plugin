@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Widgets\Types;
+namespace DigitFab\Core\Classes\Widgets\Types;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
@@ -36,34 +36,34 @@ abstract class WidgetType
     {
         $types = [
             self::HERO => [
-                'name' => Lang::get('eev.core::lang.widgets_types.hero.name'),
+                'name' => Lang::get('digitfab.core::lang.widgets_types.hero.name'),
                 'class' => Hero::class,
             ],
             self::ABOUT => [
-                'name' => Lang::get('eev.core::lang.widgets_types.about.name'),
+                'name' => Lang::get('digitfab.core::lang.widgets_types.about.name'),
                 'class' => About::class,
             ],
             self::ICONCARD => [
-                'name' => Lang::get('eev.core::lang.widgets_types.iconscard.name'),
+                'name' => Lang::get('digitfab.core::lang.widgets_types.iconscard.name'),
                 'class' => IconCard::class,
             ],
             self::EDITOR => [
-                'name' => Lang::get('eev.core::lang.widgets_types.editor.name'),
+                'name' => Lang::get('digitfab.core::lang.widgets_types.editor.name'),
                 'class' => Editor::class,
             ],
             self::CTA => [
-                'name' => Lang::get('eev.core::lang.widgets_types.cta.name'),
+                'name' => Lang::get('digitfab.core::lang.widgets_types.cta.name'),
                 'class' => CallToAction::class,
             ],
             self::GALLERY => [
-                'name' => Lang::get('eev.core::lang.widgets_types.gallery.name'),
+                'name' => Lang::get('digitfab.core::lang.widgets_types.gallery.name'),
                 'class' => Gallery::class,
             ],
         ];
 
         $newTypes = [];
 
-        $newTypes = Event::fire('eev.core.widgets', [$newTypes]);
+        $newTypes = Event::fire('digitfab.core.widgets', [$newTypes]);
 
         return array_merge($types, self::getTypesArray($newTypes));
     }
@@ -158,7 +158,7 @@ abstract class WidgetType
 
     protected function getPluginViewsNamespace()
     {
-        return 'eev.core';
+        return 'digitfab.core';
     }
 
     public function getDataFields()

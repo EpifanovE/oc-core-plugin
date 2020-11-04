@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Config;
 class Breadcrumbs extends ComponentBase
 {
     /**
-     * @var \EEV\Core\Classes\Breadcrumbs\Breadcrumbs
+     * @var \DigitFab\Core\Classes\Breadcrumbs\Breadcrumbs
      */
     protected $breadcrumbsManager;
 
@@ -21,8 +21,8 @@ class Breadcrumbs extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name' => 'eev.core::lang.components.breadcrumbs.name',
-            'description' => 'eev.core::lang.components.breadcrumbs.desc'
+            'name' => 'digitfab.core::lang.components.breadcrumbs.name',
+            'description' => 'digitfab.core::lang.components.breadcrumbs.desc'
         ];
     }
 
@@ -30,12 +30,12 @@ class Breadcrumbs extends ComponentBase
     {
         return [
             'adv_class' => [
-                'title' => 'eev.core::lang.adv_class',
+                'title' => 'digitfab.core::lang.adv_class',
                 'description' => '',
                 'default' => '',
                 'type' => 'string',
                 'showExternalParam' => false,
-                'group' => 'eev.core::lang.params',
+                'group' => 'digitfab.core::lang.params',
             ],
         ];
     }
@@ -62,9 +62,9 @@ class Breadcrumbs extends ComponentBase
 
     public function onRun()
     {
-        $config['paths'] = Config::get('eev.core::breadcrumbs.paths');
-        $config['params'] = Config::get('eev.core::breadcrumbs.params');
-        $this->breadcrumbsManager = new \EEV\Core\Classes\Breadcrumbs\Breadcrumbs($config, $this->page);
+        $config['paths'] = Config::get('digitfab.core::breadcrumbs.paths');
+        $config['params'] = Config::get('digitfab.core::breadcrumbs.params');
+        $this->breadcrumbsManager = new \DigitFab\Core\Classes\Breadcrumbs\Breadcrumbs($config, $this->page);
     }
 
 }

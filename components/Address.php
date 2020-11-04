@@ -1,15 +1,18 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
-use EEV\Core\Models\Address as AddressEntity;
+use DigitFab\Core\Models\Address as AddressEntity;
+use Lang;
 
 class Address extends ComponentBase
 {
 
     protected $address = null;
+
+    protected $translates = [];
 
     public function __construct(CodeBase $cmsObject = null, $properties = [])
     {
@@ -23,8 +26,8 @@ class Address extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'eev.core::lang.components.address.name',
-            'description' => 'eev.core::lang.components.address.desc'
+            'name'        => 'digitfab.core::lang.components.address.name',
+            'description' => 'digitfab.core::lang.components.address.desc'
         ];
     }
 
@@ -32,23 +35,23 @@ class Address extends ComponentBase
     {
         return [
             'address'        => [
-                'title'             => 'eev.core::lang.address',
+                'title'             => 'digitfab.core::lang.address',
                 'description'       => '',
                 'default'           => 'none',
                 'type'              => 'dropdown',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'show_title'     => [
-                'title'             => 'eev.core::lang.show_title',
+                'title'             => 'digitfab.core::lang.show_title',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'title_tag'      => [
-                'title'             => 'eev.core::lang.title_tag',
+                'title'             => 'digitfab.core::lang.title_tag',
                 'description'       => '',
                 'type'              => 'dropdown',
                 'showExternalParam' => false,
@@ -63,111 +66,111 @@ class Address extends ComponentBase
                     'h5'   => 'h5',
                     'h6'   => 'h6',
                 ],
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'show_labels'    => [
-                'title'             => 'eev.core::lang.show_labels',
+                'title'             => 'digitfab.core::lang.show_labels',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'show_as_list'   => [
-                'title'             => 'eev.core::lang.show_as_list',
+                'title'             => 'digitfab.core::lang.show_as_list',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'show_icon'      => [
-                'title'             => 'eev.core::lang.show_icon',
+                'title'             => 'digitfab.core::lang.show_icon',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'microdata'      => [
-                'title'             => 'eev.core::lang.microdata',
+                'title'             => 'digitfab.core::lang.microdata',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'adv_class'      => [
-                'title'             => 'eev.core::lang.adv_class',
+                'title'             => 'digitfab.core::lang.adv_class',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'name'           => [
-                'title'             => 'eev.core::lang.name',
+                'title'             => 'digitfab.core::lang.name',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
             'country'        => [
-                'title'             => 'eev.core::lang.country',
+                'title'             => 'digitfab.core::lang.country',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
             'region'         => [
-                'title'             => 'eev.core::lang.region',
+                'title'             => 'digitfab.core::lang.region',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
             'locality'       => [
-                'title'             => 'eev.core::lang.locality',
+                'title'             => 'digitfab.core::lang.locality',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
             'street_address' => [
-                'title'             => 'eev.core::lang.street_address',
+                'title'             => 'digitfab.core::lang.street_address',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
             'postal_code'    => [
-                'title'             => 'eev.core::lang.postal_code',
+                'title'             => 'digitfab.core::lang.postal_code',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
             'latitude'       => [
-                'title'             => 'eev.core::lang.latitude',
+                'title'             => 'digitfab.core::lang.latitude',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
             'longitude'      => [
-                'title'             => 'eev.core::lang.longitude',
+                'title'             => 'digitfab.core::lang.longitude',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.content',
+                'group'             => 'digitfab.core::lang.content',
             ],
         ];
     }
@@ -175,7 +178,7 @@ class Address extends ComponentBase
     public function getAddressOptions()
     {
         $result = [
-            'none' => 'eev.core::lang.not_defined'
+            'none' => 'digitfab.core::lang.not_defined'
         ];
         $result = $result + AddressEntity::all()->lists('name', 'id');
 
@@ -194,12 +197,12 @@ class Address extends ComponentBase
     public function classes()
     {
         $classes = [
-            'address',
+            'IconBox',
         ];
 
-        if (!$this->property('show_as_list')) {
-            $classes[] = 'address_inline';
-        }
+//        if (!$this->property('show_as_list')) {
+//            $classes[] = 'address_inline';
+//        }
 
         return join(' ', $classes) . (( ! empty($this->property('adv_class')))
             ? ' ' . $this->property('adv_class')
@@ -209,10 +212,10 @@ class Address extends ComponentBase
     public function getContent()
     {
         $fields = [
+            'postal_code',
             'country',
             'region',
             'locality',
-            'postal_code',
             'street_address',
         ];
 
@@ -228,29 +231,25 @@ class Address extends ComponentBase
             ', '
         );
 
-        if ($this->property('show_as_list')) {
-            $content = "<ul class='address__list'>" . $content . "</ul>";
-        }
+        $tag = ($this->property('show_as_list')) ? 'ul' : 'span';
+        $content = "<{$tag} class='Address IconBox__Address'>" . $content . "</{$tag}>";
 
         return $content;
     }
 
     public function getItem($field)
     {
-        if ( ! empty($this->getProp($field))) {
-            $tag = ($this->property('show_as_list')) ? 'li' : 'span';
+        return $this->renderPartial('@item.htm', [
+            'name' => $field,
+            'tag' => ($this->property('show_as_list')) ? 'li' : 'span',
+            'show_label' => !!$this->property('show_labels'),
+            'content' => $this->getProp($field),
+            'schema' => $this->getSchemaItemProp($field),
+        ]);
+    }
 
-            $string = "<{$tag} class='address__item'>";
-
-            if ($this->property('show_labels')) {
-                $label  = trans('eev.core::lang.' . $field);
-                $string .= "<span class='address__label'>{$label}</span>";
-            }
-
-            $string .= "<span class='address__value'{$this->getSchemaItemProp($field)}>{$this->getProp($field)}</span>";
-
-            return $string . "</{$tag}>";
-        }
+    public function getLabel($name) {
+        return Lang::get('digitfab.core::lang.' . $name);
     }
 
     public function itemsFilter($item)

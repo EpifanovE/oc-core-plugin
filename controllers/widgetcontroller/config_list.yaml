@@ -1,7 +1,7 @@
-title: 'eev.core::lang.widgets'
-modelClass: EEV\Core\Models\Widget
-list: $/eev/core/models/widget/columns.yaml
-recordUrl: 'eev/core/widgetcontroller/update/:id'
+title: 'digitfab.core::lang.widgets'
+modelClass: DigitFab\Core\Models\Widget
+list: $/digitfab/core/models/widget/columns.yaml
+recordUrl: 'digitfab/core/widgetcontroller/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 recordsPerPage: 20
 showSetup: true

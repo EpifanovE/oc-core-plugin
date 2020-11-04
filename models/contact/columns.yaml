@@ -3,20 +3,20 @@ columns:
         label: id
         type: number
     title:
-        label: 'eev.core::lang.title'
+        label: 'digitfab.core::lang.title'
         type: text
         searchable: true
         sortable: true
     type_name:
-        label: 'eev.core::lang.type'
+        label: 'digitfab.core::lang.type'
         type: text
         sortable: true
     text:
-        label: 'eev.core::lang.text'
+        label: 'digitfab.core::lang.text'
         type: text
         searchable: true
         sortable: true
     link:
-        label: 'eev.core::lang.link'
+        label: 'digitfab.core::lang.link'
         type: text
         searchable: true

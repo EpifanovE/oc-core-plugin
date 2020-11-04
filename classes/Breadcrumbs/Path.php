@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Breadcrumbs;
+namespace DigitFab\Core\Classes\Breadcrumbs;
 
 class Path
 {

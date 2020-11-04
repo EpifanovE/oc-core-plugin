@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Forms\Fields\Types;
+namespace DigitFab\Core\Classes\Forms\Fields\Types;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
@@ -25,14 +25,14 @@ class ReCaptcha extends FieldType
 
     public function getVars() {
         return [
-            'site_key' => Config::get('eev.core::recaptcha.site_key'),
+            'site_key' => Config::get('digitfab.core::recaptcha.site_key'),
         ];
     }
 
     public function getHtml()
     {
-        if (!\config('eev.core::recaptcha.secret_key') || !\config('eev.core::recaptcha.site_key')) {
-            return Lang::get('eev.core::lang.recaptcha_is_not_defined');
+        if (!\config('digitfab.core::recaptcha.secret_key') || !\config('digitfab.core::recaptcha.site_key')) {
+            return Lang::get('digitfab.core::lang.recaptcha_is_not_defined');
         }
 
         return parent::getHtml();

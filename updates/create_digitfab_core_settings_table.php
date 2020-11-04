@@ -1,4 +1,4 @@
-<?php namespace Eev\Corpcore\Updates;
+<?php namespace DigitFab\Corpcore\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
@@ -8,7 +8,7 @@ class CreateSettingsTable extends Migration
 {
     public function up()
     {
-        Schema::create('eev_core_settings', function (Blueprint $table) {
+        Schema::create('digitfab_core_settings', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
@@ -17,6 +17,6 @@ class CreateSettingsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('eev_core_settings');
+        Schema::dropIfExists('digitfab_core_settings');
     }
 }

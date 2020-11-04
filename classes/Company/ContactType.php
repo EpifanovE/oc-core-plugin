@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Company;
+namespace DigitFab\Core\Classes\Company;
 
 class ContactType
 {
@@ -16,14 +16,14 @@ class ContactType
     public static function get()
     {
         return [
-            self::NONE  => 'eev.core::lang.not_defined',
-            self::PHONE => 'eev.core::lang.phone',
-            self::EMAIL => 'eev.core::lang.email',
-            self::FAX   => 'eev.core::lang.fax',
-            self::SKYPE   => 'eev.core::lang.skype',
-            self::VIBER   => 'eev.core::lang.viber',
-            self::TELEGRAM   => 'eev.core::lang.telegram',
-            self::WHATSAPP   => 'eev.core::lang.whatsapp',
+            self::NONE  => 'digitfab.core::lang.not_defined',
+            self::PHONE => 'digitfab.core::lang.phone',
+            self::EMAIL => 'digitfab.core::lang.email',
+            self::FAX   => 'digitfab.core::lang.fax',
+            self::SKYPE   => 'digitfab.core::lang.skype',
+            self::VIBER   => 'digitfab.core::lang.viber',
+            self::TELEGRAM   => 'digitfab.core::lang.telegram',
+            self::WHATSAPP   => 'digitfab.core::lang.whatsapp',
         ];
     }
 }

@@ -1,4 +1,4 @@
-<?php namespace EEV\Core\Models;
+<?php namespace DigitFab\Core\Models;
 
 use Model;
 
@@ -19,7 +19,7 @@ class Address extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'eev_core_addresses';
+    public $table = 'digitfab_core_addresses';
 
     /**
      * @var array Validation rules

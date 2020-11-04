@@ -1,10 +1,10 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
-use EEV\Core\Classes\InlineStyles\Styles;
+use DigitFab\Core\Classes\InlineStyles\Styles;
 
 class InlineStyles extends ComponentBase
 {
@@ -21,8 +21,8 @@ class InlineStyles extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'eev.core::lang.components.inlineStyles.name',
-            'description' => 'eev.core::lang.components.inlineStyles.desc'
+            'name'        => 'digitfab.core::lang.components.inlineStyles.name',
+            'description' => 'digitfab.core::lang.components.inlineStyles.desc'
         ];
     }
 

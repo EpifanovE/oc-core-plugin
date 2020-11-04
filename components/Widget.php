@@ -1,17 +1,17 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
-use EEV\Core\Models\Widget as WidgetModel;
+use DigitFab\Core\Models\Widget as WidgetModel;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Lang;
 
 class Widget extends ComponentBase
 {
     /**
-     * @var \EEV\Core\Models\Widget $widget
+     * @var \DigitFab\Core\Models\Widget $widget
      */
     protected $widget;
 
@@ -28,7 +28,7 @@ class Widget extends ComponentBase
         $styles = $this->widget->getStyles($this->properties);
 
         if ( ! empty($styles)) {
-            Event::listen('eev.core.inlineStyles', function ($inlineStyles) use ($styles) {
+            Event::listen('digitfab.core.inlineStyles', function ($inlineStyles) use ($styles) {
                 return array_merge($inlineStyles, $styles);
             });
         }
@@ -37,8 +37,8 @@ class Widget extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'eev.core::lang.components.widget.name',
-            'description' => 'eev.core::lang.components.widget.desc'
+            'name'        => 'digitfab.core::lang.components.widget.name',
+            'description' => 'digitfab.core::lang.components.widget.desc'
         ];
     }
 
@@ -46,28 +46,28 @@ class Widget extends ComponentBase
     {
         $properties = [
             'widget'    => [
-                'title'             => 'eev.core::lang.widget',
+                'title'             => 'digitfab.core::lang.widget',
                 'description'       => '',
                 'type'              => 'dropdown',
                 'required'          => true,
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'adv_class' => [
-                'title'             => 'eev.core::lang.adv_class',
+                'title'             => 'digitfab.core::lang.adv_class',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'anchor_name' => [
-                'title'             => 'eev.core::lang.anchor_name',
+                'title'             => 'digitfab.core::lang.anchor_name',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'id' => [
                 'title'             => 'ID',
@@ -75,15 +75,15 @@ class Widget extends ComponentBase
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'title_tag' => [
-                'title'             => 'eev.core::lang.title_tag',
+                'title'             => 'digitfab.core::lang.title_tag',
                 'description'       => '',
                 'default'           => 'h2',
                 'type'              => 'dropdown',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
                 'options' => [
                     'h1' => 'H1',
                     'h2' => 'H2',
@@ -94,15 +94,15 @@ class Widget extends ComponentBase
                 ]
             ],
             'container_width' => [
-                'title'             => 'eev.core::lang.container_width',
+                'title'             => 'digitfab.core::lang.container_width',
                 'description'       => '',
                 'default'           => 'container',
                 'type'              => 'dropdown',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
                 'options' => [
-                    'full' => 'eev.core::lang.full_width',
-                    'container' => 'eev.core::lang.in_container',
+                    'full' => 'digitfab.core::lang.full_width',
+                    'container' => 'digitfab.core::lang.in_container',
                 ]
             ],
         ];

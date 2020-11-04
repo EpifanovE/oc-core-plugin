@@ -1,21 +1,20 @@
 <{{ __SELF__.getTag() }}{{ __SELF__.getAttrs()|raw }} class="{{ __SELF__.classes() }}">
     {% if __SELF__.property('show_image') and __SELF__.image() %}
-    <div class="logo__img-wrapper"{{ __SELF__.imgWrapperStyles()|raw }}>
-        <img src="{{ __SELF__.image()|media }}" alt="{{ __SELF__.alt() }}" class="logo__img"{{ __SELF__.imageMicrodata()|raw }}>
-    </div>
+    <span class="Logo__ImgWrap"{{ __SELF__.imgWrapperStyles()|raw }}>
+        <img src="{{ __SELF__.image()|media }}" alt="{{ __SELF__.alt() }}" class="Logo__Image"{{ __SELF__.imageMicrodata()|raw }}>
+    </span>
     {% endif %}
-
     {% if __SELF__.title() or __SELF__.desc() %}
-    <{{ __SELF__.getTextTag() }} class="logo__text">
+    <{{ __SELF__.getTextTag() }} class="Logo__Text">
         {% if __SELF__.title() %}
-        <span class="logo__title"{{ __SELF__.nameMicrodata()|raw }}>
-            {{ __SELF__.title() }}
-        </span>
+            <span class="Logo__Title Title"{{ __SELF__.nameMicrodata()|raw }}>
+                {{ __SELF__.title() }}
+            </span>
         {% endif %}
         {% if __SELF__.desc() %}
-        <span class="logo__desc">
-            {{ __SELF__.desc() }}
-        </span>
+            <span class="Logo__Desc">
+                {{ __SELF__.desc() }}
+            </span>
         {% endif %}
     </{{ __SELF__.getTextTag() }}>
     {% endif %}

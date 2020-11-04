@@ -1,4 +1,4 @@
-<?php namespace EEV\Core\Controllers;
+<?php namespace DigitFab\Core\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
@@ -16,12 +16,12 @@ class WorkingPeriodController extends Controller
     public $reorderConfig = 'config_reorder.yaml';
 
     public $requiredPermissions = [
-        'eev.core.opening_hours'
+        'digitfab.core.opening_hours'
     ];
 
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('EEV.Core', 'company', 'opening-hours');
+        BackendMenu::setContext('DigitFab.Core', 'company', 'opening-hours');
     }
 }

@@ -1,6 +1,6 @@
-list: $/eev/core/models/social/columns.yaml
-modelClass: EEV\Core\Models\Social
-title: 'eev.core::lang.social_networks'
+list: $/digitfab/core/models/social/columns.yaml
+modelClass: DigitFab\Core\Models\Social
+title: 'digitfab.core::lang.social_networks'
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
@@ -9,4 +9,4 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-recordUrl: 'eev/core/socialcontroller/update/:id'
+recordUrl: 'digitfab/core/socialcontroller/update/:id'

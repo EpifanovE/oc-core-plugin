@@ -1,8 +1,8 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
         <li>
-            <a href="<?= Backend::url('eev/core/socialcontroller') ?>">
-                <?= e(trans('eev.core::lang.social_networks')) ?>
+            <a href="<?= Backend::url('digitfab/core/socialcontroller') ?>">
+                <?= e(trans('digitfab.core::lang.social_networks')) ?>
             </a>
         </li>
         <li><?= e($this->pageTitle) ?></li>
@@ -20,7 +20,7 @@
 <?php endif ?>
 
 <p>
-    <a href="<?= Backend::url('eev/core/socialcontroller') ?>" class="btn btn-default oc-icon-chevron-left">
+    <a href="<?= Backend::url('digitfab/core/socialcontroller') ?>" class="btn btn-default oc-icon-chevron-left">
         <?= e(trans('backend::lang.form.return_to_list')) ?>
     </a>
 </p>

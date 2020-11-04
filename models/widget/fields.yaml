@@ -1,17 +1,17 @@
 tabs:
   fields:
     name:
-      label: 'eev.core::lang.name'
+      label: 'digitfab.core::lang.name'
       span: full
       type: text
-      tab: 'eev.core::lang.settings'
+      tab: 'digitfab.core::lang.settings'
     type:
-      label: 'eev.core::lang.type'
+      label: 'digitfab.core::lang.type'
       type: dropdown
-      tab: 'eev.core::lang.settings'
+      tab: 'digitfab.core::lang.settings'
     is_active:
-      label: 'eev.core::lang.is_active'
+      label: 'digitfab.core::lang.is_active'
       span: full
       type: switch
       default: true
-      tab: 'eev.core::lang.settings'
+      tab: 'digitfab.core::lang.settings'

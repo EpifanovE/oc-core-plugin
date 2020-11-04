@@ -1,25 +1,30 @@
-<span class="{{ __SELF__.classes() }}">
-    {% if __SELF__.getLink() %}
-    <a class="contact__link" href="{{ __SELF__.getLink() }}">
-    {% endif %}
+{% set title_tag =  __SELF__.property('title_as_link') and __SELF__.getLink() ? 'a' : 'div' %}
+{% set title_attrs =  __SELF__.property('title_as_link') and __SELF__.getLink() ? ' href="' ~ __SELF__.getLink() ~ '"' : '' %}
+{% set title_microdata = __SELF__.property('microdata') and __SELF__.getMicrodata() and __SELF__.property('contact_as_title') ? ' itemprop="' ~ __SELF__.getMicrodata() ~ '"' : '' %}
+{% set text_microdata = __SELF__.property('microdata') and __SELF__.getMicrodata() and (__SELF__.property('contact_as_title') is empty or __SELF__.property('contact_as_title') == 0) ? ' itemprop="' ~ __SELF__.getMicrodata() ~ '"' : '' %}
+
+<div class="IconBox">
     {% if __SELF__.getIconClass() %}
-        <i class="contact__icon{{ __SELF__.getIconClass() }}"></i>
+    <div class="Icon IconBox__Icon">
+        <i class="Icon__Inner{{ __SELF__.getIconClass() }}"></i>
+    </div>
     {% endif %}
     {% if __SELF__.getTitle() or __SELF__.getText() %}
-        <span class="contact__content">
-        {% if __SELF__.getTitle() and __SELF__.property('show_title') %}
-            <span class="contact__title">
-            {{ __SELF__.getTitle() }}
-            </span>
+    <div class="IconBox__Content">
+        {% if __SELF__.getTitle() and (__SELF__.property('hide_title') is empty or __SELF__.property('hide_title') == 0 ) %}
+            <{{ title_tag }} class="IconBox__Title Title" {{ title_attrs | raw }}{{ title_microdata | raw}}>
+                {{ __SELF__.getTitle() }}
+            </{{ title_tag }}>
         {% endif %}
         {% if __SELF__.getText() %}
-            <span class="contact__text"{{ (__SELF__.getMicrodata() ? ' itemprop="' ~ __SELF__.getMicrodata() ~ '"' : '')|raw }}>
-                {{ __SELF__.getText() }}
-            </span>
+            <div class="IconBox__Text Entry">
+                {% if __SELF__.property('text_as_link') and __SELF__.getLink() %}
+                    <a href="{{ __SELF__.getLink() }}"{{ text_microdata | raw}}>{{ __SELF__.getText() }}</a>
+                {% else %}
+                    <span{{ text_microdata | raw}}>{{ __SELF__.getText() }}</span>
+                {% endif %}
+            </div>
         {% endif %}
-        </span>
+    </div>
     {% endif %}
-    {% if __SELF__.getLink() %}
-    </a>
-    {% endif %}
-</span>
+</div>

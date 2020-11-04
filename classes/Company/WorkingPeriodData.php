@@ -1,7 +1,7 @@
 <?php
 
 
-namespace EEV\Core\Classes\Company;
+namespace DigitFab\Core\Classes\Company;
 
 
 class WorkingPeriodData
@@ -19,16 +19,16 @@ class WorkingPeriodData
 
     public static function getDays($length = 'normal') {
         return [
-            self::MONDAY_SUNDAY => trans("eev.core::lang.working_days.{$length}.MoSu"),
-            self::MONDAY_FRIDAY => trans("eev.core::lang.working_days.{$length}.MoFr"),
-            self::MONDAY => trans("eev.core::lang.working_days.{$length}.Mo"),
-            self::TUESDAY => trans("eev.core::lang.working_days.{$length}.Tu"),
-            self::WEDNESDAY => trans("eev.core::lang.working_days.{$length}.We"),
-            self::THURSDAY => trans("eev.core::lang.working_days.{$length}.Th"),
-            self::FRIDAY => trans("eev.core::lang.working_days.{$length}.Fr"),
-            self::SATURDAY_SUNDAY => trans("eev.core::lang.working_days.{$length}.SaSu"),
-            self::SATURDAY => trans("eev.core::lang.working_days.{$length}.Sa"),
-            self::SUNDAY => trans("eev.core::lang.working_days.{$length}.Su"),
+            self::MONDAY_SUNDAY => trans("digitfab.core::lang.working_days.{$length}.MoSu"),
+            self::MONDAY_FRIDAY => trans("digitfab.core::lang.working_days.{$length}.MoFr"),
+            self::MONDAY => trans("digitfab.core::lang.working_days.{$length}.Mo"),
+            self::TUESDAY => trans("digitfab.core::lang.working_days.{$length}.Tu"),
+            self::WEDNESDAY => trans("digitfab.core::lang.working_days.{$length}.We"),
+            self::THURSDAY => trans("digitfab.core::lang.working_days.{$length}.Th"),
+            self::FRIDAY => trans("digitfab.core::lang.working_days.{$length}.Fr"),
+            self::SATURDAY_SUNDAY => trans("digitfab.core::lang.working_days.{$length}.SaSu"),
+            self::SATURDAY => trans("digitfab.core::lang.working_days.{$length}.Sa"),
+            self::SUNDAY => trans("digitfab.core::lang.working_days.{$length}.Su"),
         ];
     }
 

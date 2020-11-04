@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
@@ -13,14 +13,14 @@ class Popup extends ComponentBase
     {
         parent::__construct($cmsObject, $properties);
 
-        $this->popup = \EEV\Core\Classes\Popups\Popup::get($this->property('popup'));
+        $this->popup = \DigitFab\Core\Classes\Popups\Popup::get($this->property('popup'));
     }
 
     public function componentDetails()
     {
         return [
-            'name' => 'eev.core::lang.components.popup.name',
-            'description' => 'eev.core::lang.components.popup.desc',
+            'name' => 'digitfab.core::lang.components.popup.name',
+            'description' => 'digitfab.core::lang.components.popup.desc',
         ];
     }
 
@@ -28,36 +28,36 @@ class Popup extends ComponentBase
     {
         return [
             'title' => [
-                'title' => 'eev.core::lang.title',
+                'title' => 'digitfab.core::lang.title',
                 'description' => '',
                 'default' => '',
                 'type' => 'string',
                 'showExternalParam' => false,
-                'group' => 'eev.core::lang.content',
+                'group' => 'digitfab.core::lang.content',
             ],
             'popup' => [
-                'title' => 'eev.core::lang.popup',
+                'title' => 'digitfab.core::lang.popup',
                 'description' => '',
                 'default' => 'none',
                 'type' => 'dropdown',
                 'showExternalParam' => false,
-                'group' => 'eev.core::lang.params',
+                'group' => 'digitfab.core::lang.params',
             ],
             'show_title' => [
-                'title' => 'eev.core::lang.show_title',
+                'title' => 'digitfab.core::lang.show_title',
                 'description' => '',
                 'default' => false,
                 'type' => 'checkbox',
                 'showExternalParam' => false,
-                'group' => 'eev.core::lang.params',
+                'group' => 'digitfab.core::lang.params',
             ],
             'adv_class' => [
-                'title' => 'eev.core::lang.adv_class',
+                'title' => 'digitfab.core::lang.adv_class',
                 'description' => '',
                 'default' => '',
                 'type' => 'string',
                 'showExternalParam' => false,
-                'group' => 'eev.core::lang.params',
+                'group' => 'digitfab.core::lang.params',
             ],
         ];
     }
@@ -73,7 +73,7 @@ class Popup extends ComponentBase
 
     public function getPopupOptions(): array
     {
-        return \EEV\Core\Classes\Popups\Popup::getFormsList();
+        return \DigitFab\Core\Classes\Popups\Popup::getFormsList();
     }
 
     public function getPartial(): string

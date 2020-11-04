@@ -1,15 +1,15 @@
-name: 'eev.core::lang.contact'
-modelClass: EEV\Core\Models\Contact
-form: $/eev/core/models/contact/fields.yaml
-defaultRedirect: eev/core/contactcontroller
+name: 'digitfab.core::lang.contact'
+modelClass: DigitFab\Core\Models\Contact
+form: $/digitfab/core/models/contact/fields.yaml
+defaultRedirect: digitfab/core/contactcontroller
 create:
-    title: 'eev.core::lang.creating'
-    redirect: 'eev/core/contactcontroller/update/:id'
-    redirectClose: eev/core/contactcontroller
-    flashSave: 'eev.core::lang.saved'
+    title: 'digitfab.core::lang.creating'
+    redirect: 'digitfab/core/contactcontroller/update/:id'
+    redirectClose: digitfab/core/contactcontroller
+    flashSave: 'digitfab.core::lang.saved'
 update:
-    title: 'eev.core::lang.editing'
-    redirect: eev/core/contactcontroller
-    redirectClose: eev/core/contactcontroller
-    flashSave: 'eev.core::lang.saved'
+    title: 'digitfab.core::lang.editing'
+    redirect: digitfab/core/contactcontroller
+    redirectClose: digitfab/core/contactcontroller
+    flashSave: 'digitfab.core::lang.saved'
 preview: {  }

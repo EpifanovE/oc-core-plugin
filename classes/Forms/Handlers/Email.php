@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Forms\Handlers;
+namespace DigitFab\Core\Classes\Forms\Handlers;
 
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
@@ -29,7 +29,7 @@ class Email implements FormHandler
             return $this->config['template'];
         }
 
-        return 'eev.core::mail.form_submit';
+        return 'digitfab.core::mail.form_submit';
     }
 
     protected function getData($data)
@@ -80,7 +80,7 @@ class Email implements FormHandler
             return $this->config['subject'];
         }
 
-        return Lang::get('eev.core::lang.notification.form_submit_subject');
+        return Lang::get('digitfab.core::lang.notification.form_submit_subject');
     }
 
     public function getDesc()
@@ -89,8 +89,8 @@ class Email implements FormHandler
             return $this->config['desc'];
         }
 
-        if (Lang::has('eev.core::lang.notification.form_submit_desc')) {
-            return Lang::get('eev.core::lang.notification.form_submit_desc');
+        if (Lang::has('digitfab.core::lang.notification.form_submit_desc')) {
+            return Lang::get('digitfab.core::lang.notification.form_submit_desc');
         }
 
         return '';

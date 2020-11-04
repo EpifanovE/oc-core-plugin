@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Controllers;
+namespace DigitFab\Core\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
@@ -16,12 +16,12 @@ class WidgetController extends Controller
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
-        'eev.core.manage-widgets'
+        'digitfab.core.manage-widgets'
     ];
 
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('EEV.Core', 'widgets');
+        BackendMenu::setContext('DigitFab.Core', 'widgets');
     }
 }

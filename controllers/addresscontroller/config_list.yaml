@@ -1,7 +1,7 @@
-title: 'eev.core::lang.addresses'
-modelClass: EEV\Core\Models\Address
-list: $/eev/core/models/address/columns.yaml
-recordUrl: 'eev/core/addresscontroller/update/:id'
+title: 'digitfab.core::lang.addresses'
+modelClass: DigitFab\Core\Models\Address
+list: $/digitfab/core/models/address/columns.yaml
+recordUrl: 'digitfab/core/addresscontroller/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 recordsPerPage: 20
 showSetup: true

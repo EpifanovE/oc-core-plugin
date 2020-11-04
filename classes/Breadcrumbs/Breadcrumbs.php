@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Breadcrumbs;
+namespace DigitFab\Core\Classes\Breadcrumbs;
 
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\URL;

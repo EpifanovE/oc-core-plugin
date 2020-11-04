@@ -1,4 +1,4 @@
-<?php namespace EEV\Core\Controllers;
+<?php namespace DigitFab\Core\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
@@ -14,12 +14,12 @@ class ContactController extends Controller
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
-        'eev.core.contacts'
+        'digitfab.core.contacts'
     ];
 
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('EEV.Core', 'company', 'contacts');
+        BackendMenu::setContext('DigitFab.Core', 'company', 'contacts');
     }
 }

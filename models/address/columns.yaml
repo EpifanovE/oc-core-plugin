@@ -4,27 +4,27 @@ columns:
         type: number
         sortable: true
     name:
-        label: 'eev.core::lang.name'
+        label: 'digitfab.core::lang.name'
         type: text
         searchable: true
         sortable: true
     country:
-        label: 'eev.core::lang.country'
+        label: 'digitfab.core::lang.country'
         type: text
         searchable: true
         sortable: true
     region:
-        label: 'eev.core::lang.region'
+        label: 'digitfab.core::lang.region'
         type: text
         searchable: true
         sortable: true
     locality:
-        label: 'eev.core::lang.locality'
+        label: 'digitfab.core::lang.locality'
         type: text
         searchable: true
         sortable: true
     street_address:
-        label: 'eev.core::lang.street_address'
+        label: 'digitfab.core::lang.street_address'
         type: text
         searchable: true
         sortable: true

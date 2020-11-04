@@ -1,16 +1,16 @@
 tabs:
     fields:
         name:
-            label: 'eev.core::lang.company_name'
+            label: 'digitfab.core::lang.company_name'
             type: text
-            tab: 'eev.core::lang.general_settings'
+            tab: 'digitfab.core::lang.general_settings'
         short_desc:
-            label: 'eev.core::lang.short_desc'
+            label: 'digitfab.core::lang.short_desc'
             type: text
-            tab: 'eev.core::lang.general_settings'
+            tab: 'digitfab.core::lang.general_settings'
         logo:
-            label: 'eev.core::lang.logo'
+            label: 'digitfab.core::lang.logo'
             type: mediafinder
-            tab: 'eev.core::lang.general_settings'
+            tab: 'digitfab.core::lang.general_settings'
             mode: image
             imageWidth: 200

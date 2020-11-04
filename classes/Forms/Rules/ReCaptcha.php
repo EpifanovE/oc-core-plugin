@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Forms\Rules;
+namespace DigitFab\Core\Classes\Forms\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Config;
@@ -14,7 +14,7 @@ class ReCaptcha implements Rule
         $url = 'https://www.google.com/recaptcha/api/siteverify';
 
         $data = [
-            'secret'   => Config::get('eev.core::recaptcha.secret_key'),
+            'secret'   => Config::get('digitfab.core::recaptcha.secret_key'),
             'response' => $value,
         ];
 
@@ -45,7 +45,7 @@ class ReCaptcha implements Rule
 
     public function message()
     {
-        return Lang::get('eev.core::validate.recaptcha');
+        return Lang::get('digitfab.core::validate.recaptcha');
     }
 
 }

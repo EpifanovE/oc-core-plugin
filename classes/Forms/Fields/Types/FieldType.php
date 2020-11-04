@@ -1,8 +1,8 @@
 <?php
 
-namespace EEV\Core\Classes\Forms\Fields\Types;
+namespace DigitFab\Core\Classes\Forms\Fields\Types;
 
-use EEV\Core\Classes\Forms\Fields\Field;
+use DigitFab\Core\Classes\Forms\Fields\Field;
 use Illuminate\Support\Facades\View;
 use League\Flysystem\Exception;
 
@@ -64,7 +64,7 @@ abstract class FieldType
             ]);
         }
 
-        return View::make('eev.core::fields.types.' . $this->getTemplateName(), $vars);
+        return View::make('digitfab.core::fields.types.' . $this->getTemplateName(), $vars);
     }
 
     public function getTemplateName() {

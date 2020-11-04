@@ -1,22 +1,22 @@
 <?php
 
-namespace EEV\Core;
+namespace DigitFab\Core;
 
 use Backend\Widgets\Form;
-use EEV\Core\Classes\Forms\Rules\ReCaptcha;
-use EEV\Core\Components\Address;
-use EEV\Core\Components\Breadcrumbs;
-use EEV\Core\Components\Contact;
-use EEV\Core\Components\InlineStyles;
-use EEV\Core\Components\Logo;
-use EEV\Core\Components\OpeningHours;
-use EEV\Core\Components\Popup;
-use EEV\Core\Components\Socials;
-use EEV\Core\Components\Widget;
-use EEV\Core\Components\Form as FormComponent;
-use EEV\Core\Controllers\WidgetController;
-use EEV\Core\Models\FrontPage;
-use EEV\Core\Models\Settings;
+use DigitFab\Core\Classes\Forms\Rules\ReCaptcha;
+use DigitFab\Core\Components\Address;
+use DigitFab\Core\Components\Breadcrumbs;
+use DigitFab\Core\Components\Contact;
+use DigitFab\Core\Components\InlineStyles;
+use DigitFab\Core\Components\Logo;
+use DigitFab\Core\Components\OpeningHours;
+use DigitFab\Core\Components\Popup;
+use DigitFab\Core\Components\Socials;
+use DigitFab\Core\Components\Widget;
+use DigitFab\Core\Components\Form as FormComponent;
+use DigitFab\Core\Controllers\WidgetController;
+use DigitFab\Core\Models\FrontPage;
+use DigitFab\Core\Models\Settings;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Validator;
 use Lang;
@@ -51,15 +51,6 @@ class Plugin extends PluginBase
 
     public function boot()
     {
-        Event::listen('cms.page.beforeDisplay', function ($controller, $action, $params) {
-            $controller->addCss('/plugins/eev/core/assets/css/core.min.css');
-            $controller->addJs('/plugins/eev/core/assets/js/core.min.js');
-        });
-
-        Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
-            $controller->addCss('/plugins/eev/core/assets/css/admin.min.css');
-        });
-
         Validator::extend('recaptcha', ReCaptcha::class);
 
         parent::boot();
@@ -85,9 +76,9 @@ class Plugin extends PluginBase
     {
         return [
             'settings' => [
-                'label'       => 'eev.core::lang.company_settings',
+                'label'       => 'digitfab.core::lang.company_settings',
                 'description' => '',
-                'category'    => 'eev.core::lang.company',
+                'category'    => 'digitfab.core::lang.company',
                 'class'       => Settings::class,
                 'icon'        => 'icon-globe',
                 'order'       => 500,

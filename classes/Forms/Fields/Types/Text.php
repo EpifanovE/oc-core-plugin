@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Forms\Fields\Types;
+namespace DigitFab\Core\Classes\Forms\Fields\Types;
 
 class Text extends FieldType
 {

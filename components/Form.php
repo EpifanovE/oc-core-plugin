@@ -1,4 +1,4 @@
-<?php namespace EEV\Core\Components;
+<?php namespace DigitFab\Core\Components;
 
 use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
@@ -17,14 +17,14 @@ class Form extends ComponentBase
     {
         parent::__construct($cmsObject, $properties);
 
-        $this->form = \EEV\Core\Classes\Forms\Form::get($this->property('form'));
+        $this->form = \DigitFab\Core\Classes\Forms\Form::get($this->property('form'));
     }
 
     public function componentDetails()
     {
         return [
-            'name' => 'eev.core::lang.components.form.name',
-            'description' => 'eev.core::lang.components.form.desc'
+            'name' => 'digitfab.core::lang.components.form.name',
+            'description' => 'digitfab.core::lang.components.form.desc'
         ];
     }
 
@@ -32,27 +32,27 @@ class Form extends ComponentBase
     {
         return [
             'form' => [
-                'title' => 'eev.core::lang.form',
+                'title' => 'digitfab.core::lang.form',
                 'description' => '',
                 'default' => 'none',
                 'type' => 'dropdown',
                 'showExternalParam' => false,
-                'group' => 'eev.core::lang.params',
+                'group' => 'digitfab.core::lang.params',
             ],
             'adv_class' => [
-                'title' => 'eev.core::lang.adv_class',
+                'title' => 'digitfab.core::lang.adv_class',
                 'description' => '',
                 'default' => '',
                 'type' => 'string',
                 'showExternalParam' => false,
-                'group' => 'eev.core::lang.params',
+                'group' => 'digitfab.core::lang.params',
             ],
         ];
     }
 
     public function getFormOptions()
     {
-        return \EEV\Core\Classes\Forms\Form::getFormsList();
+        return \DigitFab\Core\Classes\Forms\Form::getFormsList();
     }
 
     public function getFields()
@@ -77,7 +77,7 @@ class Form extends ComponentBase
             return $text;
         }
 
-        return Lang::get('eev.core::lang.submit');
+        return Lang::get('digitfab.core::lang.submit');
     }
 
     public function onRun()
@@ -94,7 +94,7 @@ class Form extends ComponentBase
         $validator = Validator::make(
             $data,
             $this->form->getRules(),
-            Lang::get('eev.core::validation')
+            Lang::get('digitfab.core::validation')
         );
 
         if ($attrs = $this->form->getAttributeNames()) {

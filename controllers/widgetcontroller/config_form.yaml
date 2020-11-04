@@ -1,14 +1,14 @@
-name: 'eev.core::lang.widget'
-form: $/eev/core/models/widget/fields.yaml
-modelClass: EEV\Core\Models\Widget
-defaultRedirect: eev/core/widgetcontroller
+name: 'digitfab.core::lang.widget'
+form: $/digitfab/core/models/widget/fields.yaml
+modelClass: DigitFab\Core\Models\Widget
+defaultRedirect: digitfab/core/widgetcontroller
 create:
-    title: 'eev.core::lang.creating'
-    redirect: 'eev/core/widgetcontroller/update/:id'
-    redirectClose: eev/core/widgetcontroller
-    flashSave: 'eev.core::lang.saved'
+    title: 'digitfab.core::lang.creating'
+    redirect: 'digitfab/core/widgetcontroller/update/:id'
+    redirectClose: digitfab/core/widgetcontroller
+    flashSave: 'digitfab.core::lang.saved'
 update:
-    title: 'eev.core::lang.editing'
-    redirect: eev/core/widgetcontroller
-    redirectClose: eev/core/widgetcontroller
-    flashSave: 'eev.core::lang.saved'
+    title: 'digitfab.core::lang.editing'
+    redirect: digitfab/core/widgetcontroller
+    redirectClose: digitfab/core/widgetcontroller
+    flashSave: 'digitfab.core::lang.saved'

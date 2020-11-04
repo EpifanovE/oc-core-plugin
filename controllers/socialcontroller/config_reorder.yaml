@@ -1,5 +1,5 @@
-title: 'eev.core::lang.sorting'
-modelClass: EEV\Core\Models\Social
+title: 'digitfab.core::lang.sorting'
+modelClass: DigitFab\Core\Models\Social
 nameFrom: title
 toolbar:
     buttons: reorder_toolbar

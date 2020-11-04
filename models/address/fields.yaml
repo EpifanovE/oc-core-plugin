@@ -1,43 +1,43 @@
 fields:
     name:
-        label: 'eev.core::lang.name'
+        label: 'digitfab.core::lang.name'
         span: full
         type: text
-        placeholder: 'eev.core::lang.main_office'
+        placeholder: 'digitfab.core::lang.main_office'
     country:
-        label: 'eev.core::lang.country'
+        label: 'digitfab.core::lang.country'
         span: auto
         type: text
-        placeholder: 'eev.core::lang.country_placeholder'
+        placeholder: 'digitfab.core::lang.country_placeholder'
     region:
-        label: 'eev.core::lang.region'
+        label: 'digitfab.core::lang.region'
         span: auto
         type: text
-        placeholder: 'eev.core::lang.region_placeholder'
+        placeholder: 'digitfab.core::lang.region_placeholder'
     locality:
-        label: 'eev.core::lang.locality'
+        label: 'digitfab.core::lang.locality'
         span: auto
         type: text
-        placeholder: 'eev.core::lang.locality_placeholder'
+        placeholder: 'digitfab.core::lang.locality_placeholder'
     postal_code:
-        label: 'eev.core::lang.postal_code'
+        label: 'digitfab.core::lang.postal_code'
         span: auto
         type: text
-        placeholder: 'eev.core::lang.postal_code_placeholder'
+        placeholder: 'digitfab.core::lang.postal_code_placeholder'
     street_address:
-        label: 'eev.core::lang.street_address'
+        label: 'digitfab.core::lang.street_address'
         span: full
         type: text
-        placeholder: 'eev.core::lang.street_address_placeholder'
+        placeholder: 'digitfab.core::lang.street_address_placeholder'
     coordinates:
-        label: 'eev.core::lang.coordinates'
+        label: 'digitfab.core::lang.coordinates'
         span: full
         type: section
     latitude:
-        label: 'eev.core::lang.latitude'
+        label: 'digitfab.core::lang.latitude'
         span: auto
         type: text
     longitude:
-        label: 'eev.core::lang.longitude'
+        label: 'digitfab.core::lang.longitude'
         span: auto
         type: text

@@ -1,4 +1,4 @@
-<?php namespace EEV\Core\Controllers;
+<?php namespace DigitFab\Core\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
@@ -16,12 +16,12 @@ class SocialController extends Controller
     public $reorderConfig = 'config_reorder.yaml';
 
     public $requiredPermissions = [
-        'eev.core.socials'
+        'digitfab.core.socials'
     ];
 
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('EEV.Core', 'company', 'socials');
+        BackendMenu::setContext('DigitFab.Core', 'company', 'socials');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Popups;
+namespace DigitFab\Core\Classes\Popups;
 
 use Illuminate\Support\Facades\Config;
 
@@ -29,7 +29,7 @@ class Popup
 
     public static function get($name)
     {
-        $popupsArray = Config::get('eev.core::popups');
+        $popupsArray = Config::get('digitfab.core::popups');
 
         if (empty($popupsArray)) {
             return null;
@@ -49,7 +49,7 @@ class Popup
 
     public static function getFormsList(): array
     {
-        $popupsArray = Config::get('eev.core::popups');
+        $popupsArray = Config::get('digitfab.core::popups');
 
         if (empty($popupsArray)) {
             return [];

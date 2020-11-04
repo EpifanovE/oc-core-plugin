@@ -1,18 +1,18 @@
 <?php
 
-namespace EEV\Core\Components;
+namespace DigitFab\Core\Components;
 
 use Cms\Classes\ComponentBase;
-use EEV\Core\Classes\Company\WorkingPeriodData;
-use EEV\Core\Models\WorkingPeriod;
+use DigitFab\Core\Classes\Company\WorkingPeriodData;
+use DigitFab\Core\Models\WorkingPeriod;
 
 class OpeningHours extends ComponentBase
 {
     public function componentDetails()
     {
         return [
-            'name'        => 'eev.core::lang.components.opening-hours.name',
-            'description' => 'eev.core::lang.components.opening-hours.desc'
+            'name'        => 'digitfab.core::lang.components.opening-hours.name',
+            'description' => 'digitfab.core::lang.components.opening-hours.desc'
         ];
     }
 
@@ -20,36 +20,36 @@ class OpeningHours extends ComponentBase
     {
         return [
             'short_days'      => [
-                'title'             => 'eev.core::lang.short_days',
+                'title'             => 'digitfab.core::lang.short_days',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'show_icon'      => [
-                'title'             => 'eev.core::lang.show_icon',
+                'title'             => 'digitfab.core::lang.show_icon',
                 'description'       => '',
                 'default'           => false,
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'microdata'      => [
-                'title'             => 'eev.core::lang.microdata',
+                'title'             => 'digitfab.core::lang.microdata',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'checkbox',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
             'adv_class'      => [
-                'title'             => 'eev.core::lang.adv_class',
+                'title'             => 'digitfab.core::lang.adv_class',
                 'description'       => '',
                 'default'           => '',
                 'type'              => 'string',
                 'showExternalParam' => false,
-                'group'             => 'eev.core::lang.params',
+                'group'             => 'digitfab.core::lang.params',
             ],
         ];
     }
@@ -84,7 +84,7 @@ class OpeningHours extends ComponentBase
             $result .= "<span class='opening-hours__day'>{$this->getDayLabel($day)}</span>";
 
             if ($item['around_the_clock']) {
-                $result .= "<span class='opening-hours__time opening-hours__time_around'>" . trans("eev.core::lang.around_the_clock") . "</span>";
+                $result .= "<span class='opening-hours__time opening-hours__time_around'>" . trans("digitfab.core::lang.around_the_clock") . "</span>";
                 $result .= "</li>";
                 continue;
             }

@@ -1,6 +1,6 @@
 <?php
 
-namespace EEV\Core\Classes\Widgets\Types;
+namespace DigitFab\Core\Classes\Widgets\Types;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
@@ -13,71 +13,71 @@ class IconCard extends WidgetType
     {
         return [
             'title'            => [
-                'label' => Lang::get('eev.core::lang.title'),
+                'label' => Lang::get('digitfab.core::lang.title'),
                 'span'  => 'full',
                 'type'  => 'text',
-                'tab'   => Lang::get('eev.core::lang.data'),
+                'tab'   => Lang::get('digitfab.core::lang.data'),
             ],
             'subtitle'         => [
-                'label'          => Lang::get('eev.core::lang.subtitle'),
+                'label'          => Lang::get('digitfab.core::lang.subtitle'),
                 'span'           => 'full',
                 'type'           => 'richeditor',
                 'toolbarButtons' => 'bold|italic|underline|color',
-                'tab'            => Lang::get('eev.core::lang.data'),
+                'tab'            => Lang::get('digitfab.core::lang.data'),
             ],
             'button_text'      => [
-                'label'    => Lang::get('eev.core::lang.button_text'),
+                'label'    => Lang::get('digitfab.core::lang.button_text'),
                 'cssClass' => 'col-xs-4',
                 'span'     => 'storm',
                 'type'     => 'text',
-                'tab'      => Lang::get('eev.core::lang.data'),
+                'tab'      => Lang::get('digitfab.core::lang.data'),
             ],
             'button_link'      => [
-                'label'    => Lang::get('eev.core::lang.button_link'),
+                'label'    => Lang::get('digitfab.core::lang.button_link'),
                 'cssClass' => 'col-sm-4',
                 'span'     => 'storm',
                 'type'     => 'text',
-                'tab'      => Lang::get('eev.core::lang.data'),
+                'tab'      => Lang::get('digitfab.core::lang.data'),
             ],
             'button_class'     => [
-                'label'    => Lang::get('eev.core::lang.button_class'),
+                'label'    => Lang::get('digitfab.core::lang.button_class'),
                 'cssClass' => 'col-sm-4',
                 'span'     => 'storm',
                 'type'     => 'text',
-                'tab'      => Lang::get('eev.core::lang.data'),
+                'tab'      => Lang::get('digitfab.core::lang.data'),
             ],
             'background_image' => [
-                'label'      => Lang::get('eev.core::lang.bg_image'),
+                'label'      => Lang::get('digitfab.core::lang.bg_image'),
                 'type'       => 'mediafinder',
                 'mode'       => 'image',
                 'imageWidth' => 300,
                 'span'       => 'storm',
                 'cssClass'   => 'col-sm-12',
-                'tab'        => Lang::get('eev.core::lang.data'),
+                'tab'        => Lang::get('digitfab.core::lang.data'),
             ],
             'elements'         => [
-                'label'    => Lang::get('eev.core::lang.elements'),
+                'label'    => Lang::get('digitfab.core::lang.elements'),
                 'cssClass' => 'col-sm-12',
                 'span'     => 'storm',
                 'type'     => 'repeater',
-                'tab'      => Lang::get('eev.core::lang.elements'),
-                'prompt'   => Lang::get('eev.core::lang.add_element'),
+                'tab'      => Lang::get('digitfab.core::lang.elements'),
+                'prompt'   => Lang::get('digitfab.core::lang.add_element'),
                 'form'     => [
                     'fields' => [
                         'title'      => [
-                            'label'    => Lang::get('eev.core::lang.title'),
+                            'label'    => Lang::get('digitfab.core::lang.title'),
                             'cssClass' => 'col-sm-12',
                             'span'     => 'storm',
                             'type'     => 'text',
                         ],
                         'text'       => [
-                            'label'    => Lang::get('eev.core::lang.text'),
+                            'label'    => Lang::get('digitfab.core::lang.text'),
                             'cssClass' => 'col-sm-12',
                             'span'     => 'storm',
                             'type'     => 'text',
                         ],
                         'image'      => [
-                            'label'      => Lang::get('eev.core::lang.image'),
+                            'label'      => Lang::get('digitfab.core::lang.image'),
                             'type'       => 'mediafinder',
                             'mode'       => 'image',
                             'imageWidth' => 300,
@@ -85,13 +85,13 @@ class IconCard extends WidgetType
                             'span'       => 'storm',
                         ],
                         'icon_class' => [
-                            'label'    => Lang::get('eev.core::lang.icon_css_class'),
+                            'label'    => Lang::get('digitfab.core::lang.icon_css_class'),
                             'cssClass' => 'col-sm-4',
                             'span'     => 'storm',
                             'type'     => 'text',
                         ],
                         'link'       => [
-                            'label'    => Lang::get('eev.core::lang.link'),
+                            'label'    => Lang::get('digitfab.core::lang.link'),
                             'cssClass' => 'col-sm-4',
                             'span'     => 'storm',
                             'type'     => 'text',
@@ -106,9 +106,9 @@ class IconCard extends WidgetType
     {
         return [
             'cols'          => [
-                'title'             => 'eev.core::lang.cols_number',
+                'title'             => 'digitfab.core::lang.cols_number',
                 'type'              => 'dropdown',
-                'group'             => 'eev.core::lang.elements',
+                'group'             => 'digitfab.core::lang.elements',
                 'showExternalParam' => false,
                 'default'           => '2',
                 'options'           => [
@@ -118,13 +118,13 @@ class IconCard extends WidgetType
                 ],
             ],
             'card_template' => [
-                'title'   => 'eev.core::lang.card_template',
+                'title'   => 'digitfab.core::lang.card_template',
                 'type'    => 'dropdown',
-                'group'   => 'eev.core::lang.elements',
+                'group'   => 'digitfab.core::lang.elements',
                 'default' => 'horizontal',
                 'options' => [
-                    'horizontal' => 'eev.core::lang.horizontal',
-                    'vertical'   => 'eev.core::lang.vertical',
+                    'horizontal' => 'digitfab.core::lang.horizontal',
+                    'vertical'   => 'digitfab.core::lang.vertical',
                 ],
             ],
         ];

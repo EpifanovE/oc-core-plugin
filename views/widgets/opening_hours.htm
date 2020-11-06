@@ -1,0 +1,23 @@
+<div class="{{ data.classes }}">
+    {% if data.show_icon %}
+        <div class="Icon IconBox__Icon">
+            <i class="Icon__Inner fas fa-clock"></i>
+        </div>
+    {% endif %}
+
+    <div class="IconBox__Content">
+        {% if data.show_title and data.title %}
+        <div class="IconBox__Title Title">
+            {{ data.title }}
+        </div>
+        {% endif %}
+
+        <div class="IconBox__Text Entry">
+            <ul class="OpeningHours">
+                {{ data.content|raw }}
+            </ul>
+        </div>
+    </div>
+
+
+</div>

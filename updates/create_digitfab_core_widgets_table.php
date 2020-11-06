@@ -13,6 +13,8 @@ class BuilderTableCreateDigitFabCoreWidgets extends Migration
             $table->increments('id')->unsigned();
             $table->string('name', 1024)->nullable();
             $table->string('type', 64);
+            $table->string('area', 128);
+            $table->smallInteger('order')->default(0);
             $table->json('data')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamp('created_at')->nullable();

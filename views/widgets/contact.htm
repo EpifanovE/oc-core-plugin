@@ -1,0 +1,30 @@
+{% set title_tag =  data.title_as_link and data.link ? 'a' : 'div' %}
+{% set title_attrs =  data.title_as_link and data.link ? ' href="' ~ data.link ~ '"' : '' %}
+{% set title_microdata = data.microdata and data.contact_as_title ? ' itemprop="' ~ data.microdata ~ '"' : '' %}
+{% set text_microdata = data.microdata and (data.contact_as_title is empty or data.contact_as_title == 0) ? ' itemprop="' ~ data.microdata ~ '"' : '' %}
+
+<div class="IconBox{{ classes }}">
+    {% if data.icon_class %}
+        <div class="Icon IconBox__Icon">
+            <i class="Icon__Inner{{ data.icon_class }}"></i>
+        </div>
+    {% endif %}
+    {% if data.title or data.text %}
+        <div class="IconBox__Content">
+            {% if data.title and (data.hide_title is empty or data.hide_title == 0 ) %}
+                <{{ title_tag }} class="IconBox__Title Title" {{ title_attrs | raw }}{{ title_microdata | raw}}>
+                    {{ data.title }}
+                </{{ title_tag }}>
+            {% endif %}
+            {% if data.text %}
+            <div class="IconBox__Text Entry">
+                {% if data.text_as_link and data.link %}
+                <a href="{{ data.link }}"{{ text_microdata | raw}}>{{ data.text }}</a>
+                {% else %}
+                <span{{ text_microdata | raw}}>{{ data.text }}</span>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

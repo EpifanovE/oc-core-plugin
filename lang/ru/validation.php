@@ -82,5 +82,6 @@ return [
         ],
     ],
     'attributes'           => [],
+    'invalid_widget_area' => 'Неверно указана область виджета',
 
 ];

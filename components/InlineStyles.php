@@ -10,7 +10,6 @@ class InlineStyles extends ComponentBase
 {
     protected $stylesProvider;
 
-
     public function __construct(CodeBase $cmsObject = null, $properties = [])
     {
         parent::__construct($cmsObject, $properties);

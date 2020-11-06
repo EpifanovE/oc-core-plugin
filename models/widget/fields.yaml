@@ -9,6 +9,17 @@ tabs:
       label: 'digitfab.core::lang.type'
       type: dropdown
       tab: 'digitfab.core::lang.settings'
+    area:
+      label: 'digitfab.core::lang.area'
+      type: dropdown
+      tab: 'digitfab.core::lang.settings'
+    order:
+      label: 'digitfab.core::lang.order'
+      span: full
+      type: number
+      step: 1
+      tab: 'digitfab.core::lang.settings'
+      default: 0
     is_active:
       label: 'digitfab.core::lang.is_active'
       span: full

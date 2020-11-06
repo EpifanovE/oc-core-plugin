@@ -2,9 +2,10 @@
 
 namespace DigitFab\Core\Models;
 
+use DigitFab\Core\Classes\Widgets\Area;
+use DigitFab\Core\Classes\Widgets\AreasManager;
 use DigitFab\Core\Classes\Widgets\Types\WidgetType;
 use Model;
-use October\Rain\Database\Traits\Sortable;
 use October\Rain\Database\Traits\Validation;
 
 class Widget extends Model
@@ -14,16 +15,28 @@ class Widget extends Model
     public $table = 'digitfab_core_widgets';
 
     public $rules = [
+        'name' => ['required',],
+        'type' => ['required',],
+        'area' => ['area', 'required',],
     ];
 
     protected $fillable = [
         'data',
         'name',
         'type',
+        'area',
         'template',
     ];
 
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
+
     protected $jsonable = ['data',];
+
+    public $customMessages = [
+        'area.area' => 'digitfab.core::validation.invalid_widget_area',
+    ];
 
     protected $widget;
 
@@ -42,6 +55,11 @@ class Widget extends Model
         if ( ! empty($this->type)) {
             return $this->typeObject->getTemplatesOptions();
         }
+    }
+
+    public function getAreaOptions() {
+        $areasManager = new AreasManager();
+        return $areasManager->getAreasList();
     }
 
     public function getTypeLabelAttribute() {
@@ -64,9 +82,9 @@ class Widget extends Model
         return $this->typeObject;
     }
 
-    public function getHtml($componentProperties)
+    public function getHtml(Area $area)
     {
-        return $this->typeObject->getHtml($componentProperties);
+        return $this->typeObject->getHtml($this->data);
     }
 
     public function getStyles($componentProperties) {

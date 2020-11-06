@@ -13,6 +13,16 @@ columns:
         type: text
         searchable: false
         sortable: false
+    area:
+        label: 'digitfab.core::lang.area'
+        type: text
+        searchable: false
+        sortable: true
+    order:
+        label: 'digitfab.core::lang.order'
+        type: text
+        searchable: false
+        sortable: true
     is_active:
         label: 'digitfab.core::lang.is_active'
         type: switch

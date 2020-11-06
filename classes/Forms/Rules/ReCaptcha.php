@@ -45,7 +45,7 @@ class ReCaptcha implements Rule
 
     public function message()
     {
-        return Lang::get('digitfab.core::validate.recaptcha');
+        return Lang::get('digitfab.core::validation.recaptcha');
     }
 
 }

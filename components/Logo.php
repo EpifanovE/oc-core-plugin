@@ -2,6 +2,7 @@
 
 namespace DigitFab\Core\Components;
 
+use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
 use DigitFab\Core\Models\Settings;
 

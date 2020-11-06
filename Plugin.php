@@ -4,6 +4,9 @@ namespace DigitFab\Core;
 
 use Backend\Widgets\Form;
 use DigitFab\Core\Classes\Forms\Rules\ReCaptcha;
+use DigitFab\Core\Classes\Widgets\AreasManager;
+use DigitFab\Core\Components\InlineScripts;
+use DigitFab\Core\Rules\AreaValidationRule;
 use DigitFab\Core\Components\Address;
 use DigitFab\Core\Components\Breadcrumbs;
 use DigitFab\Core\Components\Contact;
@@ -15,11 +18,10 @@ use DigitFab\Core\Components\Socials;
 use DigitFab\Core\Components\Widget;
 use DigitFab\Core\Components\Form as FormComponent;
 use DigitFab\Core\Controllers\WidgetController;
-use DigitFab\Core\Models\FrontPage;
 use DigitFab\Core\Models\Settings;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Validator;
-use Lang;
+use Illuminate\Support\Facades\Lang;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
@@ -42,16 +44,35 @@ class Plugin extends PluginBase
             }
 
             if ( ! empty($fields = $model->getTypeObject()->getDataFields())) {
-                if (!$form->isNested) {
+                if ( ! $form->isNested) {
                     $form->addTabFields($fields);
                 }
             }
+        });
+
+        // TODO: Move to components and widgets
+        Event::listen('digitfab.core.inlineScripts', function ($app) {
+            return array_merge($app, [
+                'CookiesConfirmation' => false,
+                'Owl'                 => [
+                    'about-carousel'        => [
+                        'dots' => false,
+                    ],
+                    'testimonials-carousel' => [
+                        'responsive' => [
+                            "0"    => ["items" => 1, "margin" => 0],
+                            "1024" => ["items" => 2, "margin" => 30],
+                        ],
+                    ],
+                ],
+            ]);
         });
     }
 
     public function boot()
     {
         Validator::extend('recaptcha', ReCaptcha::class);
+        Validator::extend('area', AreaValidationRule::class);
 
         parent::boot();
     }
@@ -59,16 +80,12 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            InlineStyles::class => 'inlineStyles',
-            Breadcrumbs::class  => 'breadcrumbs',
-            Contact::class      => 'contact',
-            Address::class      => 'address',
-            Socials::class      => 'socials',
-            OpeningHours::class => 'opening_hours',
-            Logo::class         => 'logo',
-            Widget::class       => 'widget',
-            FormComponent::class         => 'form',
-            Popup::class        => 'popup',
+            InlineStyles::class  => 'inlineStyles',
+            InlineScripts::class  => 'inlineScripts',
+            Breadcrumbs::class   => 'breadcrumbs',
+            Logo::class          => 'logo',
+            FormComponent::class => 'form',
+            Popup::class         => 'popup',
         ];
     }
 
@@ -90,15 +107,26 @@ class Plugin extends PluginBase
     public function registerMarkupTags()
     {
         return [
-            'filters' => [
+            'filters'   => [
                 'trans' => [$this, 'getTranslate'],
             ],
+            'functions' => [
+                'df_area' => [$this, 'getArea'],
+            ]
         ];
     }
 
     public function getTranslate($message, $variables = [])
     {
         return Lang::get($message, $variables);
+    }
+
+    public function getArea($name)
+    {
+        $areasManager = new AreasManager();
+        $area         = $areasManager->getArea($name);
+
+        return $area->getWidgets();
     }
 
 }

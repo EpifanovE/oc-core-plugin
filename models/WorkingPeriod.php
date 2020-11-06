@@ -1,7 +1,7 @@
 <?php namespace DigitFab\Core\Models;
 
 use Carbon\Carbon;
-use DigitFab\Core\Classes\Company\WorkingPeriodData;
+use Illuminate\Support\Facades\Lang;
 use Model;
 use October\Rain\Database\Traits\Sortable;
 
@@ -11,6 +11,17 @@ use October\Rain\Database\Traits\Sortable;
 class WorkingPeriod extends Model
 {
     use \October\Rain\Database\Traits\Validation, Sortable;
+
+    const MONDAY_SUNDAY = 'Mo-Su';
+    const MONDAY_FRIDAY= 'Mo-Fr';
+    const MONDAY = 'Mo';
+    const TUESDAY = 'Tu';
+    const WEDNESDAY = 'We';
+    const THURSDAY = 'Th';
+    const FRIDAY = 'Fr';
+    const SATURDAY_SUNDAY  = 'Sa-Su';
+    const SATURDAY  = 'Sa';
+    const SUNDAY  = 'Su';
 
     public $timestamps = false;
 
@@ -24,7 +35,7 @@ class WorkingPeriod extends Model
     ];
 
     public function getDayOptions() {
-        return WorkingPeriodData::getDays();
+        return Lang::get("digitfab.core::lang.working_days.normal");
     }
 
     public function getTimeFromAttribute($value) {
@@ -36,8 +47,7 @@ class WorkingPeriod extends Model
     }
 
     public function getDayNameAttribute() {
-        $days = WorkingPeriodData::getDays();
-        return $days[$this->day];
+        return Lang::get("digitfab.core::lang.working_days.normal.{$this->day}");
     }
 
     public function getNameAttribute() {

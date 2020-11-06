@@ -4,7 +4,6 @@ namespace DigitFab\Core\Updates;
 
 use DigitFab\Core\Classes\Company\ContactType;
 use DigitFab\Core\Classes\Company\SocialType;
-use DigitFab\Core\Classes\Company\WorkingPeriodData;
 use DigitFab\Core\Classes\Widgets\Types\WidgetType;
 use DigitFab\Core\Models\Address;
 use DigitFab\Core\Models\Contact;
@@ -18,15 +17,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Contact::create([
-            'title' => '8 (906) 333-44-55',
-            'text' => 'без выходных',
+            'title' => 'Телефон',
+            'text' => '8 (906) 333-44-55',
             'link' => 'tel:+79063334455',
             'type' => ContactType::PHONE,
         ]);
 
         Contact::create([
-            'title' => 'email@gmail.com',
-            'text' => '',
+            'title' => 'Мобильный телефон',
+            'text' => '8 (906) 333-44-55',
+            'link' => 'tel:+79063334455',
+            'type' => ContactType::PHONE,
+        ]);
+
+        Contact::create([
+            'title' => 'Электронная почта',
+            'text' => 'email@gmail.com',
             'link' => 'mailto:email@gmail.com',
             'type' => ContactType::EMAIL,
         ]);
@@ -78,21 +84,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         WorkingPeriod::create([
-            'day' => WorkingPeriodData::MONDAY_FRIDAY,
+            'day' => WorkingPeriod::MONDAY_FRIDAY,
             'time_from' => '8:00',
             'time_till' => '12:00',
             'around_the_clock' => false,
         ]);
 
         WorkingPeriod::create([
-            'day' => WorkingPeriodData::MONDAY_FRIDAY,
+            'day' => WorkingPeriod::MONDAY_FRIDAY,
             'time_from' => '13:00',
             'time_till' => '18:00',
             'around_the_clock' => false,
         ]);
 
         WorkingPeriod::create([
-            'day' => WorkingPeriodData::SATURDAY_SUNDAY,
+            'day' => WorkingPeriod::SATURDAY_SUNDAY,
             'time_from' => '9:00',
             'time_till' => '15:00',
             'around_the_clock' => false,
@@ -101,6 +107,7 @@ class DatabaseSeeder extends Seeder
         Widget::create([
             'name' => 'Промо-секция - Главная страница',
             'type' => WidgetType::HERO,
+            'area' => 'home',
             'data' => [
                 'slides' => [
                     [
@@ -120,6 +127,7 @@ class DatabaseSeeder extends Seeder
         Widget::create([
             'name' => 'О компании - Главная страница',
             'type' => WidgetType::ABOUT,
+            'area' => 'home',
             'data' => [
                 "desc" => "<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</p><p>Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами. Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот.</p><p>Даже всемогущая пунктуация не имеет власти над рыбными текстами, ведущими безорфографичный образ жизни.</p>",
                 "title" => "О компании",
@@ -132,6 +140,7 @@ class DatabaseSeeder extends Seeder
         Widget::create([
             'name' => 'Наши преимущества - Главная страница',
             'type' => WidgetType::ICONCARD,
+            'area' => 'home',
             'data' => [
                 "title" => "Наши преимущества",
                 "subtitle" => "Далеко-далеко за словесными горами в стране гласных и согласных",

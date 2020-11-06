@@ -3,7 +3,7 @@ plugin:
     description: 'digitfab.core::lang.plugin.description'
     author: 'Evgeny Epifanov'
     icon: icon-cog
-    homepage: 'https://eecode.ru'
+    homepage: 'https://digitfab.ru'
 permissions:
     digitfab.core.settings:
         tab: 'digitfab.core::lang.company'

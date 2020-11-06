@@ -24,40 +24,60 @@ abstract class WidgetType
     const EDITOR = 'editor';
     const CTA = 'cta';
     const GALLERY = 'gallery';
+    const CONTACT = 'contact';
+    const ADDRESS = 'address';
+    const OPENING_HOURS = 'opening_hours';
+    const SOCIALS = 'socials';
 
     public function __construct($data, $template)
     {
-        $this->data = $data;
-        $this->template = $template;
+        $this->data        = $data;
+        $this->template    = $template;
         $this->generatedId = $this->generateId();
     }
 
     public static function getTypes()
     {
         $types = [
-            self::HERO => [
-                'name' => Lang::get('digitfab.core::lang.widgets_types.hero.name'),
+            self::HERO     => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.hero.name'),
                 'class' => Hero::class,
             ],
-            self::ABOUT => [
-                'name' => Lang::get('digitfab.core::lang.widgets_types.about.name'),
+            self::ABOUT    => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.about.name'),
                 'class' => About::class,
             ],
             self::ICONCARD => [
-                'name' => Lang::get('digitfab.core::lang.widgets_types.iconscard.name'),
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.iconscard.name'),
                 'class' => IconCard::class,
             ],
-            self::EDITOR => [
-                'name' => Lang::get('digitfab.core::lang.widgets_types.editor.name'),
+            self::EDITOR   => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.editor.name'),
                 'class' => Editor::class,
             ],
-            self::CTA => [
-                'name' => Lang::get('digitfab.core::lang.widgets_types.cta.name'),
+            self::CTA      => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.cta.name'),
                 'class' => CallToAction::class,
             ],
-            self::GALLERY => [
-                'name' => Lang::get('digitfab.core::lang.widgets_types.gallery.name'),
+            self::GALLERY  => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.gallery.name'),
                 'class' => Gallery::class,
+            ],
+            self::CONTACT  => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.contact.name'),
+                'class' => Contact::class,
+            ],
+            self::ADDRESS  => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.address.name'),
+                'class' => Address::class,
+            ],
+            self::OPENING_HOURS  => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.opening_hours.name'),
+                'class' => OpeningHours::class,
+            ],
+            self::SOCIALS  => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.socials.name'),
+                'class' => Socials::class,
             ],
         ];
 
@@ -90,18 +110,18 @@ abstract class WidgetType
 
     public static function getTypeLabel($type)
     {
-        if (!empty(self::getTypes()[$type])) {
+        if ( ! empty(self::getTypes()[$type])) {
             return self::getTypes()[$type]['name'];
         }
     }
 
-    public function getHtml($componentProperties)
+    public function getHtml($params)
     {
-        if ($themeTpl = $this->getThemeHtml($componentProperties)) {
+        if ($themeTpl = $this->getThemeHtml($params)) {
             return $themeTpl;
         }
 
-        if ($pluginTpl = $this->getPluginHtml($componentProperties)) {
+        if ($pluginTpl = $this->getPluginHtml($params)) {
             return $pluginTpl;
         }
 
@@ -116,8 +136,8 @@ abstract class WidgetType
 
         if (file_exists($themeViewFile)) {
             return Twig::parse(file_get_contents($themeViewFile), [
-                'data' => $this->getTemplateData($componentProperties),
-                'classes' => $this->classes($componentProperties['adv_class']),
+                'data'                => $this->getTemplateData($componentProperties),
+                'classes'             => $this->classes($componentProperties['adv_class'] ?? ''),
                 'componentProperties' => $componentProperties,
             ]);
         }
@@ -131,8 +151,8 @@ abstract class WidgetType
 
         if (View::exists($template)) {
             return View::make($template, [
-                'data' => $this->getTemplateData($componentProperties),
-                'classes' => $this->classes($componentProperties['adv_class']),
+                'data'                => $this->getTemplateData($componentProperties),
+                'classes'             => $this->classes($componentProperties['adv_class'] ?? ''),
                 'componentProperties' => $componentProperties,
             ]);
         }
@@ -145,7 +165,7 @@ abstract class WidgetType
         $data = $this->data;
 
         $data['widget'] = [
-            'id' => $this->getId($componentProperties),
+            'id'      => $this->getId($componentProperties),
             'overlay' => ! empty($this->data['background_image']),
         ];
 
@@ -163,7 +183,7 @@ abstract class WidgetType
 
     public function getDataFields()
     {
-        if (!method_exists($this, 'getFields')) {
+        if ( ! method_exists($this, 'getFields')) {
             return [];
         }
 
@@ -198,7 +218,7 @@ abstract class WidgetType
 
     public function classes($componentClass = null)
     {
-        $classes = !empty($componentClass) ? [$componentClass] : [];
+        $classes = ! empty($componentClass) ? [$componentClass] : [];
 
         if (method_exists($this, 'getClasses') && is_array($this->getClasses())) {
             $classes = array_merge($classes, $this->getClasses());
@@ -217,7 +237,7 @@ abstract class WidgetType
 
         foreach ($array as $item) {
 
-            if (!is_array($item)) {
+            if ( ! is_array($item)) {
                 continue;
             }
 
@@ -227,11 +247,13 @@ abstract class WidgetType
         return $result;
     }
 
-    protected function getId($componentProperties) {
-        return $componentProperties['id'] ? $componentProperties['id'] : $this->generatedId;
+    protected function getId($componentProperties)
+    {
+        return isset($componentProperties['id']) ? $componentProperties['id'] : $this->generatedId;
     }
 
-    protected function generateId() {
+    protected function generateId()
+    {
         return $this->name . '-' . uniqid();
     }
 

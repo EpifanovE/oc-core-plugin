@@ -1,0 +1,19 @@
+<div class="{{ data.classes }}">
+    {% if data.show_icon %}
+    <div class="Icon IconBox__Icon">
+        <i class="Icon__Inner{{ data.icon_class }}"></i>
+    </div>
+    {% endif %}
+    <div class="IconBox__Content">
+        {% if data.show_title and data.title %}
+            <div class="IconBox__Title Title">
+                {{ data.title }}
+            </div>
+        {% endif %}
+
+        <div class="IconBox__Text Entry"{{ data.schema_scope|raw }}>
+        {{ data.content|raw }}
+        </div>
+        {{ data.geo|raw}}
+    </div>
+</div>

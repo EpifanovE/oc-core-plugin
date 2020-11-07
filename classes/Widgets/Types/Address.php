@@ -76,7 +76,7 @@ class Address extends WidgetType
             'show_icon'      => [
                 'label'       => 'digitfab.core::lang.show_icon',
                 'description' => '',
-                'default'     => false,
+                'default'     => true,
                 'type'        => 'checkbox',
                 'span'        => 'storm',
                 'cssClass'    => 'col-sm-6',

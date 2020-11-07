@@ -3,7 +3,7 @@
 {% set title_microdata = data.microdata and data.contact_as_title ? ' itemprop="' ~ data.microdata ~ '"' : '' %}
 {% set text_microdata = data.microdata and (data.contact_as_title is empty or data.contact_as_title == 0) ? ' itemprop="' ~ data.microdata ~ '"' : '' %}
 
-<div class="IconBox{{ classes }}">
+<div id="{{ widget.id }}" class="IconBox{{ widget.classes }}">
     {% if data.icon_class %}
         <div class="Icon IconBox__Icon">
             <i class="Icon__Inner{{ data.icon_class }}"></i>

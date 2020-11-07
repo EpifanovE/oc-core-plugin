@@ -10,7 +10,7 @@ class InlineScripts extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'digitfab.core::lang.components.inlineScripts.name',
+            'name' => 'digitfab.core::lang.components.inlineScripts.name',
             'description' => 'digitfab.core::lang.components.inlineScripts.desc'
         ];
     }
@@ -29,8 +29,10 @@ class InlineScripts extends ComponentBase
         $result = [];
 
         foreach ($data as $eventParams) {
-            foreach ($eventParams as $key => $value) {
-                $result[$key] = $value;
+            if (is_array($eventParams)) {
+                foreach ($eventParams as $key => $value) {
+                    $result[$key] = $value;
+                }
             }
         }
 

@@ -22,6 +22,7 @@ abstract class WidgetType
     const ABOUT = 'about';
     const ICONCARD = 'iconcard';
     const EDITOR = 'editor';
+    const CODE = 'code';
     const CTA = 'cta';
     const GALLERY = 'gallery';
     const CONTACT = 'contact';
@@ -79,6 +80,10 @@ abstract class WidgetType
                 'name'  => Lang::get('digitfab.core::lang.widgets_types.socials.name'),
                 'class' => Socials::class,
             ],
+            self::CODE  => [
+                'name'  => Lang::get('digitfab.core::lang.widgets_types.code.name'),
+                'class' => Code::class,
+            ],
         ];
 
         $newTypes = [];
@@ -117,44 +122,44 @@ abstract class WidgetType
 
     public function getHtml($params)
     {
-        if ($themeTpl = $this->getThemeHtml($params)) {
+        $tplData = [
+            'data'                => $this->getTemplateData($params['data']),
+            'widget' => [
+                'id'      => $this->getId($params),
+                'classes' => $this->classes($params['classes']),
+            ],
+        ];
+
+        if ($themeTpl = $this->getThemeHtml($tplData)) {
             return $themeTpl;
         }
 
-        if ($pluginTpl = $this->getPluginHtml($params)) {
+        if ($pluginTpl = $this->getPluginHtml($tplData)) {
             return $pluginTpl;
         }
 
         return '';
     }
 
-    protected function getThemeHtml($componentProperties)
+    protected function getThemeHtml($params)
     {
         $themeName = Config::get('cms.activeTheme');
 
         $themeViewFile = themes_path() . '/' . $themeName . '/widgets/' . $this->name . '.htm';
 
         if (file_exists($themeViewFile)) {
-            return Twig::parse(file_get_contents($themeViewFile), [
-                'data'                => $this->getTemplateData($componentProperties),
-                'classes'             => $this->classes($componentProperties['adv_class'] ?? ''),
-                'componentProperties' => $componentProperties,
-            ]);
+            return Twig::parse(file_get_contents($themeViewFile), $params);
         }
 
         return '';
     }
 
-    protected function getPluginHtml($componentProperties)
+    protected function getPluginHtml($params)
     {
         $template = $this->getPluginViewsNamespace() . '::widgets.' . $this->name;
 
         if (View::exists($template)) {
-            return View::make($template, [
-                'data'                => $this->getTemplateData($componentProperties),
-                'classes'             => $this->classes($componentProperties['adv_class'] ?? ''),
-                'componentProperties' => $componentProperties,
-            ]);
+            return View::make($template, $params);
         }
 
         return '';
@@ -163,11 +168,6 @@ abstract class WidgetType
     protected function getTemplateData($componentProperties)
     {
         $data = $this->data;
-
-        $data['widget'] = [
-            'id'      => $this->getId($componentProperties),
-            'overlay' => ! empty($this->data['background_image']),
-        ];
 
         if (method_exists($this, 'doTemplateData')) {
             return array_merge($data, $this->doTemplateData($componentProperties));
@@ -216,15 +216,15 @@ abstract class WidgetType
         return $styles;
     }
 
-    public function classes($componentClass = null)
+    protected function classes($advClasses = null)
     {
-        $classes = ! empty($componentClass) ? [$componentClass] : [];
+        $classes = ! empty($advClasses) ? [trim($advClasses)] : [];
 
         if (method_exists($this, 'getClasses') && is_array($this->getClasses())) {
             $classes = array_merge($classes, $this->getClasses());
         }
 
-        return ' ' . join(' ', $classes);
+        return empty($classes) ? '' : ' ' . join(' ', $classes);
     }
 
     protected static function getTypesArray($array)
@@ -247,9 +247,9 @@ abstract class WidgetType
         return $result;
     }
 
-    protected function getId($componentProperties)
+    protected function getId($params)
     {
-        return isset($componentProperties['id']) ? $componentProperties['id'] : $this->generatedId;
+        return isset($params['id']) ? "widget-{$params['type']}-{$params['id']}" : $this->generatedId;
     }
 
     protected function generateId()

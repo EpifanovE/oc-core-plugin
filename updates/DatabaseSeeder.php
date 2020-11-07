@@ -104,64 +104,162 @@ class DatabaseSeeder extends Seeder
             'around_the_clock' => false,
         ]);
 
-        Widget::create([
-            'name' => 'Промо-секция - Главная страница',
-            'type' => WidgetType::HERO,
-            'area' => 'home',
-            'data' => [
-                'slides' => [
-                    [
-                        'title' => '<strong>Отделка помещений</strong><br>в Нижнем Новгороде и области',
-                        'text' => '<p>Внутренняя отделка квартир – важнейшая часть ремонта, а выбор поставщика таких услуг – непростая и ответственная задача. От квалификации мастеров зависит внешний вид отремонтированного жилья, уровень комфорта.</p>',
-                        'button_text' => 'Узнать подробнее',
-                    ],
-                    [
-                        'title' => '<strong>Отделка помещений</strong><br>в Москве и области',
-                        'text' => '<p>Внутренняя отделка квартир – важнейшая часть ремонта, а выбор поставщика таких услуг – непростая и ответственная задача. От квалификации мастеров зависит внешний вид отремонтированного жилья, уровень комфорта.</p>',
-                        'button_text' => 'Узнать подробнее',
-                    ]
-                ],
-            ],
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Телефон верх',
+            'type' => WidgetType::CONTACT,
+            'area' => 'top-bar-left',
+            'data' => json_encode([
+                'contact' => 1,
+                'contact_as_title' => true,
+                'title_as_link' => true,
+            ]),
         ]);
 
-        Widget::create([
-            'name' => 'О компании - Главная страница',
-            'type' => WidgetType::ABOUT,
-            'area' => 'home',
-            'data' => [
-                "desc" => "<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</p><p>Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами. Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот.</p><p>Даже всемогущая пунктуация не имеет власти над рыбными текстами, ведущими безорфографичный образ жизни.</p>",
-                "title" => "О компании",
-                "button_link" => "/about",
-                "button_text" => "Подробнее",
-                "button_class" => ""
-            ],
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Электронная почта верх',
+            'type' => WidgetType::CONTACT,
+            'area' => 'top-bar-center',
+            'data' => json_encode([
+                'contact' => 3,
+                'contact_as_title' => true,
+                'title_as_link' => true,
+            ]),
         ]);
 
-        Widget::create([
-            'name' => 'Наши преимущества - Главная страница',
-            'type' => WidgetType::ICONCARD,
-            'area' => 'home',
-            'data' => [
-                "title" => "Наши преимущества",
-                "subtitle" => "Далеко-далеко за словесными горами в стране гласных и согласных",
-                "button_link" => "/about",
-                "button_text" => "Подробнее",
-                "button_class" => "",
-                "elements" => [
-                    [
-                        'title' => '24 часа в сутки',
-                        'text' => 'Далеко-далеко за словесными горами в стране гласных и согласных',
-                        'icon_class' => 'fas fa-phone',
-                    ],
-                    [
-                        'title' => 'Гарантия качества',
-                        'text' => 'Далеко-далеко за словесными горами в стране гласных и согласных в стране гласных и согласных',
-                        'icon_class' => 'fas fa-user',
-                        'link' => '#',
-                    ],
-                ],
-            ],
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Телефон подвал',
+            'type' => WidgetType::CONTACT,
+            'area' => 'footer-contacts-right',
+            'data' => json_encode([
+                'contact' => 1,
+                'text_as_link' => true,
+            ]),
         ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Мобильный подвал',
+            'type' => WidgetType::CONTACT,
+            'area' => 'footer-contacts-right',
+            'data' => json_encode([
+                'contact' => 2,
+                'text_as_link' => true,
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Адрес подвал',
+            'type' => WidgetType::ADDRESS,
+            'area' => 'footer-contacts-left',
+            'data' => json_encode([
+                'address' => 1,
+                'show_title' => true,
+                'show_icon' => true,
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Режим подвал',
+            'type' => WidgetType::OPENING_HOURS,
+            'area' => 'footer-contacts-left',
+            'data' => json_encode([
+                'show_title' => true,
+                'show_icon' => true,
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Электронная почта подвал',
+            'type' => WidgetType::CONTACT,
+            'area' => 'footer-contacts-center',
+            'data' => json_encode([
+                'contact' => 3,
+                'text_as_link' => true,
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Кнопка подвал',
+            'type' => WidgetType::CODE,
+            'area' => 'footer-contacts-right',
+            'data' => json_encode([
+                'content' => "<a class=\"Button Button_ctaInverse Button_inverse FooterContacts__Item\" data-popup=\"callback-popup\" href=\"#callback-popup\">Заказать звонок</a>",
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Социальные сети подвал',
+            'type' => WidgetType::SOCIALS,
+            'area' => 'footer-left',
+            'data' => json_encode([]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Текст подвал',
+            'type' => WidgetType::CODE,
+            'area' => 'footer-right',
+            'data' => json_encode([
+                'content' => "<span class=\"Footer__Copy\">© 2020 localhost - Бухгалтеские услуги.</span><span class=\"Footer__Vendor\"><a href=\"#\">Разработка сайтов</a> в DigitFab.ru</span>"
+            ]),
+        ]);
+
+//        Widget::create([
+//            'name' => 'Промо-секция - Главная страница',
+//            'type' => WidgetType::HERO,
+//            'area' => 'home',
+//            'data' => [
+//                'slides' => [
+//                    [
+//                        'title' => '<strong>Отделка помещений</strong><br>в Нижнем Новгороде и области',
+//                        'text' => '<p>Внутренняя отделка квартир – важнейшая часть ремонта, а выбор поставщика таких услуг – непростая и ответственная задача. От квалификации мастеров зависит внешний вид отремонтированного жилья, уровень комфорта.</p>',
+//                        'button_text' => 'Узнать подробнее',
+//                    ],
+//                    [
+//                        'title' => '<strong>Отделка помещений</strong><br>в Москве и области',
+//                        'text' => '<p>Внутренняя отделка квартир – важнейшая часть ремонта, а выбор поставщика таких услуг – непростая и ответственная задача. От квалификации мастеров зависит внешний вид отремонтированного жилья, уровень комфорта.</p>',
+//                        'button_text' => 'Узнать подробнее',
+//                    ]
+//                ],
+//            ],
+//        ]);
+//
+//        Widget::create([
+//            'name' => 'О компании - Главная страница',
+//            'type' => WidgetType::ABOUT,
+//            'area' => 'home',
+//            'data' => [
+//                "desc" => "<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</p><p>Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами. Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот.</p><p>Даже всемогущая пунктуация не имеет власти над рыбными текстами, ведущими безорфографичный образ жизни.</p>",
+//                "title" => "О компании",
+//                "button_link" => "/about",
+//                "button_text" => "Подробнее",
+//                "button_class" => ""
+//            ],
+//        ]);
+//
+//        Widget::create([
+//            'name' => 'Наши преимущества - Главная страница',
+//            'type' => WidgetType::ICONCARD,
+//            'area' => 'home',
+//            'data' => [
+//                "title" => "Наши преимущества",
+//                "subtitle" => "Далеко-далеко за словесными горами в стране гласных и согласных",
+//                "button_link" => "/about",
+//                "button_text" => "Подробнее",
+//                "button_class" => "",
+//                "elements" => [
+//                    [
+//                        'title' => '24 часа в сутки',
+//                        'text' => 'Далеко-далеко за словесными горами в стране гласных и согласных',
+//                        'icon_class' => 'fas fa-phone',
+//                    ],
+//                    [
+//                        'title' => 'Гарантия качества',
+//                        'text' => 'Далеко-далеко за словесными горами в стране гласных и согласных в стране гласных и согласных',
+//                        'icon_class' => 'fas fa-user',
+//                        'link' => '#',
+//                    ],
+//                ],
+//            ],
+//        ]);
 
         \DB::table('system_settings')->insert([
             [

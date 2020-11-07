@@ -5,6 +5,7 @@ namespace DigitFab\Core\Models;
 use DigitFab\Core\Classes\Widgets\Area;
 use DigitFab\Core\Classes\Widgets\AreasManager;
 use DigitFab\Core\Classes\Widgets\Types\WidgetType;
+use Illuminate\Support\Facades\Cache;
 use Model;
 use October\Rain\Database\Traits\Validation;
 
@@ -24,12 +25,15 @@ class Widget extends Model
         'data',
         'name',
         'type',
+        'classes',
         'area',
+        'caching',
         'template',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'caching' => 'boolean',
     ];
 
     protected $jsonable = ['data',];
@@ -84,7 +88,24 @@ class Widget extends Model
 
     public function getHtml(Area $area)
     {
-        return $this->typeObject->getHtml($this->data);
+        $params = [
+            'data' => $this->data,
+            'classes' => $this->classes,
+            'id' => $this->id,
+            'type' => $this->type,
+        ];
+
+        if ($this->caching) {
+            return Cache::get($this->getCacheKey(), function () use ($params) {
+                return $this->typeObject->getHtml($params)->render();
+            });
+        } else {
+            return $this->typeObject->getHtml($params)->render();
+        }
+    }
+
+    protected function getCacheKey() {
+        return "widget-{$this->type}-{$this->id}";
     }
 
     public function getStyles($componentProperties) {

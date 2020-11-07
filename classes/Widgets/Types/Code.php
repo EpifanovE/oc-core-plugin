@@ -4,9 +4,9 @@ namespace DigitFab\Core\Classes\Widgets\Types;
 
 use Illuminate\Support\Facades\Lang;
 
-class Editor extends WidgetType
+class Code extends WidgetType
 {
-    protected $name = self::EDITOR;
+    protected $name = self::CODE;
 
     protected function getFields()
     {
@@ -15,12 +15,11 @@ class Editor extends WidgetType
                 'label'       => 'digitfab.core::lang.content',
                 'description' => '',
                 'default'     => '',
-                'type'        => 'richeditor',
+                'type'        => 'codeeditor',
                 'span'        => 'storm',
                 'cssClass'    => 'col-sm-12',
                 'tab'         => Lang::get('digitfab.core::lang.content'),
             ],
         ];
     }
-
 }

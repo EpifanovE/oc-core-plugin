@@ -9,4 +9,6 @@ class Settings extends Model
     public $settingsCode = 'digitfab_core_settings';
 
     public $settingsFields = 'fields.yaml';
+
+
 }

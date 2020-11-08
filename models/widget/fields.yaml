@@ -31,9 +31,3 @@ tabs:
       type: switch
       default: true
       tab: 'digitfab.core::lang.settings'
-    caching:
-        label: 'digitfab.core::lang.caching'
-        span: full
-        type: switch
-        default: false
-        tab: 'digitfab.core::lang.settings'

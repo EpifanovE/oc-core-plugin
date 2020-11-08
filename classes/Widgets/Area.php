@@ -3,6 +3,8 @@
 namespace DigitFab\Core\Classes\Widgets;
 
 use DigitFab\Core\Models\Widget;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 
 class Area
 {
@@ -18,6 +20,16 @@ class Area
 
     public function getWidgets()
     {
+        if (Config::get('digitfab.core::widgets_caching')) {
+            return Cache::rememberForever($this->getCacheKey(), function () {
+                return $this->getAreaContent();
+            });
+        } else {
+            return $this->getAreaContent();
+        }
+    }
+
+    protected function getAreaContent() {
         $widgets = Widget::where('area', '=', $this->name)->active()->get();
 
         return $widgets->reduce(function ($carry, $item) {
@@ -46,10 +58,11 @@ class Area
         return "<{$tag}{$this->getAttrsStr($attrs)}>$html</{$tag}>";
     }
 
-    protected function getAttrsStr($attrs) {
+    protected function getAttrsStr($attrs)
+    {
         $str = '';
 
-        if (!is_array($attrs) || count($attrs) === 0) {
+        if ( ! is_array($attrs) || count($attrs) === 0) {
             return $str;
         }
 
@@ -58,5 +71,9 @@ class Area
         }
 
         return $str;
+    }
+
+    public function getCacheKey() {
+        return "area-{$this->name}";
     }
 }

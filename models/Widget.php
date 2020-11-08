@@ -27,13 +27,11 @@ class Widget extends Model
         'type',
         'classes',
         'area',
-        'caching',
         'template',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
-        'caching' => 'boolean',
     ];
 
     protected $jsonable = ['data',];
@@ -61,12 +59,15 @@ class Widget extends Model
         }
     }
 
-    public function getAreaOptions() {
+    public function getAreaOptions()
+    {
         $areasManager = new AreasManager();
+
         return $areasManager->getAreasList();
     }
 
-    public function getTypeLabelAttribute() {
+    public function getTypeLabelAttribute()
+    {
         return WidgetType::getTypeLabel($this->type);
     }
 
@@ -82,33 +83,32 @@ class Widget extends Model
         }
     }
 
-    public function getTypeObject() {
+    public function afterUpdate()
+    {
+        $areasManager = new AreasManager();
+        $area = $areasManager->getArea($this->area);
+        Cache::forget($area->getCacheKey());
+    }
+
+    public function getTypeObject()
+    {
         return $this->typeObject;
     }
 
     public function getHtml(Area $area)
     {
         $params = [
-            'data' => $this->data,
+            'data'    => $this->data,
             'classes' => $this->classes,
-            'id' => $this->id,
-            'type' => $this->type,
+            'id'      => $this->id,
+            'type'    => $this->type,
         ];
 
-        if ($this->caching) {
-            return Cache::get($this->getCacheKey(), function () use ($params) {
-                return $this->typeObject->getHtml($params)->render();
-            });
-        } else {
-            return $this->typeObject->getHtml($params)->render();
-        }
+        return $this->typeObject->getHtml($params)->render();
     }
 
-    protected function getCacheKey() {
-        return "widget-{$this->type}-{$this->id}";
-    }
-
-    public function getStyles($componentProperties) {
+    public function getStyles($componentProperties)
+    {
         return $this->typeObject->getStyles($componentProperties);
     }
 }

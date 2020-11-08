@@ -18,7 +18,6 @@ class BuilderTableCreateDigitFabCoreWidgets extends Migration
             $table->string('classes', 1024)->nullable();
             $table->json('data')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->boolean('caching')->default(false);
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

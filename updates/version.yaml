@@ -4,6 +4,5 @@
   - create_digitfab_core_addresses_table.php
   - create_digitfab_core_socials_table.php
   - create_digitfab_core_working_periods_table.php
-  - create_digitfab_core_settings_table.php
   - create_digitfab_core_widgets_table.php
   - DatabaseSeeder.php

@@ -10,13 +10,6 @@ class Address extends WidgetType
 {
     protected $name = self::ADDRESS;
 
-    public function __construct($data, $template)
-    {
-        parent::__construct($data, $template);
-
-        $this->setData();
-    }
-
     protected function setData() {
         if ( ! empty($this->data['address'])) {
             $contact                     = \DigitFab\Core\Models\Address::where('id',

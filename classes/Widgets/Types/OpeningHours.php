@@ -11,13 +11,6 @@ class OpeningHours extends WidgetType
 
     protected $periods;
 
-    public function __construct($data, $template)
-    {
-        parent::__construct($data, $template);
-
-        $this->setData();
-    }
-
     protected function setData()
     {
 

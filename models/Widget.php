@@ -26,6 +26,7 @@ class Widget extends Model
         'name',
         'type',
         'classes',
+        'order',
         'area',
         'template',
     ];
@@ -71,16 +72,25 @@ class Widget extends Model
         return WidgetType::getTypeLabel($this->type);
     }
 
+    public function getAreaLabelAttribute()
+    {
+        $areasManager = new AreasManager();
+        return $areasManager->getAreaLabel($this->area);
+    }
+
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
     }
 
+    public function scopeArea($query, $value)
+    {
+        return $query->where('area', $value);
+    }
+
     public function afterFetch()
     {
-        if ( ! empty($this->type)) {
-            $this->typeObject = WidgetType::getTypeObject($this->type, $this->data, $this->template);
-        }
+        $this->setTypeObject();
     }
 
     public function afterUpdate()
@@ -90,25 +100,19 @@ class Widget extends Model
         Cache::forget($area->getCacheKey());
     }
 
+    protected function setTypeObject() {
+        if ( ! empty($this->type)) {
+            $this->typeObject = WidgetType::getTypeObject($this->type, $this->data, $this->id, $this->classes, $this->template);
+        }
+    }
+
     public function getTypeObject()
     {
         return $this->typeObject;
     }
 
-    public function getHtml(Area $area)
+    public function getHtml()
     {
-        $params = [
-            'data'    => $this->data,
-            'classes' => $this->classes,
-            'id'      => $this->id,
-            'type'    => $this->type,
-        ];
-
-        return $this->typeObject->getHtml($params)->render();
-    }
-
-    public function getStyles($componentProperties)
-    {
-        return $this->typeObject->getStyles($componentProperties);
+        return $this->typeObject->getHtml()->render();
     }
 }

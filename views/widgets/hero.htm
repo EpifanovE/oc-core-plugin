@@ -1,33 +1,11 @@
-<section class="hero{{ classes }}">
-    {% for key, slide in data.slides %}
-    <div class="hero__item" id="hero-slide-{{ key }}">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-10 d-flex align-items-center">
-                    <div class="hero__content">
-                        {% if slide.title %}
-                        <h2 class="hero__title">
-                            {{ slide.title|raw }}
-                        </h2>
-                        {% endif %}
-                        {% if slide.text %}
-                        <div class="hero__desc">
-                            {{ slide.text|raw }}
-                        </div>
-                        {% endif %}
-                        {% if slide.button_text %}
-                        <a class="hero__button button button_cta button_inverse{{ slide.button_class ? ' ' ~ slide.button_class : '' }}" href="{{ slide.button_link }}">
-                            <span class="button__text">
-                                {{ slide.button_text }}
-                            </span>
-                            <i class="fas fa-arrow-right button__icon button__icon_right"></i>
-                        </a>
-                        {% endif %}
-                    </div>
-                </div>
+<section class="Hero{{ widget.classes }}" id="{{ widget.id }}"{{ widget.attrs }}>
+    <div class="Container Hero__Container">
+        <div class="Grid">
+            <div class="Hero__Inner">
+                <h1 class="Hero__Title Title wow Animate Animate_fadeInLeft">{{ data.title|raw }}</h1>
+                <div class="Hero__Text Entry Entry_light wow Animate Animate_fadeInRight">{{ data.text|raw }}</div>
+                <a class="Button Button_ctaInverse Button_text_light Hero__Button wow Animate Animate_fadeInLeft" data-popup="callback-popup" href="#callback-popup">{{ data.button_text }}</a>
             </div>
         </div>
     </div>
-    {% endfor %}
 </section>
-

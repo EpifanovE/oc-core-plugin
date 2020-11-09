@@ -14,9 +14,13 @@ abstract class WidgetType
 
     protected $data;
 
+    protected $id;
+
+    protected $classes;
+
     protected $template;
 
-    protected $generatedId;
+    protected $type;
 
     const HERO = 'hero';
     const ABOUT = 'about';
@@ -30,11 +34,17 @@ abstract class WidgetType
     const OPENING_HOURS = 'opening_hours';
     const SOCIALS = 'socials';
 
-    public function __construct($data, $template)
+    public function __construct($type, $data, $id, $classes, $template)
     {
+        $this->type = $type;
         $this->data        = $data;
         $this->template    = $template;
-        $this->generatedId = $this->generateId();
+        $this->classes = $classes;
+        $this->id = $this->getId($id, $type);
+
+        if (method_exists($this, 'setData')) {
+            $this->setData();
+        }
     }
 
     public static function getTypes()
@@ -100,7 +110,7 @@ abstract class WidgetType
         }, self::getTypes());
     }
 
-    public static function getTypeObject($type, $data, $template)
+    public static function getTypeObject($type, $data, $id, $classes, $template)
     {
         $map = array_map(function ($item) {
             return $item['class'];
@@ -109,7 +119,7 @@ abstract class WidgetType
         if (isset($map[$type])) {
             $class = $map[$type];
 
-            return new $class($data, $template);
+            return new $class($type, $data, $id, $classes, $template);
         }
     }
 
@@ -120,13 +130,34 @@ abstract class WidgetType
         }
     }
 
-    public function getHtml($params)
+    protected static function getTypesArray($array)
+    {
+        if (empty($array)) {
+            return [];
+        }
+
+        $result = [];
+
+        foreach ($array as $item) {
+
+            if ( ! is_array($item)) {
+                continue;
+            }
+
+            $result = array_merge($result, $item);
+        }
+
+        return $result;
+    }
+
+    public function getHtml()
     {
         $tplData = [
-            'data'                => $this->getTemplateData($params['data']),
+            'data'                => $this->getTemplateData($this->data),
             'widget' => [
-                'id'      => $this->getId($params),
-                'classes' => $this->classes($params['classes']),
+                'id'      => $this->id,
+                'classes' => $this->classes(),
+                'attrs' => $this->getAttrs(),
             ],
         ];
 
@@ -139,6 +170,22 @@ abstract class WidgetType
         }
 
         return '';
+    }
+
+    public function getDataFields()
+    {
+        if ( ! method_exists($this, 'getFields')) {
+            return [];
+        }
+
+        $fields = $this->getFields();
+
+        foreach ($fields as $key => $field) {
+            $fields['data[' . $key . ']'] = $field;
+            unset($fields[$key]);
+        }
+
+        return $fields;
     }
 
     protected function getThemeHtml($params)
@@ -181,80 +228,65 @@ abstract class WidgetType
         return 'digitfab.core';
     }
 
-    public function getDataFields()
-    {
-        if ( ! method_exists($this, 'getFields')) {
-            return [];
+    protected function getAttrs() {
+        $attrs = [];
+
+        if (!empty($this->getStyles())) {
+            $attrs['style'] = $this->getStyles();
         }
 
-        $fields = $this->getFields();
-
-
-        foreach ($fields as $key => $field) {
-            $fields['data[' . $key . ']'] = $field;
-            unset($fields[$key]);
+        if (method_exists($this, 'doAttrs')) {
+            $attrs = array_merge($attrs, $this->doAttrs());
         }
 
-        return $fields;
-    }
-
-    public function getStyles($componentProperties)
-    {
-        $styles       = [];
-        $baseMediaUrl = url(Config::get('cms.storage.media.path'));
-
-        if ( ! empty($this->data['background_image'])) {
-            $styles['#' . $this->getId($componentProperties)] = [
-                'background-image' => 'url("' . $baseMediaUrl . $this->data['background_image'] . '")',
-            ];
+        if (empty($attrs)) {
+            return '';
         }
 
-        if (method_exists($this, 'doStyles')) {
-            $styles = array_merge($styles, $this->doStyles());
-        }
+        $result = '';
 
-        return $styles;
-    }
-
-    protected function classes($advClasses = null)
-    {
-        $classes = ! empty($advClasses) ? [trim($advClasses)] : [];
-
-        if (method_exists($this, 'getClasses') && is_array($this->getClasses())) {
-            $classes = array_merge($classes, $this->getClasses());
-        }
-
-        return empty($classes) ? '' : ' ' . join(' ', $classes);
-    }
-
-    protected static function getTypesArray($array)
-    {
-        if (empty($array)) {
-            return [];
-        }
-
-        $result = [];
-
-        foreach ($array as $item) {
-
-            if ( ! is_array($item)) {
-                continue;
-            }
-
-            $result = array_merge($result, $item);
+        foreach ($attrs as $key => $value) {
+            $result .= " {$key}={$value}";
         }
 
         return $result;
     }
 
-    protected function getId($params)
+    protected function getStyles()
     {
-        return isset($params['id']) ? "widget-{$params['type']}-{$params['id']}" : $this->generatedId;
+        if (!method_exists($this, 'doStyles')) {
+            return '';
+        }
+
+        $stylesArray = $this->doStyles();
+
+        if (empty($stylesArray)) {
+            return '';
+        }
+
+        $stylesString = "";
+
+        foreach ($stylesArray as $key => $value) {
+            $stylesString .= "{$key}:{$value};";
+        }
+
+        return $stylesString;
     }
 
-    protected function generateId()
+    protected function classes()
     {
-        return $this->name . '-' . uniqid();
+        $classes = ! empty($this->classes) ? [trim($this->classes)] : [];
+
+        if (method_exists($this, 'doClasses') && !empty($this->doClasses())) {
+            $advClasses = is_array($this->doClasses()) ? $this->doClasses() : [$this->doClasses()];
+            $classes = array_merge($classes, $advClasses);
+        }
+
+        return empty($classes) ? '' : ' ' . join(' ', $classes);
     }
 
+    protected function getId($id, $type)
+    {
+        return "widget-{$type}-{$id}";
+    }
 }

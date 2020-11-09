@@ -13,16 +13,17 @@ columns:
         type: text
         searchable: false
         sortable: false
-    area:
+    area_label:
         label: 'digitfab.core::lang.area'
         type: text
         searchable: false
-        sortable: true
+        sortable: false
     order:
         label: 'digitfab.core::lang.order'
         type: text
         searchable: false
         sortable: true
     is_active:
-        label: 'digitfab.core::lang.is_active'
-        type: switch
+        label: 'digitfab.core::lang.activity'
+        type: partial
+        path: ~/plugins/digitfab/core/models/widget/_activity_column.htm

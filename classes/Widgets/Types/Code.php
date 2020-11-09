@@ -18,7 +18,7 @@ class Code extends WidgetType
                 'type'        => 'codeeditor',
                 'span'        => 'storm',
                 'cssClass'    => 'col-sm-12',
-                'tab'         => Lang::get('digitfab.core::lang.content'),
+                'tab'         => 'digitfab.core::lang.content',
             ],
         ];
     }

@@ -1,0 +1,23 @@
+scopes:
+    type:
+        label: 'digitfab.core::lang.type'
+        modelClass: DigitFab\Core\Models\Widget
+        type: group
+        options: getTypeOptions
+        conditions: type in (:filtered)
+
+    area:
+        label: 'digitfab.core::lang.area'
+        modelClass: DigitFab\Core\Models\Widget
+        type: group
+        options: getAreaOptions
+        conditions: area in (:filtered)
+
+    activity:
+        label: 'digitfab.core::lang.activity'
+        modelClass: DigitFab\Core\Models\Widget
+        type: switch
+        default: 0
+        conditions:
+            - is_active = false
+            - is_active = true

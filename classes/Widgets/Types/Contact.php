@@ -11,13 +11,6 @@ class Contact extends WidgetType
 {
     protected $name = self::CONTACT;
 
-    public function __construct($data, $template)
-    {
-        parent::__construct($data, $template);
-
-        $this->setData();
-    }
-
     protected function setData() {
         if (!empty($this->data['contact'])) {
             $contact = \DigitFab\Core\Models\Contact::where('id', $this->data['contact'])->first();

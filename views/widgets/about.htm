@@ -1,28 +1,36 @@
-<section class="widget about{{ classes }}">
-    <div class="{{ componentProperties.container_width == 'full' ? 'container-fluid' : 'container' }}">
-        <div class="widget__content row">
-            <div class="col-12 col-md-6 mb-5 mb-md-0">
-                <div class="about__images{{ data.images|length > 0 ? ' owl-carousel images-carousel' : '' }}" >
-                {% for image in data.images %}
-                    <div class="about__image-wrap">
-                        <img src="{{ image.image|media }}" alt="" class="about__image">
+<section class="Section About{{ widget.classes }}" id="{{ widget.id }}"{{ widget.attrs }}>
+    <header class="SectionHeader Section__Header Container wow Animate Animate_fadeInUp">
+        <div class="Grid">
+            <div class="Grid__Col Grid__Col_12">
+                <h2 class="SectionHeader__Title Title">{{ data.title }}</h2>
+            </div>
+            {% if data.subtitle %}
+            <div class="Grid__Col Grid__Col_12">
+                <div class="SectionHeader__SubTitle">{{ data.subtitle }}</div>
+            </div>
+            {% endif %}
+        </div>
+    </header>
+    <div class="Section__Content Container">
+        <div class="Grid">
+            {% if data.images %}
+            <div class="Grid__Col Grid__Col_12 Grid__Col_md_6 wow Animate Animate_fadeInLeft">
+                <div class="Owl About__Images owl-carousel" id="about-carousel" data-dots="false">
+                    {% for image in data.images %}
+                    <div class="About__Image">
+                        <img class="Image" alt="{{ image.alt ? image.alt : '' }}" src="{{ image.src | media }}"/>
                     </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
-            <col-12 class="col-md-6">
-                <{{ componentProperties.title_tag }} class="widget__title about__title">
-                    {{ data.title }}
-                </{{ componentProperties.title_tag }}>
-                <div class="about__desc editor-output">
-                    {{ data.desc|raw }}
+            {% endif %}
+            {% if data.content %}
+            <div class="Grid__Col Grid__Col_12 Grid__Col_md_6 wow Animate Animate_fadeInRight">
+                <div class="Entry About__Entry">
+                    {{ data.content|raw }}
                 </div>
-                <a href="{{ data.button_link }}" class="widget__button button button_black button_inverse {{ data.button_class }}">
-                    <span class="button__text">
-                    {{ data.button_text }}
-                    </span>
-                </a>
-            </col-12>
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>

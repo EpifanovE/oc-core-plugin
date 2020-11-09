@@ -50,9 +50,6 @@ class Plugin extends PluginBase
             return array_merge($app, [
                 'CookiesConfirmation' => false,
                 'Owl'                 => [
-                    'about-carousel'        => [
-                        'dots' => false,
-                    ],
                     'testimonials-carousel' => [
                         'responsive' => [
                             "0"    => ["items" => 1, "margin" => 0],
@@ -66,6 +63,10 @@ class Plugin extends PluginBase
 
     public function boot()
     {
+        Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
+            $controller->addCss('/plugins/digitfab/core/assets/css/style.min.css');
+        });
+
         Validator::extend('recaptcha', ReCaptcha::class);
         Validator::extend('area', AreaValidationRule::class);
 

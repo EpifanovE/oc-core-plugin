@@ -1,51 +1,53 @@
-<section id="{{ data.widget.id }}" class="widget icon-cards{{ classes }}" >
-    <div class="{{ componentProperties.container_width == 'full' ? 'container-fluid' : 'container' }} widget__body">
-        <header class="row widget__header">
-            <div class="col-12">
-                <{{ componentProperties.title_tag }} class="widget__title">
-                    {{ data.title }}
-                </{{ componentProperties.title_tag }}>
-                <div class=" widget__subtitle">{{ data.subtitle|raw }}</div>
+<section class="Section CardGrid{{ widget.classes }}" id="{{ widget.id }}"{{ widget.attrs }}>
+    {% if data.title or data.subtitle %}
+    <header class="SectionHeader Section__Header Container wow Animate Animate_fadeInUp">
+        <div class="Grid">
+            {% if data.title %}
+            <div class="Grid__Col Grid__Col_12">
+                <h2 class="SectionHeader__Title Title">{{ data.title }}</h2>
             </div>
-        </header>
-        <div class="row justify-content-center widget__content">
-            {% for element in data.elements %}
-            <div class="{{ data.iconCardWidthClasses }}">
-                <div class="icon-card {{ element.image ? 'icon-card_image' : 'icon-card_icon' }} icon-cards__item{{ data.iconCardClasses }}">
-                    {% if element.image or element.icon_class %}
-                    <div class="icon-card__icon-wrapper">
-                        {% if element.image %}
-                        <img src="{{ element.image|media }}" alt="{{ element.title }}" class="image icon-card__image">
-                        {% elseif element.icon_class %}
-                        <span class="icon-card__icon {{ element.icon_class }}"></span>
+            {% endif %}
+            {% if data.subtitle %}
+            <div class="Grid__Col Grid__Col_12">
+                <div class="SectionHeader__SubTitle">{{ data.subtitle }}</div>
+            </div>
+            {% endif %}
+        </div>
+    </header>
+    {% endif %}
+    {% if data.elements %}
+    <div class="Section__Content Container">
+        <div class="Grid CardsGrid__Items">
+            {% for item in data.elements %}
+            <div class="Grid__Col {{ data.iconCardWidthClasses }} wow Animate Animate_fadeInUp">
+                <article class="ImageCard Card CardsGrid__Item Card{{ data.iconCardClasses }}">
+                    {% if item.image or item.icon_class %}
+                    <div class="ImageCard__ImageWrap">
+                        {% if item.image %}
+                        <img class="Image ImageCard__Image" alt="{{ item.title }}" src="{{ item.image | media }}"/>
+                        {% elseif item.icon_class %}
+                        <div class="ImageCard__Image {{ item.icon_class }}"></div>
                         {% endif %}
                     </div>
                     {% endif %}
-                    <div class="icon-card__content">
-                        <{{ element.link ? 'a' : 'div' }} class="icon-card__title"{{ element.link ? 'href=' ~ element.link : '' }}>
-                            {{ element.title }}
-                        </{{ element.link ? 'a' : 'div' }}>
-                        <div class="icon-card__text">
-                            {{ element.text }}
+                    <div class="ImageCard__Content">
+                        <h3 class="ImageCard__Title Title Title_card">
+                            {% if item.link %}
+                            <a class="Title__Link" href="{{ item.link}}">{{ item.title }}</a>
+                            {% else %}
+                            {{ item.title }}
+                            {% endif %}
+                        </h3>
+                        {% if item.text %}
+                        <div class="ImageCard__Text Entry">
+                            {{ item. text }}
                         </div>
+                        {% endif %}
                     </div>
-                </div>
+                </article>
             </div>
             {% endfor %}
         </div>
-        {% if data.button_text %}
-        <footer class="widget__footer row">
-            <div class="col-12">
-                <a href="{{ data.button_link }}" class="widget__button button {{ data.button_class }}">
-                    <span class="button__text">
-                    {{ data.button_text }}
-                    </span>
-                </a>
-            </div>
-        </footer>
-        {% endif %}
     </div>
-    {% if data.widget.overlay %}
-        <div class="widget__overlay"></div>
     {% endif %}
 </section>

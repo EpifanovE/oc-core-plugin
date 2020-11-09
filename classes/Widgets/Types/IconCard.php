@@ -12,72 +12,43 @@ class IconCard extends WidgetType
     protected function getFields()
     {
         return [
-            'title'            => [
-                'label' => Lang::get('digitfab.core::lang.title'),
-                'span'  => 'full',
-                'type'  => 'text',
-                'tab'   => Lang::get('digitfab.core::lang.data'),
-            ],
-            'subtitle'         => [
-                'label'          => Lang::get('digitfab.core::lang.subtitle'),
-                'span'           => 'full',
-                'type'           => 'richeditor',
-                'toolbarButtons' => 'bold|italic|underline|color',
-                'tab'            => Lang::get('digitfab.core::lang.data'),
-            ],
-            'button_text'      => [
-                'label'    => Lang::get('digitfab.core::lang.button_text'),
-                'cssClass' => 'col-xs-4',
+            'title'         => [
+                'label'    => 'digitfab.core::lang.title',
+                'cssClass' => 'col-sm-12',
                 'span'     => 'storm',
                 'type'     => 'text',
-                'tab'      => Lang::get('digitfab.core::lang.data'),
+                'tab'      => 'digitfab.core::lang.data',
             ],
-            'button_link'      => [
-                'label'    => Lang::get('digitfab.core::lang.button_link'),
-                'cssClass' => 'col-sm-4',
+            'subtitle'      => [
+                'label'    => 'digitfab.core::lang.subtitle',
+                'cssClass' => 'col-sm-12',
                 'span'     => 'storm',
                 'type'     => 'text',
-                'tab'      => Lang::get('digitfab.core::lang.data'),
+                'tab'      => 'digitfab.core::lang.data',
             ],
-            'button_class'     => [
-                'label'    => Lang::get('digitfab.core::lang.button_class'),
-                'cssClass' => 'col-sm-4',
-                'span'     => 'storm',
-                'type'     => 'text',
-                'tab'      => Lang::get('digitfab.core::lang.data'),
-            ],
-            'background_image' => [
-                'label'      => Lang::get('digitfab.core::lang.bg_image'),
-                'type'       => 'mediafinder',
-                'mode'       => 'image',
-                'imageWidth' => 300,
-                'span'       => 'storm',
-                'cssClass'   => 'col-sm-12',
-                'tab'        => Lang::get('digitfab.core::lang.data'),
-            ],
-            'elements'         => [
-                'label'    => Lang::get('digitfab.core::lang.elements'),
+            'elements'      => [
+                'label'    => 'digitfab.core::lang.elements',
                 'cssClass' => 'col-sm-12',
                 'span'     => 'storm',
                 'type'     => 'repeater',
-                'tab'      => Lang::get('digitfab.core::lang.elements'),
-                'prompt'   => Lang::get('digitfab.core::lang.add_element'),
+                'tab'      => 'digitfab.core::lang.elements',
+                'prompt'   => 'digitfab.core::lang.add_element',
                 'form'     => [
                     'fields' => [
                         'title'      => [
-                            'label'    => Lang::get('digitfab.core::lang.title'),
+                            'label'    => 'digitfab.core::lang.title',
                             'cssClass' => 'col-sm-12',
                             'span'     => 'storm',
                             'type'     => 'text',
                         ],
                         'text'       => [
-                            'label'    => Lang::get('digitfab.core::lang.text'),
+                            'label'    => 'digitfab.core::lang.text',
                             'cssClass' => 'col-sm-12',
                             'span'     => 'storm',
                             'type'     => 'text',
                         ],
                         'image'      => [
-                            'label'      => Lang::get('digitfab.core::lang.image'),
+                            'label'      => 'digitfab.core::lang.image',
                             'type'       => 'mediafinder',
                             'mode'       => 'image',
                             'imageWidth' => 300,
@@ -85,13 +56,13 @@ class IconCard extends WidgetType
                             'span'       => 'storm',
                         ],
                         'icon_class' => [
-                            'label'    => Lang::get('digitfab.core::lang.icon_css_class'),
+                            'label'    => 'digitfab.core::lang.icon_css_class',
                             'cssClass' => 'col-sm-4',
                             'span'     => 'storm',
                             'type'     => 'text',
                         ],
                         'link'       => [
-                            'label'    => Lang::get('digitfab.core::lang.link'),
+                            'label'    => 'digitfab.core::lang.link',
                             'cssClass' => 'col-sm-4',
                             'span'     => 'storm',
                             'type'     => 'text',
@@ -99,16 +70,10 @@ class IconCard extends WidgetType
                     ],
                 ],
             ],
-        ];
-    }
-
-    public function getComponentProperties()
-    {
-        return [
             'cols'          => [
-                'title'             => 'digitfab.core::lang.cols_number',
+                'label'             => 'digitfab.core::lang.cols_number',
                 'type'              => 'dropdown',
-                'group'             => 'digitfab.core::lang.elements',
+                'tab'               => 'digitfab.core::lang.adv_settings',
                 'showExternalParam' => false,
                 'default'           => '2',
                 'options'           => [
@@ -118,9 +83,9 @@ class IconCard extends WidgetType
                 ],
             ],
             'card_template' => [
-                'title'   => 'digitfab.core::lang.card_template',
+                'label'   => 'digitfab.core::lang.card_template',
                 'type'    => 'dropdown',
-                'group'   => 'digitfab.core::lang.elements',
+                'tab'     => 'digitfab.core::lang.adv_settings',
                 'default' => 'horizontal',
                 'options' => [
                     'horizontal' => 'digitfab.core::lang.horizontal',
@@ -130,38 +95,40 @@ class IconCard extends WidgetType
         ];
     }
 
-    protected function doTemplateData($componentProperties)
+    protected function doTemplateData()
     {
         return [
-            'iconCardWidthClasses' => ' ' . $this->getIconWidthClasses($componentProperties),
-            'iconCardClasses'      => ' ' . $this->getIconClasses($componentProperties),
+            'iconCardWidthClasses' => ' ' . $this->getIconWidthClasses(),
+            'iconCardClasses'      => ' ' . $this->getIconClasses(),
         ];
     }
 
-    protected function getIconWidthClasses($componentProperties)
+    protected function getIconWidthClasses()
     {
 
         $map = [
-            '2' => 'col-12 col-lg-6',
-            '3' => 'col-12 col-lg-4',
-            '4' => 'col-12 col-lg-3',
+            '2' => 'Grid__Col_12 Grid__Col_md_6',
+            '3' => 'Grid__Col_12 Grid__Col_md_4',
+            '4' => 'Grid__Col_12 Grid__Col_md_3',
         ];
 
-        if ($componentProperties['cols'] && isset($map[$componentProperties['cols']])) {
-            return $map[$componentProperties['cols']];
+        if ( ! empty($this->data['cols']) && isset($map[$this->data['cols']])) {
+            return $map[$this->data['cols']];
         }
 
         return $map['2'];
     }
 
-    protected function getIconClasses($componentProperties)
+    protected function getIconClasses()
     {
 
         $classes = [];
 
-        if ($componentProperties['card_template']) {
-            $classes[] = 'icon-card_' . $componentProperties['card_template'];
+        if (empty($this->data['card_template'])) {
+            return '';
         }
+
+        $classes[] = "ImageCard_{$this->data['card_template']}";
 
         return join(' ', $classes);
     }

@@ -11,13 +11,6 @@ class Socials extends WidgetType
 
     protected $items;
 
-    public function __construct($data, $template)
-    {
-        parent::__construct($data, $template);
-
-        $this->setData();
-    }
-
     protected function setData()
     {
         $this->items = Social::orderBy('sort_order', 'ASC')->active()->get();

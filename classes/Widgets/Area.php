@@ -30,7 +30,7 @@ class Area
     }
 
     protected function getAreaContent() {
-        $widgets = Widget::where('area', '=', $this->name)->active()->get();
+        $widgets = Widget::where('area', '=', $this->name)->active()->orderBy('order')->get();
 
         return $widgets->reduce(function ($carry, $item) {
             return $carry . $this->wrap($item->getHtml($this));

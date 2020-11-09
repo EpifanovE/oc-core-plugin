@@ -18,89 +18,89 @@ class DatabaseSeeder extends Seeder
     {
         Contact::create([
             'title' => 'Телефон',
-            'text' => '8 (906) 333-44-55',
-            'link' => 'tel:+79063334455',
-            'type' => ContactType::PHONE,
+            'text'  => '8 (906) 333-44-55',
+            'link'  => 'tel:+79063334455',
+            'type'  => ContactType::PHONE,
         ]);
 
         Contact::create([
             'title' => 'Мобильный телефон',
-            'text' => '8 (906) 333-44-55',
-            'link' => 'tel:+79063334455',
-            'type' => ContactType::PHONE,
+            'text'  => '8 (906) 333-44-55',
+            'link'  => 'tel:+79063334455',
+            'type'  => ContactType::PHONE,
         ]);
 
         Contact::create([
             'title' => 'Электронная почта',
-            'text' => 'email@gmail.com',
-            'link' => 'mailto:email@gmail.com',
-            'type' => ContactType::EMAIL,
+            'text'  => 'email@gmail.com',
+            'link'  => 'mailto:email@gmail.com',
+            'type'  => ContactType::EMAIL,
         ]);
 
         Address::create([
-            'name' => 'Главный офис',
-            'country' => 'Россия',
-            'locality' => 'Йошкар-Ола',
-            'region' => 'Марий Эл',
-            'postal_code' => '424000',
+            'name'           => 'Главный офис',
+            'country'        => 'Россия',
+            'locality'       => 'Йошкар-Ола',
+            'region'         => 'Марий Эл',
+            'postal_code'    => '424000',
             'street_address' => 'ул. Красноармейская, д.47, оф.317',
-            'latitude' => '56.640906',
-            'longitude' => '47.892458',
+            'latitude'       => '56.640906',
+            'longitude'      => '47.892458',
         ]);
 
         Social::create([
-            'title' => 'Вконтакте',
-            'type' => SocialType::VK,
-            'link' => '#',
+            'title'     => 'Вконтакте',
+            'type'      => SocialType::VK,
+            'link'      => '#',
             'is_active' => true,
         ]);
 
         Social::create([
-            'title' => 'Одноклассники',
-            'type' => SocialType::OK,
-            'link' => '#',
+            'title'     => 'Одноклассники',
+            'type'      => SocialType::OK,
+            'link'      => '#',
             'is_active' => true,
         ]);
 
         Social::create([
-            'title' => 'Facebook',
-            'type' => SocialType::FACEBOOK,
-            'link' => '#',
+            'title'     => 'Facebook',
+            'type'      => SocialType::FACEBOOK,
+            'link'      => '#',
             'is_active' => true,
         ]);
 
         Social::create([
-            'title' => 'Twitter',
-            'type' => SocialType::TWITTER,
-            'link' => '#',
+            'title'     => 'Twitter',
+            'type'      => SocialType::TWITTER,
+            'link'      => '#',
             'is_active' => true,
         ]);
 
         Social::create([
-            'title' => 'Youtube',
-            'type' => SocialType::YOUTUBE,
-            'link' => '#',
+            'title'     => 'Youtube',
+            'type'      => SocialType::YOUTUBE,
+            'link'      => '#',
             'is_active' => true,
         ]);
 
         WorkingPeriod::create([
-            'day' => WorkingPeriod::MONDAY_FRIDAY,
-            'time_from' => '8:00',
-            'time_till' => '12:00',
+            'day'              => WorkingPeriod::MONDAY_FRIDAY,
+            'time_from'        => '8:00',
+            'time_till'        => '12:00',
             'around_the_clock' => false,
         ]);
 
         WorkingPeriod::create([
-            'day' => WorkingPeriod::MONDAY_FRIDAY,
-            'time_from' => '13:00',
-            'time_till' => '18:00',
+            'day'              => WorkingPeriod::MONDAY_FRIDAY,
+            'time_from'        => '13:00',
+            'time_till'        => '18:00',
             'around_the_clock' => false,
         ]);
 
         WorkingPeriod::create([
-            'day' => WorkingPeriod::SATURDAY_SUNDAY,
-            'time_from' => '9:00',
-            'time_till' => '15:00',
+            'day'              => WorkingPeriod::SATURDAY_SUNDAY,
+            'time_from'        => '9:00',
+            'time_till'        => '15:00',
             'around_the_clock' => false,
         ]);
 
@@ -109,9 +109,9 @@ class DatabaseSeeder extends Seeder
             'type' => WidgetType::CONTACT,
             'area' => 'top-bar-left',
             'data' => json_encode([
-                'contact' => 1,
+                'contact'          => 1,
                 'contact_as_title' => true,
-                'title_as_link' => true,
+                'title_as_link'    => true,
             ]),
         ]);
 
@@ -120,9 +120,9 @@ class DatabaseSeeder extends Seeder
             'type' => WidgetType::CONTACT,
             'area' => 'top-bar-center',
             'data' => json_encode([
-                'contact' => 3,
+                'contact'          => 3,
                 'contact_as_title' => true,
-                'title_as_link' => true,
+                'title_as_link'    => true,
             ]),
         ]);
 
@@ -131,7 +131,7 @@ class DatabaseSeeder extends Seeder
             'type' => WidgetType::CONTACT,
             'area' => 'footer-contacts-right',
             'data' => json_encode([
-                'contact' => 1,
+                'contact'      => 1,
                 'text_as_link' => true,
             ]),
         ]);
@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
             'type' => WidgetType::CONTACT,
             'area' => 'footer-contacts-right',
             'data' => json_encode([
-                'contact' => 2,
+                'contact'      => 2,
                 'text_as_link' => true,
             ]),
         ]);
@@ -151,9 +151,9 @@ class DatabaseSeeder extends Seeder
             'type' => WidgetType::ADDRESS,
             'area' => 'footer-contacts-left',
             'data' => json_encode([
-                'address' => 1,
+                'address'    => 1,
                 'show_title' => true,
-                'show_icon' => true,
+                'show_icon'  => true,
             ]),
         ]);
 
@@ -163,7 +163,7 @@ class DatabaseSeeder extends Seeder
             'area' => 'footer-contacts-left',
             'data' => json_encode([
                 'show_title' => true,
-                'show_icon' => true,
+                'show_icon'  => true,
             ]),
         ]);
 
@@ -172,7 +172,7 @@ class DatabaseSeeder extends Seeder
             'type' => WidgetType::CONTACT,
             'area' => 'footer-contacts-center',
             'data' => json_encode([
-                'contact' => 3,
+                'contact'      => 3,
                 'text_as_link' => true,
             ]),
         ]);
@@ -183,6 +183,15 @@ class DatabaseSeeder extends Seeder
             'area' => 'footer-contacts-right',
             'data' => json_encode([
                 'content' => "<a class=\"Button Button_ctaInverse Button_inverse FooterContacts__Item\" data-popup=\"callback-popup\" href=\"#callback-popup\">Заказать звонок</a>",
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Кнопка в шапке',
+            'type' => WidgetType::CODE,
+            'area' => 'top-bar-right',
+            'data' => json_encode([
+                'content' => "<a class=\"Button Button_ctaInverse Button_inverse Button_size_sm FooterContacts__Item\" data-popup=\"callback-popup\" href=\"#callback-popup\">Заказать звонок</a>",
             ]),
         ]);
 
@@ -202,70 +211,113 @@ class DatabaseSeeder extends Seeder
             ]),
         ]);
 
-//        Widget::create([
-//            'name' => 'Промо-секция - Главная страница',
-//            'type' => WidgetType::HERO,
-//            'area' => 'home',
-//            'data' => [
-//                'slides' => [
-//                    [
-//                        'title' => '<strong>Отделка помещений</strong><br>в Нижнем Новгороде и области',
-//                        'text' => '<p>Внутренняя отделка квартир – важнейшая часть ремонта, а выбор поставщика таких услуг – непростая и ответственная задача. От квалификации мастеров зависит внешний вид отремонтированного жилья, уровень комфорта.</p>',
-//                        'button_text' => 'Узнать подробнее',
-//                    ],
-//                    [
-//                        'title' => '<strong>Отделка помещений</strong><br>в Москве и области',
-//                        'text' => '<p>Внутренняя отделка квартир – важнейшая часть ремонта, а выбор поставщика таких услуг – непростая и ответственная задача. От квалификации мастеров зависит внешний вид отремонтированного жилья, уровень комфорта.</p>',
-//                        'button_text' => 'Узнать подробнее',
-//                    ]
-//                ],
-//            ],
-//        ]);
-//
-//        Widget::create([
-//            'name' => 'О компании - Главная страница',
-//            'type' => WidgetType::ABOUT,
-//            'area' => 'home',
-//            'data' => [
-//                "desc" => "<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</p><p>Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами. Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот.</p><p>Даже всемогущая пунктуация не имеет власти над рыбными текстами, ведущими безорфографичный образ жизни.</p>",
-//                "title" => "О компании",
-//                "button_link" => "/about",
-//                "button_text" => "Подробнее",
-//                "button_class" => ""
-//            ],
-//        ]);
-//
-//        Widget::create([
-//            'name' => 'Наши преимущества - Главная страница',
-//            'type' => WidgetType::ICONCARD,
-//            'area' => 'home',
-//            'data' => [
-//                "title" => "Наши преимущества",
-//                "subtitle" => "Далеко-далеко за словесными горами в стране гласных и согласных",
-//                "button_link" => "/about",
-//                "button_text" => "Подробнее",
-//                "button_class" => "",
-//                "elements" => [
-//                    [
-//                        'title' => '24 часа в сутки',
-//                        'text' => 'Далеко-далеко за словесными горами в стране гласных и согласных',
-//                        'icon_class' => 'fas fa-phone',
-//                    ],
-//                    [
-//                        'title' => 'Гарантия качества',
-//                        'text' => 'Далеко-далеко за словесными горами в стране гласных и согласных в стране гласных и согласных',
-//                        'icon_class' => 'fas fa-user',
-//                        'link' => '#',
-//                    ],
-//                ],
-//            ],
-//        ]);
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Промо-секция - Главная страница',
+            'type' => WidgetType::HERO,
+            'area' => 'home',
+            'data' => json_encode([
+                "text"        => "<p>Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания по разработке форм развития. Задача организации, в особенности же новая модель.</p>\r\n",
+                "title"       => "Бухгалтерские услуги<br><strong>в Москве и Московской области</strong>",
+                "button_text" => "Получить консультацию",
+                "full_height" => "0",
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'О компании - Главная страница',
+            'type' => WidgetType::ABOUT,
+            'area' => 'home',
+            'data' => json_encode([
+                "title"    => "О компании",
+                "images"   => [
+                    [
+                        "alt" => "Задача организации, в особенности",
+                        "src" => "/about-1.jpg",
+                    ],
+                    [
+                        "alt" => "",
+                        "src" => "/about-2.jpg",
+                    ],
+                    [
+                        "alt" => "Задача организации, в особенности",
+                        "src" => "/about-3.jpg",
+                    ],
+                ],
+                "content"  => "<p>Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания по разработке форм развития. Задача организации, в особенности же новая модель. Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания по разработке форм развития. Задача организации, в особенности же новая модель.</p>\r\n\r\n<p>Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания по разработке форм развития. Задача организации, в особенности же новая модель. Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания по разработке форм развития. Задача организации, в особенности же новая модель.</p>",
+                "subtitle" => "информация"
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'Наши преимущества - Главная страница',
+            'type' => WidgetType::ICONCARD,
+            'area' => 'home',
+            'data' => json_encode([
+                "title"    => "Наши преимущества",
+                "subtitle" => "Далеко-далеко за словесными горами в стране гласных и согласных",
+                "elements" => [
+                    [
+                        "link"=> "#",
+                        "text"=> "Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания",
+                        "image"=> "/logo-example.png", "title"=> "Задача организации, в особенности",
+                        "icon_class"=> ""
+                    ],
+                    [
+                        "link"=> "",
+                        "text"=> "Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания",
+                        "image"=> "/about-2.jpg",
+                        "title"=> "Задача организации, в особенности",
+                        "icon_class"=> ""
+                    ],
+                    [
+                        "link"=> "",
+                        "text"=> "Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания",
+                        "image"=> "",
+                        "title"=> "Задача организации",
+                        "icon_class"=> "fas fa-anchor"
+                    ],
+                    [
+                        "link"=> "#",
+                        "text"=> "Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания",
+                        "image"=> "",
+                        "title"=> "Задача организации, в особенности",
+                        "icon_class"=> ""
+                    ],
+                    [
+                        "link"=> "",
+                        "text"=> "Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания",
+                        "image"=> "",
+                        "title"=> "Задача организации",
+                        "icon_class"=> "fas fa-balance-scale"
+                    ],
+                    [
+                        "link"=> "",
+                        "text"=> "Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания",
+                        "image"=> "",
+                        "title"=> "Задача организации",
+                        "icon_class"=> "fas fa-award"
+                    ],
+                ],
+            ]),
+        ]);
+
+        \DB::table('digitfab_core_widgets')->insert([
+            'name' => 'CTA-секция - Главная страница',
+            'type' => WidgetType::CTA,
+            'area' => 'home',
+            'data' => json_encode([
+                "title" => "У вас есть вопросы?",
+                "content" => "<p>Задача организации, в особенности же укрепление и развитие структуры позволяет выполнять важные задания по разработке форм развития. Задача организации, в особенности же новая модель организационной деятельности обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.</p>",
+                "button_text" => "Узнать подробнее",
+                "background_image" => "/blog-3.jpg",
+            ]),
+        ]);
 
         \DB::table('system_settings')->insert([
             [
-                'item' => 'digitfab_core_settings',
+                'item'  => 'digitfab_core_settings',
                 'value' => json_encode([
-                    'name' => 'ООО "Сантехремстроймонтаж"',
+                    'name'       => 'ООО "Сантехремстроймонтаж"',
                     'short_desc' => 'Отделка помещений под ключ',
                 ]),
             ],

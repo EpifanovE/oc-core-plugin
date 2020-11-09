@@ -3,6 +3,7 @@
 namespace DigitFab\Core\Classes\Widgets;
 
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Lang;
 use mysql_xdevapi\Exception;
 
 class AreasManager
@@ -40,5 +41,13 @@ class AreasManager
         }
 
         return $result;
+    }
+
+    public function getAreaLabel($name) {
+        if ( ! array_key_exists($name, $this->areas)) {
+            throw new Exception('Area "' . $name . '" doesn\'t exists');
+        }
+
+        return Lang::get("digitfab.theme1::lang.areas.{$name}");
     }
 }

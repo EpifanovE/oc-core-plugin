@@ -1,24 +1,15 @@
-<section id="{{ data.widget.id }}" class="widget widget-cta{{ classes }}">
-    <div class="{{ componentProperties.container_width == 'full' ? 'container-fluid' : 'container' }} widget__body">
-        <div class="row justify-content-center widget__content">
-            <div class="col-12">
-                <{{ componentProperties.title_tag }} class="widget-cta__title">
-                    {{ data.title }}
-                </{{ componentProperties.title_tag }}>
-            </div>
-            <div class="col-12 widget-cta__content">
-                {{ data.content|raw}}
-            </div>
-            <div class="col-12">
-                <a href="{{ data.button_link }}" class="widget-cta__button button {{ data.button_class }}">
-                <span class="button__text">
-                {{ data.button_text }}
-                </span>
+<section class="Section Cta{{ widget.classes }}" id="{{ widget.id }}"{{ widget.attrs }}>
+    <div class="Section__Content Container">
+        <div class="Grid">
+            <div class="Grid__Col Grid__Col_12 Cta__Content">
+                <h2 class="Cta__Title Title wow Animate Animate_fadeInUp">{{ data.title|raw }}</h2>
+                <div class="Cta__Text Entry wow Animate Animate_fadeInUp">
+                    {{ data.content|raw }}
+                </div>
+                <a class="Button Button_ctaInverse Button_text_light Cta__Button wow Animate Animate_fadeInUp" data-popup="callback-popup" href="#callback-popup">
+                 {{ data.button_text }}
                 </a>
             </div>
         </div>
     </div>
-    {% if data.widget.overlay %}
-    <div class="widget__overlay"></div>
-    {% endif %}
 </section>

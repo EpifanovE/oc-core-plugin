@@ -1,0 +1,23 @@
+.Badge {
+    display: inline-block;
+    line-height: 1;
+    padding: 4px 12px;
+    color: #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+
+    &_success {
+        background-color: #27ae60;
+    }
+
+    &_warning {
+        background-color: #e67e22;
+    }
+
+    &_error {
+        background-color: #c0392b;
+    }
+}

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Lang;
 use System\Classes\PluginBase;
+use Backend\Models\User as Admin;
 
 class Plugin extends PluginBase
 {
@@ -65,6 +66,18 @@ class Plugin extends PluginBase
     {
         Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
             $controller->addCss('/plugins/digitfab/core/assets/css/style.min.css');
+        });
+
+        Admin::extend(function ($model) {
+            $model->addDynamicMethod('getDisplayNameAttribute', function () use ($model) {
+                return $model->first_name . ' - ' . $model->last_name;
+            });
+        });
+
+        Admin::extend(function ($model) {
+            $model->addDynamicMethod('getAdminNameEmailAttribute', function () use ($model) {
+                return $model->getFullNameAttribute() . ' - ' . $model->email;;
+            });
         });
 
         Validator::extend('recaptcha', ReCaptcha::class);

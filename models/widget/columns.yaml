@@ -26,4 +26,4 @@ columns:
     is_active:
         label: 'digitfab.core::lang.activity'
         type: partial
-        path: ~/plugins/digitfab/core/models/widget/_activity_column.htm
+        path: ~/plugins/digitfab/core/views/admin/_status_column.htm

@@ -1,4 +1,4 @@
-<?php namespace DigitFab\Leads\Updates;
+<?php namespace DigitFab\Core\Updates;
 
 use Schema;
 use October\Rain\Database\Updates\Migration;

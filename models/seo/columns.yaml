@@ -1,0 +1,10 @@
+columns:
+    id:
+        label: id
+        type: number
+        sortable: true
+    title:
+        label: 'digitfab.core::lang.seo_title'
+        type: text
+        searchable: true
+        sortable: true

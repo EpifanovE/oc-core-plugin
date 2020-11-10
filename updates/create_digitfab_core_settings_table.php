@@ -1,4 +1,4 @@
-<?php namespace DigitFab\Corpcore\Updates;
+<?php namespace DigitFab\Core\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;

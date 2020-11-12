@@ -12,10 +12,6 @@
             'name' => 'Настройки JavaScript',
             'desc' => '',
         ],
-        'breadcrumbs' => [
-            'name' => 'Хлебные крошки',
-            'desc' => '',
-        ],
         'logo' => [
             'name' => 'Логотип',
             'desc' => '',

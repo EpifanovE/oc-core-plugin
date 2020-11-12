@@ -4,9 +4,13 @@ namespace DigitFab\Core\Classes\Breadcrumbs;
 
 class Item
 {
-    protected $label;
+    public $label;
 
-    protected $url = '';
+    public $url = '';
+
+    public $isHome = false;
+
+    public $isLast = false;
 
     public function __construct($label, $url = '')
     {
@@ -14,16 +18,21 @@ class Item
         $this->url = $url;
     }
 
-    public static function make($label, $url = '') {
+    public static function make($label, $url = '')
+    {
         return new self($label, $url);
     }
 
-    public function getLabel() {
-        return $this->label;
+    public function setIsHome()
+    {
+        $this->isHome = true;
+        return $this;
     }
 
-    public function getUrl() {
-        return $this->url;
+    public function setIsLast()
+    {
+        $this->isLast = true;
+        return $this;
     }
 
 }

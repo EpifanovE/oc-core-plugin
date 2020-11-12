@@ -7,7 +7,6 @@ use DigitFab\Core\Classes\Forms\Rules\ReCaptcha;
 use DigitFab\Core\Classes\Widgets\AreasManager;
 use DigitFab\Core\Components\InlineScripts;
 use DigitFab\Core\Rules\AreaValidationRule;
-use DigitFab\Core\Components\Breadcrumbs;
 use DigitFab\Core\Components\InlineStyles;
 use DigitFab\Core\Components\Logo;
 use DigitFab\Core\Components\Popup;
@@ -91,7 +90,6 @@ class Plugin extends PluginBase
         return [
             InlineStyles::class  => 'inlineStyles',
             InlineScripts::class  => 'inlineScripts',
-            Breadcrumbs::class   => 'breadcrumbs',
             Logo::class          => 'logo',
             FormComponent::class => 'form',
             Popup::class         => 'popup',

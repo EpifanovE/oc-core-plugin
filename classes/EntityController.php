@@ -9,11 +9,17 @@ use October\Rain\Support\Facades\Twig;
 
 abstract class EntityController
 {
-    protected $layout;
+    protected $layouts;
 
     protected $itemPage;
 
-    protected $itemsPage;
+    protected $archivePage;
+
+    protected $categorySlug;
+
+    protected $typeSlug;
+
+    protected $isList = false;
 
     /**
      * @var Entity
@@ -24,22 +30,24 @@ abstract class EntityController
 
     public function __construct()
     {
-        $this->layout = Config::get("digitfab.{$this->getPluginSlug()}::product.layout", ['content']);
+        $this->layouts = Config::get("digitfab.{$this->getPluginSlug()}::layouts", []);
 
         $this->itemPage = Config::get(
             "digitfab.{$this->getPluginSlug()}::item_page",
             Config::get('digitfab.core::default_page', '')
         );
 
-        $this->itemsPage = Config::get(
+        $this->archivePage = Config::get(
             "digitfab.{$this->getPluginSlug()}::items_page",
             Config::get('digitfab.core::default_page', '')
         );
+
+        $this->categorySlug = Config::get("digitfab.{$this->getPluginSlug()}::category_slug", '');
     }
 
     protected function setLayoutVars($vars = [])
     {
-        $common['mainContent'] = $this->buildEntityLayout();
+        $common['mainContent'] = $this->buildLayout();
         $common['title'] = $this->entity->getTitle();
         $common['breadcrumbs'] = $this->entity->getBreadcrumbs();
         $common['seo_title'] = $this->entity->getSeoTitle();
@@ -51,11 +59,11 @@ abstract class EntityController
         });
     }
 
-    protected function buildEntityLayout()
+    protected function buildLayout()
     {
         $html = '';
 
-        foreach ($this->layout as $row) {
+        foreach ($this->getLayout() as $row) {
             $partPath = $this->getLayoutPartPath($row);
             if (file_exists($partPath)) {
                 $html .= Twig::parse(file_get_contents($partPath), [
@@ -67,6 +75,14 @@ abstract class EntityController
         return $html;
     }
 
+    protected function getLayout() {
+        $arrayKey = $this->isList ? 'archive' : 'item';
+
+        return !empty($this->layouts[$this->typeSlug][$arrayKey])
+            ? $this->layouts[$this->typeSlug][$arrayKey]
+            : ['content'];
+    }
+
     protected function getLayoutPartPath($partName)
     {
         $pluginsPath = plugins_path();
@@ -74,12 +90,12 @@ abstract class EntityController
 
         $currentTheme = Config('cms.activeTheme');
 
-        $themePartPath = "{$themesPath}/{$currentTheme}/views/digitfab/{$this->getPluginSlug()}/item/_{$partName}.htm";
+        $themePartPath = "{$themesPath}/{$currentTheme}/views/digitfab/{$this->getPluginSlug()}/layout/_{$partName}.htm";
 
         if (file_exists($themePartPath)) {
             return $themePartPath;
         }
 
-        return "{$pluginsPath}/digitfab/{$this->getPluginSlug()}/views/item/_{$partName}.htm";
+        return "{$pluginsPath}/digitfab/{$this->getPluginSlug()}/views/layout/_{$partName}.htm";
     }
 }

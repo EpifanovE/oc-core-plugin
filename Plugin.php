@@ -89,7 +89,7 @@ class Plugin extends PluginBase
     {
         return [
             InlineStyles::class  => 'inlineStyles',
-            InlineScripts::class  => 'inlineScripts',
+            InlineScripts::class => 'inlineScripts',
             Logo::class          => 'logo',
             FormComponent::class => 'form',
             Popup::class         => 'popup',

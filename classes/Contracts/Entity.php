@@ -4,7 +4,7 @@ namespace DigitFab\Core\Classes\Contracts;
 
 interface Entity
 {
-    public function getBreadcrumbs();
+    public function getBreadcrumbs($pageName, $controller);
 
     public function getTitle();
 
@@ -15,4 +15,6 @@ interface Entity
     public function getSeoKeywords();
 
     public function getUrl();
+
+    public function getContent();
 }

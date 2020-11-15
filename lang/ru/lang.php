@@ -242,4 +242,5 @@
     'no' => 'Нет',
     'author' => 'Автор',
     'select-user' => 'Выберите пользователя',
+    'home_breadcrumbs_label' => 'Главная',
 ];

@@ -14,3 +14,24 @@ tabs:
             tab: 'digitfab.core::lang.general_settings'
             mode: image
             imageWidth: 200
+        seo_title:
+            label: 'digitfab.core::lang.title'
+            span: storm
+            cssClass: col-xs-12
+            type: text
+            comment: 'digitfab.core::lang.in_title_tag'
+            tab: 'digitfab.core::lang.seo'
+        seo_description:
+            label: 'digitfab.core::lang.seo_description'
+            span: storm
+            cssClass: col-xs-12
+            type: textarea
+            comment: 'digitfab.core::lang.in_tag_description'
+            tab: 'digitfab.core::lang.seo'
+        seo_keywords:
+            label: 'digitfab.core::lang.seo_keywords'
+            span: storm
+            cssClass: col-xs-12
+            type: text
+            comment: 'digitfab.core::lang.in_tag_keywords'
+            tab: 'digitfab.core::lang.seo'

@@ -5,6 +5,7 @@ namespace DigitFab\Core;
 use Backend\Widgets\Form;
 use DigitFab\Core\Classes\Forms\Rules\ReCaptcha;
 use DigitFab\Core\Classes\Widgets\AreasManager;
+use DigitFab\Core\Components\Core;
 use DigitFab\Core\Components\InlineScripts;
 use DigitFab\Core\Rules\AreaValidationRule;
 use DigitFab\Core\Components\InlineStyles;
@@ -93,6 +94,7 @@ class Plugin extends PluginBase
             Logo::class          => 'logo',
             FormComponent::class => 'form',
             Popup::class         => 'popup',
+            Core::class => 'core',
         ];
     }
 

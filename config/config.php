@@ -1,5 +1,7 @@
 <?php
 
+use DigitFab\Core\Models\Settings as CompanySettings;
+
 return [
     'default_page' => 'page',
     'breadcrumbs' => [
@@ -12,4 +14,8 @@ return [
         'site_key' => env('RECAPTCHA_SITE_KEY'),
     ],
     'widgets_caching' => true,
+    'tags' => [
+        'company_name' => CompanySettings::get('name'),
+        'company_desc' => CompanySettings::get('short_desc'),
+    ],
 ];

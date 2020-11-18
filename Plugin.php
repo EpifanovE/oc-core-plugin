@@ -4,6 +4,7 @@ namespace DigitFab\Core;
 
 use Backend\Widgets\Form;
 use DigitFab\Core\Classes\Forms\Rules\ReCaptcha;
+use DigitFab\Core\Classes\TagProcessor;
 use DigitFab\Core\Classes\Widgets\AreasManager;
 use DigitFab\Core\Components\Core;
 use DigitFab\Core\Components\InlineScripts;
@@ -14,6 +15,8 @@ use DigitFab\Core\Components\Popup;
 use DigitFab\Core\Components\Form as FormComponent;
 use DigitFab\Core\Controllers\WidgetController;
 use DigitFab\Core\Models\Settings;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Lang;
@@ -82,6 +85,10 @@ class Plugin extends PluginBase
 
         Validator::extend('recaptcha', ReCaptcha::class);
         Validator::extend('area', AreaValidationRule::class);
+
+        App::singleton(TagProcessor::class, function ($app) {
+            return new TagProcessor(Config::get('digitfab.core::tags'));
+        });
 
         parent::boot();
     }

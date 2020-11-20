@@ -20,9 +20,6 @@ class Core extends ComponentBase
     }
 
     protected function setPageVars() {
-        if (empty($this->page['seo_title'])) {
-            $this->page['seo_title'] = 'Some title';
-            $this->page['seo_title'] = Settings::get('name') . ' - ' . Settings::get('short_desc');
-        }
+
     }
 }
